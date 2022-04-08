@@ -1,0 +1,2347 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.20.1.5333 for 8051               08/Feb/2022  22:14:54
+# Copyright 2004-2018 IAR Systems AB.
+# PC-locked license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\Source\zcl_samplesw.c
+#    Command line       =  
+#        -f C:\usertemp\AppData\Local\Temp\EWC840.tmp ("I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\Source\zcl_samplesw.c"
+#        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D xZTOOL_P1
+#        -D xMT_TASK -D xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
+#        xMT_ZDO_MGMT -D xMT_APP_CNF_FUNC -D LCD_SUPPORTED=DEBUG -D
+#        MULTICAST_ENABLED=FALSE -D ZCL_READ -D ZCL_DISCOVER -D ZCL_WRITE -D
+#        ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF -D ZCL_GROUPS -D
+#        ZCL_REPORTING_DEVICE -D HAL_LED=TRUE -D HAL_KEY=TRUE -D
+#        ISR_KEYINTERRUPT -D HAL_UART=TRUE -D INT_HEAP_LEN=2300 -D HAL_LCD=TRUE
+#        -D xHAL_LCD_OLED12864 -D HAL_ADC=TRUE -lC "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\List"
+#        -lA "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\List"
+#        --diag_suppress Pe001,Pa010 -o "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f
+#        "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 -DDEFAULT_KEY={0} -DMAC_MAX_FRAME_SIZE=116
+#        -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const __code"
+#        -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000
+#        -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100 -DREJOIN_POLL_RATE=440
+#        -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000 -DENABLE_LED4_DISABLE_S1)
+#        -f "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\" -I
+#        "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\Source\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\Source\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\bdb\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\gp\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\Common\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\SPI\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\Font\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_LCD_SPI\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_OLED\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_TFT\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_CHN.936
+#    List file          =  
+#        I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\List\zcl_samplesw.lst
+#    Object file        =  
+#        I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\Obj\zcl_samplesw.r51
+#
+###############################################################################
+
+I:\ZigBee3.0\Zigbee3.0 20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\Source\zcl_samplesw.c
+      1          /**************************************************************************************************
+      2            Filename:       zcl_samplesw.c
+      3            Revised:        $Date: 2015-08-19 17:11:00 -0700 (Wed, 19 Aug 2015) $
+      4            Revision:       $Revision: 44460 $
+      5          
+      6            Description:    Zigbee Cluster Library - sample switch application.
+      7          
+      8          
+      9            Copyright 2006-2013 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED 揂S IS?WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /*********************************************************************
+     41            This application implements a ZigBee On/Off Switch, based on Z-Stack 3.0.
+     42          
+     43            This application is based on the common sample-application user interface. Please see the main
+     44            comment in zcl_sampleapp_ui.c. The rest of this comment describes only the content specific for
+     45            this sample applicetion.
+     46            
+     47            Application-specific UI peripherals being used:
+     48          
+     49            - none (LED1 is currently unused by this application).
+     50          
+     51            Application-specific menu system:
+     52          
+     53              <TOGGLE LIGHT> Send an On, Off or Toggle command targeting appropriate devices from the binding table.
+     54                Pressing / releasing [OK] will have the following functionality, depending on the value of the 
+     55                zclSampleSw_OnOffSwitchActions attribute:
+     56                - OnOffSwitchActions == 0: pressing [OK] will send ON command, releasing it will send OFF command;
+     57                - OnOffSwitchActions == 1: pressing [OK] will send OFF command, releasing it will send ON command;
+     58                - OnOffSwitchActions == 2: pressing [OK] will send TOGGLE command, releasing it will not send any command.
+     59          
+     60          *********************************************************************/
+     61          
+     62          #if ! defined ZCL_ON_OFF
+     63          #error ZCL_ON_OFF must be defined for this project.
+     64          #endif
+     65          
+     66          /*********************************************************************
+     67           * INCLUDES
+     68           */
+     69          #include "ZComDef.h"
+     70          #include "OSAL.h"
+     71          #include "AF.h"
+     72          #include "ZDApp.h"
+     73          #include "ZDObject.h"
+     74          #include "ZDProfile.h"
+     75          #include "MT_SYS.h"
+     76          
+     77          #include "zcl.h"
+     78          #include "zcl_general.h"
+     79          #include "zcl_ha.h"
+     80          #include "zcl_samplesw.h"
+     81          #include "zcl_diagnostic.h"
+     82          
+     83          #include "onboard.h"
+
+   \                                 In  segment SFR_AN, at 0xf3
+   \   unsigned char volatile __sfr P0SEL
+   \                     P0SEL:
+   \   000000                DS 1
+
+   \                                 In  segment SFR_AN, at 0xfd
+   \   unsigned char volatile __sfr P0DIR
+   \                     P0DIR:
+   \   000000                DS 1
+     84          
+     85          /* HAL */
+     86          #include "hal_lcd.h"
+     87          #include "hal_led.h"
+     88          #include "hal_key.h"
+     89          #include "hal_adc.h"
+     90          
+     91          #if defined (OTA_CLIENT) && (OTA_CLIENT == TRUE)
+     92          #include "zcl_ota.h"
+     93          #include "hal_ota.h"
+     94          #endif
+     95          
+     96          #include "bdb.h"
+     97          #include "bdb_interface.h"
+     98          
+     99          #include <stdio.h>
+    100          #include "string.h"
+    101          
+    102          /*********************************************************************
+    103           * MACROS
+    104           */
+    105          
+    106          #define APP_TITLE "TI Sample Switch"
+    107          
+    108          #define DATA_PIN P0_6            //定义P0.6口为传感器的输入端CS
+    109          
+    110          /*********************************************************************
+    111           * TYPEDEFS
+    112           */
+    113          
+    114          /*********************************************************************
+    115           * GLOBAL VARIABLES
+    116           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    117          byte zclSampleSw_TaskID;
+   \                     zclSampleSw_TaskID:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    118          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    119          uint8 zclSampleSwSeqNum;
+   \                     zclSampleSwSeqNum:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    120          
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    121          uint8 zclSampleSw_OnOffSwitchType = ON_OFF_SWITCH_TYPE_MOMENTARY;
+   \                     zclSampleSw_OnOffSwitchType:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for zclSampleSw_OnOffSwitchType>`
+   \   000001                REQUIRE __INIT_XDATA_I
+    122          
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    123          uint8 zclSampleSw_OnOffSwitchActions;
+   \                     zclSampleSw_OnOffSwitchActions:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+    124          
+    125          /*********************************************************************
+    126           * GLOBAL FUNCTIONS
+    127           */
+    128          
+    129          /*********************************************************************
+    130           * LOCAL VARIABLES
+    131           */
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    132          afAddrType_t zclSampleSw_DstAddr;
+   \                     zclSampleSw_DstAddr:
+   \   000000                DS 12
+   \   00000C                REQUIRE __INIT_XDATA_Z
+    133          
+    134          // Endpoint to allow SYS_APP_MSGs
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    135          static endPointDesc_t sampleSw_TestEp =
+   \                     sampleSw_TestEp:
+   \   000000                DS 7
+   \   000007                REQUIRE `?<Initializer for sampleSw_TestEp>`
+   \   000007                REQUIRE __INIT_XDATA_I
+    136          {
+    137            SAMPLESW_ENDPOINT,                  // endpoint
+    138            0,
+    139            &zclSampleSw_TaskID,
+    140            (SimpleDescriptionFormat_t *)NULL,  // No Simple description for this test endpoint
+    141            (afNetworkLatencyReq_t)0            // No Network Latency req
+    142          };
+    143          
+    144          //static uint8 aProcessCmd[] = { 1, 0, 0, 0 }; // used for reset command, { length + cmd0 + cmd1 + data }
+    145          
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    146          devStates_t zclSampleSw_NwkState = DEV_INIT;
+   \                     zclSampleSw_NwkState:
+   \   000000                DS 1
+   \   000001                REQUIRE `?<Initializer for zclSampleSw_NwkState>`
+   \   000001                REQUIRE __INIT_XDATA_I
+    147          
+    148          #if defined (OTA_CLIENT) && (OTA_CLIENT == TRUE)
+    149          #define DEVICE_POLL_RATE                 8000   // Poll rate for end device
+    150          #endif
+    151          
+    152          #define SAMPLESW_TOGGLE_TEST_EVT   0x1000
+    153          /*********************************************************************
+    154           * LOCAL FUNCTIONS
+    155           */
+    156          static void zclSampleSw_HandleKeys( byte shift, byte keys );
+    157          static void zclSampleSw_BasicResetCB( void );
+    158          
+    159          static void zclSampleSw_ProcessCommissioningStatus(bdbCommissioningModeMsg_t *bdbCommissioningModeMsg);
+    160          
+    161          
+    162          // Functions to process ZCL Foundation incoming Command/Response messages
+    163          static void zclSampleSw_ProcessIncomingMsg( zclIncomingMsg_t *msg );
+    164          #ifdef ZCL_READ
+    165          static uint8 zclSampleSw_ProcessInReadRspCmd( zclIncomingMsg_t *pInMsg );
+    166          #endif
+    167          #ifdef ZCL_WRITE
+    168          static uint8 zclSampleSw_ProcessInWriteRspCmd( zclIncomingMsg_t *pInMsg );
+    169          #endif
+    170          static uint8 zclSampleSw_ProcessInDefaultRspCmd( zclIncomingMsg_t *pInMsg );
+    171          #ifdef ZCL_DISCOVER
+    172          static uint8 zclSampleSw_ProcessInDiscCmdsRspCmd( zclIncomingMsg_t *pInMsg );
+    173          static uint8 zclSampleSw_ProcessInDiscAttrsRspCmd( zclIncomingMsg_t *pInMsg );
+    174          static uint8 zclSampleSw_ProcessInDiscAttrsExtRspCmd( zclIncomingMsg_t *pInMsg );
+    175          #endif
+    176          #ifdef ZCL_REPORT
+    177          static uint8 zclSampleSw_ProcessInReportCmd( zclIncomingMsg_t *pInMsg );
+    178          #endif // ZCL_REPORT
+    179          
+    180          #if defined (OTA_CLIENT) && (OTA_CLIENT == TRUE)
+    181          static void zclSampleSw_ProcessOTAMsgs( zclOTA_CallbackMsg_t* pMsg );
+    182          #endif
+    183          
+    184          // Uart
+    185          #define ZCLSAMPLESW_UART_BUF_LEN        128
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+    186          static uint8 zclSampleSw_UartBuf[ZCLSAMPLESW_UART_BUF_LEN];
+   \                     zclSampleSw_UartBuf:
+   \   000000                DS 128
+   \   000080                REQUIRE __INIT_XDATA_Z
+    187          static void zclSampleSw_InitUart(void);
+    188          static void zclSampleSw_UartCB(uint8 port, uint8 event);
+    189          
+    190          #ifdef ZDO_COORDINATOR
+    191          #else
+    192            static void zclSampleSw_ReportTest(void);
+    193          #endif
+    194          
+    195          /*********************************************************************
+    196           * CONSTANTS
+    197           */
+    198          
+    199          /*********************************************************************
+    200           * REFERENCED EXTERNALS
+    201           */
+    202          extern int16 zdpExternalStateTaskID;
+    203          
+    204          /*********************************************************************
+    205           * ZCL General Profile Callback table
+    206           */
+
+   \                                 In  segment XDATA_I, align 1, keep-with-next
+    207          static zclGeneral_AppCallbacks_t zclSampleSw_CmdCallbacks =
+   \                     zclSampleSw_CmdCallbacks:
+   \   000000                DS 18
+   \   000012                REQUIRE `?<Initializer for zclSampleSw_CmdCallbacks>`
+   \   000012                REQUIRE __INIT_XDATA_I
+    208          {
+    209            zclSampleSw_BasicResetCB,               // Basic Cluster Reset command
+    210            NULL,                                   // Identify Trigger Effect command
+    211          
+    212          #ifdef ZDO_COORDINATOR
+    213            NULL,
+    214          #else
+    215            NULL,    // On/Off cluster commands
+    216          #endif
+    217            
+    218            NULL,                                   // On/Off cluster enhanced command Off with Effect
+    219            NULL,                                   // On/Off cluster enhanced command On with Recall Global Scene
+    220            NULL,                                   // On/Off cluster enhanced command On with Timed Off
+    221          #ifdef ZCL_LEVEL_CTRL
+    222            NULL,                                   // Level Control Move to Level command
+    223            NULL,                                   // Level Control Move command
+    224            NULL,                                   // Level Control Step command
+    225            NULL,                                   // Level Control Stop command
+    226          #endif
+    227          #ifdef ZCL_GROUPS
+    228            NULL,                                   // Group Response commands
+    229          #endif
+    230          #ifdef ZCL_SCENES
+    231            NULL,                                   // Scene Store Request command
+    232            NULL,                                   // Scene Recall Request command
+    233            NULL,                                   // Scene Response command
+    234          #endif
+    235          #ifdef ZCL_ALARMS
+    236            NULL,                                   // Alarm (Response) commands
+    237          #endif
+    238          #ifdef SE_UK_EXT
+    239            NULL,                                   // Get Event Log command
+    240            NULL,                                   // Publish Event Log command
+    241          #endif
+    242            NULL,                                   // RSSI Location command
+    243            NULL                                    // RSSI Location Response command
+    244          };
+    245          
+    246          /*********************************************************************
+    247           * @fn          zclSampleSw_Init
+    248           *
+    249           * @brief       Initialization function for the zclGeneral layer.
+    250           *
+    251           * @param       none
+    252           *
+    253           * @return      none
+    254           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    255          void zclSampleSw_Init( byte task_id )
+   \                     zclSampleSw_Init:
+    256          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 29
+   \   000005   74E3         MOV       A,#-0x1d
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+   \   00000A   E9           MOV       A,R1
+    257            zclSampleSw_TaskID = task_id;
+   \   00000B   90....       MOV       DPTR,#zclSampleSw_TaskID
+   \   00000E   F0           MOVX      @DPTR,A
+    258          
+    259            // Set destination address to indirect
+    260            zclSampleSw_DstAddr.addrMode = (afAddrMode_t)AddrNotPresent;
+   \   00000F   90....       MOV       DPTR,#zclSampleSw_DstAddr + 8
+   \   000012   E4           CLR       A
+   \   000013   F0           MOVX      @DPTR,A
+    261            zclSampleSw_DstAddr.endPoint = 0;
+   \   000014   A3           INC       DPTR
+   \   000015   F0           MOVX      @DPTR,A
+    262            zclSampleSw_DstAddr.addr.shortAddr = 0;
+   \   000016   90....       MOV       DPTR,#zclSampleSw_DstAddr
+   \   000019   F0           MOVX      @DPTR,A
+   \   00001A   A3           INC       DPTR
+   \   00001B   F0           MOVX      @DPTR,A
+    263            
+    264            P0SEL &= ~0x40;                 //设置P0.6为普通IO口
+   \   00001C   53F3BF       ANL       0xf3,#0xbf
+    265            P0DIR &= ~0x40;                 //P0.6定义为输入口
+   \   00001F   53FDBF       ANL       0xfd,#0xbf
+    266          
+    267            // Register the Simple Descriptor for this application
+    268            bdb_RegisterSimpleDescriptor( &zclSampleSw_SimpleDesc );
+   \   000022                ; Setup parameters for call to function bdb_RegisterSimpleDescriptor
+   \   000022   7A..         MOV       R2,#zclSampleSw_SimpleDesc & 0xff
+   \   000024   7B..         MOV       R3,#(zclSampleSw_SimpleDesc >> 8) & 0xff
+   \   000026   12....       LCALL     `??bdb_RegisterSimpleDescriptor::?relay`; Banked call to: bdb_RegisterSimpleDescriptor
+    269          
+    270            // Register the ZCL General Cluster Library callback functions
+    271            zclGeneral_RegisterCmdCallbacks( SAMPLESW_ENDPOINT, &zclSampleSw_CmdCallbacks );
+   \   000029                ; Setup parameters for call to function zclGeneral_RegisterCmdCallbacks
+   \   000029   7A..         MOV       R2,#zclSampleSw_CmdCallbacks & 0xff
+   \   00002B   7B..         MOV       R3,#(zclSampleSw_CmdCallbacks >> 8) & 0xff
+   \   00002D   7908         MOV       R1,#0x8
+   \   00002F   12....       LCALL     `??zclGeneral_RegisterCmdCallbacks::?relay`; Banked call to: zclGeneral_RegisterCmdCallbacks
+    272          
+    273            zclSampleSw_ResetAttributesToDefaultValues();
+   \   000032                ; Setup parameters for call to function zclSampleSw_ResetAttributesToDefaultValues
+   \   000032   12....       LCALL     `??zclSampleSw_ResetAttributesToDefaultValues::?`; Banked call to: zclSampleSw_ResetAttributesToDefaultValues
+    274            
+    275            // Register the application's attribute list
+    276            zcl_registerAttrList( SAMPLESW_ENDPOINT, zclSampleSw_NumAttributes, zclSampleSw_Attrs );
+   \   000035                ; Setup parameters for call to function zcl_registerAttrList
+   \   000035   7C..         MOV       R4,#zclSampleSw_Attrs & 0xff
+   \   000037   7D..         MOV       R5,#(zclSampleSw_Attrs >> 8) & 0xff
+   \   000039   90....       MOV       DPTR,#zclSampleSw_NumAttributes
+   \   00003C   E4           CLR       A
+   \   00003D   93           MOVC      A,@A+DPTR
+   \   00003E   FA           MOV       R2,A
+   \   00003F   7908         MOV       R1,#0x8
+   \   000041   12....       LCALL     `??zcl_registerAttrList::?relay`; Banked call to: zcl_registerAttrList
+    277          
+    278            // Register the Application to receive the unprocessed Foundation command/response messages
+    279            zcl_registerForMsg( zclSampleSw_TaskID );
+   \   000044                ; Setup parameters for call to function zcl_registerForMsg
+   \   000044   90....       MOV       DPTR,#zclSampleSw_TaskID
+   \   000047   E0           MOVX      A,@DPTR
+   \   000048   F9           MOV       R1,A
+   \   000049   12....       LCALL     `??zcl_registerForMsg::?relay`; Banked call to: zcl_registerForMsg
+    280            
+    281            // Register for all key events - This app will handle all key events
+    282            RegisterForKeys( zclSampleSw_TaskID );
+   \   00004C                ; Setup parameters for call to function RegisterForKeys
+   \   00004C   90....       MOV       DPTR,#zclSampleSw_TaskID
+   \   00004F   E0           MOVX      A,@DPTR
+   \   000050   F9           MOV       R1,A
+   \   000051   12....       LCALL     `??RegisterForKeys::?relay`; Banked call to: RegisterForKeys
+    283            
+    284            bdb_RegisterCommissioningStatusCB( zclSampleSw_ProcessCommissioningStatus );
+   \   000054                ; Setup parameters for call to function bdb_RegisterCommissioningStatusCB
+   \   000054   7A..         MOV       R2,#`??zclSampleSw_ProcessCommissioningStatus::?rela` & 0xff
+   \   000056   7B..         MOV       R3,#(`??zclSampleSw_ProcessCommissioningStatus::?rela` >> 8) & 0xff
+   \   000058   12....       LCALL     `??bdb_RegisterCommissioningStatusCB::?relay`; Banked call to: bdb_RegisterCommissioningStatusCB
+    285          
+    286            // Register for a test endpoint
+    287            afRegister( &sampleSw_TestEp );
+   \   00005B                ; Setup parameters for call to function afRegister
+   \   00005B   7A..         MOV       R2,#sampleSw_TestEp & 0xff
+   \   00005D   7B..         MOV       R3,#(sampleSw_TestEp >> 8) & 0xff
+   \   00005F   12....       LCALL     `??afRegister::?relay`; Banked call to: afRegister
+    288            
+    289              // Init Uart
+    290            zclSampleSw_InitUart();
+   \   000062   85..82       MOV       DPL,?XSP + 0
+   \   000065   85..83       MOV       DPH,?XSP + 1
+   \   000068   7401         MOV       A,#0x1
+   \   00006A   F0           MOVX      @DPTR,A
+   \   00006B   12....       LCALL     ?XSTACK_DISP0_8
+   \   00006E   7404         MOV       A,#0x4
+   \   000070   F0           MOVX      @DPTR,A
+   \   000071   7402         MOV       A,#0x2
+   \   000073   12....       LCALL     ?XSTACK_DISP0_8
+   \   000076   E4           CLR       A
+   \   000077   F0           MOVX      @DPTR,A
+   \   000078   7403         MOV       A,#0x3
+   \   00007A   12....       LCALL     ?XSTACK_DISP0_8
+   \   00007D   E4           CLR       A
+   \   00007E   F0           MOVX      @DPTR,A
+   \   00007F   A3           INC       DPTR
+   \   000080   F0           MOVX      @DPTR,A
+   \   000081   740A         MOV       A,#0xa
+   \   000083   12....       LCALL     ?XSTACK_DISP0_8
+   \   000086   7480         MOV       A,#-0x80
+   \   000088   F0           MOVX      @DPTR,A
+   \   000089   A3           INC       DPTR
+   \   00008A   E4           CLR       A
+   \   00008B   F0           MOVX      @DPTR,A
+   \   00008C   7412         MOV       A,#0x12
+   \   00008E   12....       LCALL     ?XSTACK_DISP0_8
+   \   000091   E4           CLR       A
+   \   000092   F0           MOVX      @DPTR,A
+   \   000093   A3           INC       DPTR
+   \   000094   F0           MOVX      @DPTR,A
+   \   000095   7405         MOV       A,#0x5
+   \   000097   12....       LCALL     ?XSTACK_DISP0_8
+   \   00009A   7406         MOV       A,#0x6
+   \   00009C   F0           MOVX      @DPTR,A
+   \   00009D   7416         MOV       A,#0x16
+   \   00009F   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000A2   7401         MOV       A,#0x1
+   \   0000A4   F0           MOVX      @DPTR,A
+   \   0000A5   741B         MOV       A,#0x1b
+   \   0000A7   12....       LCALL     ?XSTACK_DISP0_8
+   \   0000AA   74..         MOV       A,#`??zclSampleSw_UartCB::?relay` & 0xff
+   \   0000AC   F0           MOVX      @DPTR,A
+   \   0000AD   A3           INC       DPTR
+   \   0000AE   74..         MOV       A,#(`??zclSampleSw_UartCB::?relay` >> 8) & 0xff
+   \   0000B0   F0           MOVX      @DPTR,A
+   \   0000B1                ; Setup parameters for call to function HalUARTOpen
+   \   0000B1   AA..         MOV       R2,?XSP + 0
+   \   0000B3   AB..         MOV       R3,?XSP + 1
+   \   0000B5   7900         MOV       R1,#0x0
+   \   0000B7   12....       LCALL     `??HalUARTOpen::?relay`; Banked call to: HalUARTOpen
+    291            HalUARTWrite(HAL_UART_PORT_0 ,  "UART0 Init Succeed\r\n" , 20);
+   \   0000BA                ; Setup parameters for call to function HalUARTWrite
+   \   0000BA   7C14         MOV       R4,#0x14
+   \   0000BC   7D00         MOV       R5,#0x0
+   \   0000BE   7A..         MOV       R2,#`?<Constant "UART0 Init Succeed\\r\\n">` & 0xff
+   \   0000C0   7B..         MOV       R3,#(`?<Constant "UART0 Init Succeed\\r\\n">` >> 8) & 0xff
+   \   0000C2   7900         MOV       R1,#0x0
+   \   0000C4   12....       LCALL     `??HalUARTWrite::?relay`; Banked call to: HalUARTWrite
+    292            
+    293          #ifdef ZCL_DIAGNOSTIC
+    294            // Register the application's callback function to read/write attribute data.
+    295            // This is only required when the attribute data format is unknown to ZCL.
+    296            zcl_registerReadWriteCB( SAMPLESW_ENDPOINT, zclDiagnostic_ReadWriteAttrCB, NULL );
+    297          
+    298            if ( zclDiagnostic_InitStats() == ZSuccess )
+    299            {
+    300              // Here the user could start the timer to save Diagnostics to NV
+    301            }
+    302          #endif
+    303          
+    304          #if defined (OTA_CLIENT) && (OTA_CLIENT == TRUE)
+    305            // Register for callback events from the ZCL OTA
+    306            zclOTA_Register(zclSampleSw_TaskID);
+    307          #endif
+    308          
+    309            zdpExternalStateTaskID = zclSampleSw_TaskID;
+   \   0000C7   90....       MOV       DPTR,#zclSampleSw_TaskID
+   \   0000CA   E0           MOVX      A,@DPTR
+   \   0000CB   90....       MOV       DPTR,#zdpExternalStateTaskID
+   \   0000CE   F0           MOVX      @DPTR,A
+   \   0000CF   A3           INC       DPTR
+   \   0000D0   E4           CLR       A
+   \   0000D1   F0           MOVX      @DPTR,A
+    310            
+    311          #ifdef ZDO_COORDINATOR
+    312            // Init Uart
+    313            zclSampleSw_InitUart();
+    314            
+    315            ZDO_RegisterForZDOMsg ( zclSampleSw_TaskID, Device_annce );
+    316            
+    317            bdb_StartCommissioning( BDB_COMMISSIONING_MODE_NWK_FORMATION |
+    318                                    BDB_COMMISSIONING_MODE_FINDING_BINDING );
+    319            
+    320            NLME_PermitJoiningRequest(255);
+    321          #else
+    322            bdb_StartCommissioning( BDB_COMMISSIONING_MODE_NWK_STEERING |
+    323                                    BDB_COMMISSIONING_MODE_FINDING_BINDING );
+   \   0000D2                ; Setup parameters for call to function bdb_StartCommissioning
+   \   0000D2   790A         MOV       R1,#0xa
+   \   0000D4   12....       LCALL     `??bdb_StartCommissioning::?relay`; Banked call to: bdb_StartCommissioning
+    324            
+    325            osal_start_timerEx(zclSampleSw_TaskID, 
+    326                               SAMPLEAPP_REPORT_EVT, 
+    327                               SAMPLEAPP_REPORT_PERIOD);
+   \   0000D7                ; Setup parameters for call to function osal_start_timerEx
+   \   0000D7   90....       MOV       DPTR,#__Constant_bb8
+   \   0000DA   12....       LCALL     ?PUSH_XSTACK8_X_FOUR
+   \   0000DD   12....       LCALL     ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_4:
+   \   0000E0   12....       LCALL     ?DEALLOC_XSTACK8
+    328          #endif
+    329          }
+   \   0000E3   741D         MOV       A,#0x1d
+   \   0000E5   12....       LCALL     ?DEALLOC_XSTACK8
+   \   0000E8                REQUIRE ?Subroutine0
+   \   0000E8                REQUIRE P0SEL
+   \   0000E8                REQUIRE P0DIR
+   \   0000E8                ; // Fall through to label ?Subroutine0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine0:
+   \   000000   7F01         MOV       R7,#0x1
+   \   000002   02....       LJMP      ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine3:
+   \   000000   7A40         MOV       R2,#0x40
+   \   000002                REQUIRE ??Subroutine7_0
+   \   000002                ; // Fall through to label ??Subroutine7_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine7_0:
+   \   000000   7B00         MOV       R3,#0x0
+   \   000002                REQUIRE ??Subroutine8_0
+   \   000002                ; // Fall through to label ??Subroutine8_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine8_0:
+   \   000000   90....       MOV       DPTR,#zclSampleSw_TaskID
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   F9           MOV       R1,A
+   \   000005   12....       LCALL     `??osal_start_timerEx::?relay`; Banked call to: osal_start_timerEx
+   \   000008   7404         MOV       A,#0x4
+   \   00000A   22           RET
+    330          
+    331          /*********************************************************************
+    332           * @fn          zclSample_event_loop
+    333           *
+    334           * @brief       Event Loop Processor for zclGeneral.
+    335           *
+    336           * @param       none
+    337           *
+    338           * @return      none
+    339           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    340          uint16 zclSampleSw_event_loop( uint8 task_id, uint16 events )
+   \                     zclSampleSw_event_loop:
+    341          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000   74F4         MOV       A,#-0xc
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 12
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV       A,R2
+   \   000006   FE           MOV       R6,A
+   \   000007   EB           MOV       A,R3
+   \   000008   FF           MOV       R7,A
+    342            afIncomingMSGPacket_t *MSGpkt;
+    343            (void)task_id;  // Intentionally unreferenced parameter
+    344          
+    345            //Send toggle every 500ms
+    346            if( events & SAMPLESW_TOGGLE_TEST_EVT )
+   \   000009   5410         ANL       A,#0x10
+   \   00000B   605C         JZ        ??zclSampleSw_event_loop_0
+    347            {
+    348              osal_start_timerEx(zclSampleSw_TaskID,SAMPLESW_TOGGLE_TEST_EVT,500);
+   \   00000D                ; Setup parameters for call to function osal_start_timerEx
+   \   00000D   90....       MOV       DPTR,#__Constant_1f4
+   \   000010   12....       LCALL     ?PUSH_XSTACK8_X_FOUR
+   \   000013   7A00         MOV       R2,#0x0
+   \   000015   7B10         MOV       R3,#0x10
+   \   000017   12....       LCALL     ??Subroutine8_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_7:
+   \   00001A   12....       LCALL     ?DEALLOC_XSTACK8
+    349              zclGeneral_SendOnOff_CmdToggle( SAMPLESW_ENDPOINT, &zclSampleSw_DstAddr, FALSE, 0 );
+   \   00001D                ; Setup parameters for call to function zcl_SendCommand
+   \   00001D   E4           CLR       A
+   \   00001E   F5..         MOV       ?V0,A
+   \   000020   F5..         MOV       ?V1,A
+   \   000022   78..         MOV       R0,#?V0
+   \   000024   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000027   78..         MOV       R0,#?V0
+   \   000029   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   00002C   78..         MOV       R0,#?V0
+   \   00002E   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000031   78..         MOV       R0,#?V0
+   \   000033   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   000036   78..         MOV       R0,#?V0
+   \   000038   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   00003B   78..         MOV       R0,#?V0
+   \   00003D   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000040   75..01       MOV       ?V0,#0x1
+   \   000043   78..         MOV       R0,#?V0
+   \   000045   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000048   75..02       MOV       ?V0,#0x2
+   \   00004B   78..         MOV       R0,#?V0
+   \   00004D   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   000050   7C06         MOV       R4,#0x6
+   \   000052   7D00         MOV       R5,#0x0
+   \   000054   7A..         MOV       R2,#zclSampleSw_DstAddr & 0xff
+   \   000056   7B..         MOV       R3,#(zclSampleSw_DstAddr >> 8) & 0xff
+   \   000058   7908         MOV       R1,#0x8
+   \   00005A   12....       LCALL     `??zcl_SendCommand::?relay`; Banked call to: zcl_SendCommand
+   \   00005D   740B         MOV       A,#0xb
+   \   00005F   12....       LCALL     ?DEALLOC_XSTACK8
+    350              
+    351              // return unprocessed events
+    352              return (events ^ SAMPLESW_TOGGLE_TEST_EVT);
+   \   000062   EE           MOV       A,R6
+   \   000063   FA           MOV       R2,A
+   \   000064   EF           MOV       A,R7
+   \   000065   6410         XRL       A,#0x10
+   \   000067   807A         SJMP      ??zclSampleSw_event_loop_1
+    353            }
+    354            
+    355            
+    356            if ( events & SYS_EVENT_MSG )
+   \                     ??zclSampleSw_event_loop_0:
+   \   000069   EB           MOV       A,R3
+   \   00006A   5480         ANL       A,#0x80
+   \   00006C   7023         JNZ       ??zclSampleSw_event_loop_2
+    357            {
+    358              while ( (MSGpkt = (afIncomingMSGPacket_t *)osal_msg_receive( zclSampleSw_TaskID )) )
+    359              {
+    360                switch ( MSGpkt->hdr.event )
+    361                {
+    362                  case ZCL_INCOMING_MSG:
+    363                    // Incoming ZCL Foundation command/response messages
+    364                    zclSampleSw_ProcessIncomingMsg( (zclIncomingMsg_t *)MSGpkt );
+    365                    break;
+    366          
+    367                  case KEY_CHANGE:
+    368                    zclSampleSw_HandleKeys( ((keyChange_t *)MSGpkt)->state, ((keyChange_t *)MSGpkt)->keys );
+    369                    break;
+    370          
+    371                  case ZDO_STATE_CHANGE:
+    372                    
+    373                    break;
+    374          
+    375          #if defined (OTA_CLIENT) && (OTA_CLIENT == TRUE)
+    376                  case ZCL_OTA_CALLBACK_IND:
+    377                    zclSampleSw_ProcessOTAMsgs( (zclOTA_CallbackMsg_t*)MSGpkt  );
+    378                    break;
+    379          #endif
+    380                    
+    381                  default:
+    382                    break;
+    383                }
+    384          
+    385                // Release the memory
+    386                osal_msg_deallocate( (uint8 *)MSGpkt );
+    387              }
+    388          
+    389              // return unprocessed events
+    390              return (events ^ SYS_EVENT_MSG);
+    391            }
+    392          
+    393          #if ZG_BUILD_ENDDEVICE_TYPE    
+    394            if ( events & SAMPLEAPP_END_DEVICE_REJOIN_EVT )
+   \   00006E   EA           MOV       A,R2
+   \   00006F   A2E0         MOV       C,0xE0 /* A   */.0
+   \   000071   5049         JNC       ??zclSampleSw_event_loop_3
+    395            {
+    396              bdb_ZedAttemptRecoverNwk();
+   \   000073                ; Setup parameters for call to function bdb_ZedAttemptRecoverNwk
+   \   000073   12....       LCALL     `??bdb_ZedAttemptRecoverNwk::?relay`; Banked call to: bdb_ZedAttemptRecoverNwk
+    397              return ( events ^ SAMPLEAPP_END_DEVICE_REJOIN_EVT );
+   \   000076   EE           MOV       A,R6
+   \   000077   6401         XRL       A,#0x1
+   \   000079   8066         SJMP      ??zclSampleSw_event_loop_4
+    398            }
+   \                     ??zclSampleSw_event_loop_5:
+   \   00007B   A3           INC       DPTR
+   \   00007C   A3           INC       DPTR
+   \   00007D   A3           INC       DPTR
+   \   00007E   E0           MOVX      A,@DPTR
+   \   00007F   A2E5         MOV       C,0xE0 /* A   */.5
+   \   000081   5007         JNC       ??zclSampleSw_event_loop_6
+   \   000083                ; Setup parameters for call to function HalLedSet
+   \   000083   7A08         MOV       R2,#0x8
+   \   000085   7902         MOV       R1,#0x2
+   \   000087   12....       LCALL     `??HalLedSet::?relay`; Banked call to: HalLedSet
+   \                     ??zclSampleSw_event_loop_6:
+   \   00008A                ; Setup parameters for call to function osal_msg_deallocate
+   \   00008A   AA..         MOV       R2,?V0
+   \   00008C   AB..         MOV       R3,?V1
+   \   00008E   12....       LCALL     `??osal_msg_deallocate::?relay`; Banked call to: osal_msg_deallocate
+   \                     ??zclSampleSw_event_loop_2:
+   \   000091                ; Setup parameters for call to function osal_msg_receive
+   \   000091   90....       MOV       DPTR,#zclSampleSw_TaskID
+   \   000094   E0           MOVX      A,@DPTR
+   \   000095   F9           MOV       R1,A
+   \   000096   12....       LCALL     `??osal_msg_receive::?relay`; Banked call to: osal_msg_receive
+   \   000099   8A..         MOV       ?V0,R2
+   \   00009B   8B..         MOV       ?V1,R3
+   \   00009D   EA           MOV       A,R2
+   \   00009E   4B           ORL       A,R3
+   \   00009F   6014         JZ        ??zclSampleSw_event_loop_7
+   \   0000A1   8A82         MOV       DPL,R2
+   \   0000A3   8B83         MOV       DPH,R3
+   \   0000A5   E0           MOVX      A,@DPTR
+   \   0000A6   24CC         ADD       A,#-0x34
+   \   0000A8   6006         JZ        ??zclSampleSw_event_loop_8
+   \   0000AA   2474         ADD       A,#0x74
+   \   0000AC   60CD         JZ        ??zclSampleSw_event_loop_5
+   \   0000AE   80DA         SJMP      ??zclSampleSw_event_loop_6
+   \                     ??zclSampleSw_event_loop_8:
+   \   0000B0                ; Setup parameters for call to function zclSampleSw_ProcessIncomingMsg
+   \   0000B0   12....       LCALL     `??zclSampleSw_ProcessIncomingMsg::?relay`; Banked call to: zclSampleSw_ProcessIncomingMsg
+   \   0000B3   80D5         SJMP      ??zclSampleSw_event_loop_6
+   \                     ??zclSampleSw_event_loop_7:
+   \   0000B5   EE           MOV       A,R6
+   \   0000B6   FA           MOV       R2,A
+   \   0000B7   EF           MOV       A,R7
+   \   0000B8   6480         XRL       A,#0x80
+   \   0000BA   8027         SJMP      ??zclSampleSw_event_loop_1
+    399          #endif
+    400            
+    401          #ifdef ZDO_COORDINATOR
+    402          #else
+    403            // Rejoin
+    404            if ( events & SAMPLEAPP_REJOIN_EVT )
+   \                     ??zclSampleSw_event_loop_3:
+   \   0000BC   5480         ANL       A,#0x80
+   \   0000BE   600A         JZ        ??zclSampleSw_event_loop_9
+    405            {
+    406              bdb_StartCommissioning(BDB_COMMISSIONING_MODE_NWK_STEERING |
+    407                                BDB_COMMISSIONING_MODE_FINDING_BINDING );
+   \   0000C0                ; Setup parameters for call to function bdb_StartCommissioning
+   \   0000C0   790A         MOV       R1,#0xa
+   \   0000C2   12....       LCALL     `??bdb_StartCommissioning::?relay`; Banked call to: bdb_StartCommissioning
+    408              
+    409              return ( events ^ SAMPLEAPP_REJOIN_EVT );
+   \   0000C5   EE           MOV       A,R6
+   \   0000C6   6480         XRL       A,#0x80
+   \   0000C8   8017         SJMP      ??zclSampleSw_event_loop_4
+    410            }
+    411            
+    412            // Report
+    413            if ( events & SAMPLEAPP_REPORT_EVT )
+   \                     ??zclSampleSw_event_loop_9:
+   \   0000CA   EA           MOV       A,R2
+   \   0000CB   5440         ANL       A,#0x40
+   \   0000CD   6017         JZ        ??zclSampleSw_event_loop_10
+    414            {
+    415                zclSampleSw_ReportTest();
+   \   0000CF                ; Setup parameters for call to function zclSampleSw_ReportTest
+   \   0000CF   12....       LCALL     `??zclSampleSw_ReportTest::?relay`; Banked call to: zclSampleSw_ReportTest
+    416              
+    417                osal_start_timerEx(zclSampleSw_TaskID, 
+    418                               SAMPLEAPP_REPORT_EVT, 
+    419                               SAMPLEAPP_REPORT_PERIOD);
+   \   0000D2                ; Setup parameters for call to function osal_start_timerEx
+   \   0000D2   90....       MOV       DPTR,#__Constant_bb8
+   \   0000D5   12....       LCALL     ?PUSH_XSTACK8_X_FOUR
+   \   0000D8   12....       LCALL     ?Subroutine3 & 0xFFFF
+   \                     ??CrossCallReturnLabel_5:
+   \   0000DB   12....       LCALL     ?DEALLOC_XSTACK8
+    420                
+    421                return ( events ^ SAMPLEAPP_REPORT_EVT );
+   \   0000DE   EE           MOV       A,R6
+   \   0000DF   6440         XRL       A,#0x40
+   \                     ??zclSampleSw_event_loop_4:
+   \   0000E1   FA           MOV       R2,A
+   \   0000E2   EF           MOV       A,R7
+   \                     ??zclSampleSw_event_loop_1:
+   \   0000E3   FB           MOV       R3,A
+   \   0000E4   8004         SJMP      ??zclSampleSw_event_loop_11
+    422            }
+    423          #endif
+    424            
+    425            // Discard unknown events
+    426            return 0;
+   \                     ??zclSampleSw_event_loop_10:
+   \   0000E6   7A00         MOV       R2,#0x0
+   \   0000E8   7B00         MOV       R3,#0x0
+   \                     ??zclSampleSw_event_loop_11:
+   \   0000EA   7F04         MOV       R7,#0x4
+   \   0000EC   02....       LJMP      ?BANKED_LEAVE_XDATA
+    427          }
+    428          
+    429          /*********************************************************************
+    430           * @fn      zclSampleSw_HandleKeys
+    431           *
+    432           * @brief   Handles all key events for this device.
+    433           *
+    434           * @param   shift - true if in shift/alt.
+    435           * @param   keys - bit field for key events. Valid entries:
+    436           *                 HAL_KEY_SW_5
+    437           *                 HAL_KEY_SW_4
+    438           *                 HAL_KEY_SW_2
+    439           *                 HAL_KEY_SW_1
+    440           *
+    441           * @return  none
+    442           */
+    443          static void zclSampleSw_HandleKeys( byte shift, byte keys )
+    444          { 
+    445            if(keys & HAL_KEY_SW_6)
+    446            {
+    447              HalLedSet(HAL_LED_2, HAL_LED_MODE_TOGGLE);  
+    448            } 
+    449          }
+    450            
+    451          /*********************************************************************
+    452           * @fn      zclSampleSw_ProcessCommissioningStatus
+    453           *
+    454           * @brief   Callback in which the status of the commissioning process are reported
+    455           *
+    456           * @param   bdbCommissioningModeMsg - Context message of the status of a commissioning process
+    457           *
+    458           * @return  none
+    459           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    460          static void zclSampleSw_ProcessCommissioningStatus(bdbCommissioningModeMsg_t *bdbCommissioningModeMsg)
+   \                     zclSampleSw_ProcessCommissioningStatus:
+    461          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    462            switch(bdbCommissioningModeMsg->bdbCommissioningMode)
+   \   000004   8A82         MOV       DPL,R2
+   \   000006   8B83         MOV       DPH,R3
+   \   000008   A3           INC       DPTR
+   \   000009   E0           MOVX      A,@DPTR
+   \   00000A   14           DEC       A
+   \   00000B   601B         JZ        ??zclSampleSw_ProcessCommissioningStatus_0
+   \   00000D   14           DEC       A
+   \   00000E   6006         JZ        ??zclSampleSw_ProcessCommissioningStatus_1
+   \   000010   24FD         ADD       A,#-0x3
+   \   000012   6025         JZ        ??zclSampleSw_ProcessCommissioningStatus_2
+   \   000014   803A         SJMP      ??zclSampleSw_ProcessCommissioningStatus_3
+    463            {
+    464              case BDB_COMMISSIONING_FORMATION:
+    465                if(bdbCommissioningModeMsg->bdbCommissioningStatus == BDB_COMMISSIONING_SUCCESS)
+   \                     ??zclSampleSw_ProcessCommissioningStatus_1:
+   \   000016   8A82         MOV       DPL,R2
+   \   000018   8B83         MOV       DPH,R3
+   \   00001A   E0           MOVX      A,@DPTR
+   \   00001B   7033         JNZ       ??zclSampleSw_ProcessCommissioningStatus_3
+    466                {
+    467                  //After formation, perform nwk steering again plus the remaining commissioning modes that has not been processed yet
+    468                  bdb_StartCommissioning(BDB_COMMISSIONING_MODE_NWK_STEERING | bdbCommissioningModeMsg->bdbRemainingCommissioningModes);
+   \   00001D                ; Setup parameters for call to function bdb_StartCommissioning
+   \   00001D   A3           INC       DPTR
+   \   00001E   A3           INC       DPTR
+   \   00001F   E0           MOVX      A,@DPTR
+   \   000020   4402         ORL       A,#0x2
+   \   000022   F9           MOV       R1,A
+   \   000023   12....       LCALL     `??bdb_StartCommissioning::?relay`; Banked call to: bdb_StartCommissioning
+   \   000026   8028         SJMP      ??zclSampleSw_ProcessCommissioningStatus_3
+    469                }
+    470                else
+    471                {
+    472                  //Want to try other channels?
+    473                  //try with bdb_setChannelAttribute
+    474                }
+    475              break;
+    476              case BDB_COMMISSIONING_NWK_STEERING:
+    477                if(bdbCommissioningModeMsg->bdbCommissioningStatus == BDB_COMMISSIONING_SUCCESS)
+   \                     ??zclSampleSw_ProcessCommissioningStatus_0:
+   \   000028   8A82         MOV       DPL,R2
+   \   00002A   8B83         MOV       DPH,R3
+   \   00002C   E0           MOVX      A,@DPTR
+   \   00002D   6021         JZ        ??zclSampleSw_ProcessCommissioningStatus_3
+    478                {
+    479                  //YOUR JOB:
+    480                  //We are on the nwk, what now?
+    481                }
+    482                else
+    483                {
+    484                  #ifdef ZDO_COORDINATOR
+    485                  #else
+    486                  osal_start_timerEx(zclSampleSw_TaskID, 
+    487                                     SAMPLEAPP_REJOIN_EVT, 
+    488                                     SAMPLEAPP_REJOIN_PERIOD);
+   \   00002F                ; Setup parameters for call to function osal_start_timerEx
+   \   00002F   90....       MOV       DPTR,#__Constant_3e8
+   \   000032   12....       LCALL     ?PUSH_XSTACK8_X_FOUR
+   \   000035   7A80         MOV       R2,#-0x80
+   \   000037   8011         SJMP      ??zclSampleSw_ProcessCommissioningStatus_4
+    489                  #endif
+    490                }
+    491              break;
+    492              case BDB_COMMISSIONING_FINDING_BINDING:
+    493                if(bdbCommissioningModeMsg->bdbCommissioningStatus == BDB_COMMISSIONING_SUCCESS)
+    494                {
+    495                  //YOUR JOB:
+    496                }
+    497                else
+    498                {
+    499                  //YOUR JOB:
+    500                  //retry?, wait for user interaction?
+    501                }
+    502              break;
+    503              case BDB_COMMISSIONING_INITIALIZATION:
+    504                //Initialization notification can only be successful. Failure on initialization 
+    505                //only happens for ZED and is notified as BDB_COMMISSIONING_PARENT_LOST notification
+    506                
+    507                //YOUR JOB:
+    508                //We are on a network, what now?
+    509                
+    510              break;
+    511          #if ZG_BUILD_ENDDEVICE_TYPE    
+    512              case BDB_COMMISSIONING_PARENT_LOST:
+    513                if(bdbCommissioningModeMsg->bdbCommissioningStatus == BDB_COMMISSIONING_NETWORK_RESTORED)
+   \                     ??zclSampleSw_ProcessCommissioningStatus_2:
+   \   000039   8A82         MOV       DPL,R2
+   \   00003B   8B83         MOV       DPH,R3
+   \   00003D   E0           MOVX      A,@DPTR
+   \   00003E   640D         XRL       A,#0xd
+   \   000040   600E         JZ        ??zclSampleSw_ProcessCommissioningStatus_3
+    514                {
+    515                  //We did recover from losing parent
+    516                }
+    517                else
+    518                {
+    519                  //Parent not found, attempt to rejoin again after a fixed delay
+    520                  osal_start_timerEx(zclSampleSw_TaskID, SAMPLEAPP_END_DEVICE_REJOIN_EVT, SAMPLEAPP_END_DEVICE_REJOIN_DELAY);
+   \   000042                ; Setup parameters for call to function osal_start_timerEx
+   \   000042   90....       MOV       DPTR,#__Constant_2710
+   \   000045   12....       LCALL     ?PUSH_XSTACK8_X_FOUR
+   \   000048   7A01         MOV       R2,#0x1
+    521                }
+    522              break;
+    523          #endif 
+    524            }
+   \                     ??zclSampleSw_ProcessCommissioningStatus_4:
+   \   00004A   12....       LCALL     ??Subroutine7_0 & 0xFFFF
+   \                     ??CrossCallReturnLabel_6:
+   \   00004D   12....       LCALL     ?DEALLOC_XSTACK8
+    525          }
+   \                     ??zclSampleSw_ProcessCommissioningStatus_3:
+   \   000050                REQUIRE ?Subroutine1
+   \   000050                ; // Fall through to label ?Subroutine1
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine1:
+   \   000000   D083         POP       DPH
+   \   000002   D082         POP       DPL
+   \   000004   02....       LJMP      ?BRET
+    526          
+    527          /*********************************************************************
+    528           * @fn      zclSampleSw_BasicResetCB
+    529           *
+    530           * @brief   Callback from the ZCL General Cluster Library
+    531           *          to set all the Basic Cluster attributes to  default values.
+    532           *
+    533           * @param   none
+    534           *
+    535           * @return  none
+    536           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    537          static void zclSampleSw_BasicResetCB( void )
+   \                     zclSampleSw_BasicResetCB:
+    538          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    539            zclSampleSw_ResetAttributesToDefaultValues();
+   \   000004                ; Setup parameters for call to function zclSampleSw_ResetAttributesToDefaultValues
+   \   000004   12....       LCALL     `??zclSampleSw_ResetAttributesToDefaultValues::?`; Banked call to: zclSampleSw_ResetAttributesToDefaultValues
+    540          }
+   \   000007   80..         SJMP      ?Subroutine1
+    541          
+    542          /******************************************************************************
+    543           *
+    544           *  Functions for processing ZCL Foundation incoming Command/Response messages
+    545           *
+    546           *****************************************************************************/
+    547          
+    548          /*********************************************************************
+    549           * @fn      zclSampleSw_ProcessIncomingMsg
+    550           *
+    551           * @brief   Process ZCL Foundation incoming message
+    552           *
+    553           * @param   pInMsg - pointer to the received message
+    554           *
+    555           * @return  none
+    556           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    557          static void zclSampleSw_ProcessIncomingMsg( zclIncomingMsg_t *pInMsg )
+   \                     zclSampleSw_ProcessIncomingMsg:
+    558          {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V1
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000   74F2         MOV       A,#-0xe
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 0
+   \   000005   EA           MOV       A,R2
+   \   000006   FE           MOV       R6,A
+   \   000007   EB           MOV       A,R3
+   \   000008   FF           MOV       R7,A
+    559            switch ( pInMsg->zclHdr.commandID )
+   \   000009   EA           MOV       A,R2
+   \   00000A   2417         ADD       A,#0x17
+   \   00000C   F5..         MOV       ?V0,A
+   \   00000E   E4           CLR       A
+   \   00000F   3F           ADDC      A,R7
+   \   000010   F5..         MOV       ?V1,A
+   \   000012   8A82         MOV       DPL,R2
+   \   000014   8B83         MOV       DPH,R3
+   \   000016   A3           INC       DPTR
+   \   000017   A3           INC       DPTR
+   \   000018   A3           INC       DPTR
+   \   000019   A3           INC       DPTR
+   \   00001A   A3           INC       DPTR
+   \   00001B   A3           INC       DPTR
+   \   00001C   A3           INC       DPTR
+   \   00001D   E0           MOVX      A,@DPTR
+   \   00001E   14           DEC       A
+   \   00001F   6026         JZ        ??zclSampleSw_ProcessIncomingMsg_0
+   \   000021   24FD         ADD       A,#-0x3
+   \   000023   7003         JNZ       $+5
+   \   000025   02....       LJMP      ??zclSampleSw_ProcessIncomingMsg_1 & 0xFFFF
+   \   000028   24F7         ADD       A,#-0x9
+   \   00002A   7003         JNZ       $+5
+   \   00002C   02....       LJMP      ??zclSampleSw_ProcessIncomingMsg_2 & 0xFFFF
+   \   00002F   24FB         ADD       A,#-0x5
+   \   000031   7003         JNZ       $+5
+   \   000033   02....       LJMP      ??zclSampleSw_ProcessIncomingMsg_3 & 0xFFFF
+   \   000036   24FE         ADD       A,#-0x2
+   \   000038   7003         JNZ       $+5
+   \   00003A   02....       LJMP      ??zclSampleSw_ProcessIncomingMsg_3 & 0xFFFF
+   \   00003D   24FE         ADD       A,#-0x2
+   \   00003F   7003         JNZ       $+5
+   \   000041   02....       LJMP      ??zclSampleSw_ProcessIncomingMsg_4 & 0xFFFF
+   \   000044   02....       LJMP      ??zclSampleSw_ProcessIncomingMsg_5 & 0xFFFF
+    560            {
+    561          #ifdef ZCL_READ
+    562              case ZCL_CMD_READ_RSP:
+    563                zclSampleSw_ProcessInReadRspCmd( pInMsg );
+   \                     ??zclSampleSw_ProcessIncomingMsg_0:
+   \   000047   85..82       MOV       DPL,?V0
+   \   00004A   85..83       MOV       DPH,?V1
+   \   00004D   E0           MOVX      A,@DPTR
+   \   00004E   F5..         MOV       ?V2,A
+   \   000050   A3           INC       DPTR
+   \   000051   E0           MOVX      A,@DPTR
+   \   000052   F5..         MOV       ?V3,A
+   \   000054   75..00       MOV       ?V4,#0x0
+   \                     ??zclSampleSw_ProcessIncomingMsg_6:
+   \   000057   85..82       MOV       DPL,?V2
+   \   00005A   85..83       MOV       DPH,?V3
+   \   00005D   E0           MOVX      A,@DPTR
+   \   00005E   F8           MOV       R0,A
+   \   00005F   E5..         MOV       A,?V4
+   \   000061   C3           CLR       C
+   \   000062   98           SUBB      A,R0
+   \   000063   4003         JC        $+5
+   \   000065   02....       LJMP      ??zclSampleSw_ProcessIncomingMsg_5 & 0xFFFF
+   \   000068   8E82         MOV       DPL,R6
+   \   00006A   8F83         MOV       DPH,R7
+   \   00006C   A3           INC       DPTR
+   \   00006D   A3           INC       DPTR
+   \   00006E   A3           INC       DPTR
+   \   00006F   A3           INC       DPTR
+   \   000070   A3           INC       DPTR
+   \   000071   A3           INC       DPTR
+   \   000072   A3           INC       DPTR
+   \   000073   A3           INC       DPTR
+   \   000074   E0           MOVX      A,@DPTR
+   \   000075   6407         XRL       A,#0x7
+   \   000077   7002         JNZ       ??zclSampleSw_ProcessIncomingMsg_7
+   \   000079   A3           INC       DPTR
+   \   00007A   E0           MOVX      A,@DPTR
+   \                     ??zclSampleSw_ProcessIncomingMsg_7:
+   \   00007B   7049         JNZ       ??zclSampleSw_ProcessIncomingMsg_8
+   \   00007D   E5..         MOV       A,?V4
+   \   00007F   75F006       MOV       B,#0x6
+   \   000082   A4           MUL       AB
+   \   000083   F8           MOV       R0,A
+   \   000084   A9F0         MOV       R1,B
+   \   000086   E5..         MOV       A,?V2
+   \   000088   28           ADD       A,R0
+   \   000089   F8           MOV       R0,A
+   \   00008A   E5..         MOV       A,?V3
+   \   00008C   39           ADDC      A,R1
+   \   00008D   F9           MOV       R1,A
+   \   00008E   E8           MOV       A,R0
+   \   00008F   FA           MOV       R2,A
+   \   000090   E9           MOV       A,R1
+   \   000091   FB           MOV       R3,A
+   \   000092   8882         MOV       DPL,R0
+   \   000094   F583         MOV       DPH,A
+   \   000096   A3           INC       DPTR
+   \   000097   E0           MOVX      A,@DPTR
+   \   000098   6410         XRL       A,#0x10
+   \   00009A   7002         JNZ       ??zclSampleSw_ProcessIncomingMsg_9
+   \   00009C   A3           INC       DPTR
+   \   00009D   E0           MOVX      A,@DPTR
+   \                     ??zclSampleSw_ProcessIncomingMsg_9:
+   \   00009E   7026         JNZ       ??zclSampleSw_ProcessIncomingMsg_8
+   \   0000A0                ; Setup parameters for call to function HalLcdWriteStringValue
+   \   0000A0   75..04       MOV       ?V5,#0x4
+   \   0000A3   78..         MOV       R0,#?V5
+   \   0000A5   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   0000A8   790A         MOV       R1,#0xa
+   \   0000AA   8A82         MOV       DPL,R2
+   \   0000AC   8B83         MOV       DPH,R3
+   \   0000AE   A3           INC       DPTR
+   \   0000AF   A3           INC       DPTR
+   \   0000B0   A3           INC       DPTR
+   \   0000B1   A3           INC       DPTR
+   \   0000B2   A3           INC       DPTR
+   \   0000B3   12....       LCALL     ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_0:
+   \   0000B6   E0           MOVX      A,@DPTR
+   \   0000B7   FC           MOV       R4,A
+   \   0000B8   7D00         MOV       R5,#0x0
+   \   0000BA   7A..         MOV       R2,#`?<Constant "Read:">` & 0xff
+   \   0000BC   7B..         MOV       R3,#(`?<Constant "Read:">` >> 8) & 0xff
+   \   0000BE   12....       LCALL     `??HalLcdWriteStringValue::?relay`; Banked call to: HalLcdWriteStringValue
+   \   0000C1   7401         MOV       A,#0x1
+   \   0000C3   12....       LCALL     ?DEALLOC_XSTACK8
+   \                     ??zclSampleSw_ProcessIncomingMsg_8:
+   \   0000C6   05..         INC       ?V4
+   \   0000C8   808D         SJMP      ??zclSampleSw_ProcessIncomingMsg_6
+    564                break;
+    565          #endif
+    566          #ifdef ZCL_WRITE
+    567              case ZCL_CMD_WRITE_RSP:
+    568                zclSampleSw_ProcessInWriteRspCmd( pInMsg );
+   \                     ??zclSampleSw_ProcessIncomingMsg_1:
+   \   0000CA   85..82       MOV       DPL,?V0
+   \   0000CD   85..83       MOV       DPH,?V1
+   \   0000D0   E0           MOVX      A,@DPTR
+   \   0000D1   F8           MOV       R0,A
+   \   0000D2   A3           INC       DPTR
+   \   0000D3   E0           MOVX      A,@DPTR
+   \   0000D4   8882         MOV       DPL,R0
+   \   0000D6   F583         MOV       DPH,A
+   \   0000D8   7800         MOV       R0,#0x0
+   \                     ??zclSampleSw_ProcessIncomingMsg_10:
+   \   0000DA   E0           MOVX      A,@DPTR
+   \   0000DB   F9           MOV       R1,A
+   \   0000DC   E8           MOV       A,R0
+   \   0000DD   C3           CLR       C
+   \   0000DE   99           SUBB      A,R1
+   \   0000DF   502C         JNC       ??zclSampleSw_ProcessIncomingMsg_5
+   \   0000E1   08           INC       R0
+   \   0000E2   80F6         SJMP      ??zclSampleSw_ProcessIncomingMsg_10
+    569                break;
+    570          #endif
+    571          #ifdef ZCL_REPORT
+    572              // See ZCL Test Applicaiton (zcl_testapp.c) for sample code on Attribute Reporting
+    573              case ZCL_CMD_CONFIG_REPORT:
+    574                //zclSampleSw_ProcessInConfigReportCmd( pInMsg );
+    575                break;
+    576          
+    577              case ZCL_CMD_CONFIG_REPORT_RSP:
+    578                //zclSampleSw_ProcessInConfigReportRspCmd( pInMsg );
+    579                break;
+    580          
+    581              case ZCL_CMD_READ_REPORT_CFG:
+    582                //zclSampleSw_ProcessInReadReportCfgCmd( pInMsg );
+    583                break;
+    584          
+    585              case ZCL_CMD_READ_REPORT_CFG_RSP:
+    586                //zclSampleSw_ProcessInReadReportCfgRspCmd( pInMsg );
+    587                break;
+    588          
+    589              case ZCL_CMD_REPORT:
+    590                zclSampleSw_ProcessInReportCmd( pInMsg );
+    591                break;
+    592          #endif
+    593              case ZCL_CMD_DEFAULT_RSP:
+    594                zclSampleSw_ProcessInDefaultRspCmd( pInMsg );
+    595                break;
+    596          #ifdef ZCL_DISCOVER
+    597              case ZCL_CMD_DISCOVER_CMDS_RECEIVED_RSP:
+    598                zclSampleSw_ProcessInDiscCmdsRspCmd( pInMsg );
+   \                     ??zclSampleSw_ProcessIncomingMsg_3:
+   \   0000E4                ; Setup parameters for call to function zclSampleSw_ProcessInDiscCmdsRspCmd
+    599                break;
+    600          
+    601              case ZCL_CMD_DISCOVER_CMDS_GEN_RSP:
+    602                zclSampleSw_ProcessInDiscCmdsRspCmd( pInMsg );
+   \   0000E4                ; Setup parameters for call to function zclSampleSw_ProcessInDiscCmdsRspCmd
+   \   0000E4   12....       LCALL     `??zclSampleSw_ProcessInDiscCmdsRspCmd::?relay`; Banked call to: zclSampleSw_ProcessInDiscCmdsRspCmd
+    603                break;
+   \   0000E7   8024         SJMP      ??zclSampleSw_ProcessIncomingMsg_5
+    604          
+    605              case ZCL_CMD_DISCOVER_ATTRS_RSP:
+    606                zclSampleSw_ProcessInDiscAttrsRspCmd( pInMsg );
+   \                     ??zclSampleSw_ProcessIncomingMsg_2:
+   \   0000E9   12....       LCALL     ?Subroutine4 & 0xFFFF
+   \                     ??CrossCallReturnLabel_9:
+   \   0000EC   8882         MOV       DPL,R0
+   \   0000EE   8983         MOV       DPH,R1
+   \   0000F0   A3           INC       DPTR
+   \   0000F1   E0           MOVX      A,@DPTR
+   \   0000F2   FB           MOV       R3,A
+   \   0000F3   EA           MOV       A,R2
+   \   0000F4   C3           CLR       C
+   \   0000F5   9B           SUBB      A,R3
+   \   0000F6   5015         JNC       ??zclSampleSw_ProcessIncomingMsg_5
+   \   0000F8   0A           INC       R2
+   \   0000F9   80F1         SJMP      ??CrossCallReturnLabel_9
+    607                break;
+    608          
+    609              case ZCL_CMD_DISCOVER_ATTRS_EXT_RSP:
+    610                zclSampleSw_ProcessInDiscAttrsExtRspCmd( pInMsg );
+   \                     ??zclSampleSw_ProcessIncomingMsg_4:
+   \   0000FB   12....       LCALL     ?Subroutine4 & 0xFFFF
+    611                break;
+    612          #endif
+    613              default:
+    614                break;
+    615            }
+   \                     ??CrossCallReturnLabel_10:
+   \   0000FE   8001         SJMP      ??zclSampleSw_ProcessIncomingMsg_11
+   \                     ??zclSampleSw_ProcessIncomingMsg_12:
+   \   000100   0A           INC       R2
+   \                     ??zclSampleSw_ProcessIncomingMsg_11:
+   \   000101   8882         MOV       DPL,R0
+   \   000103   8983         MOV       DPH,R1
+   \   000105   A3           INC       DPTR
+   \   000106   E0           MOVX      A,@DPTR
+   \   000107   FB           MOV       R3,A
+   \   000108   EA           MOV       A,R2
+   \   000109   C3           CLR       C
+   \   00010A   9B           SUBB      A,R3
+   \   00010B   40F3         JC        ??zclSampleSw_ProcessIncomingMsg_12
+    616          
+    617            if ( pInMsg->attrCmd )
+   \                     ??zclSampleSw_ProcessIncomingMsg_5:
+   \   00010D   85..82       MOV       DPL,?V0
+   \   000110   85..83       MOV       DPH,?V1
+   \   000113   E0           MOVX      A,@DPTR
+   \   000114   FA           MOV       R2,A
+   \   000115   A3           INC       DPTR
+   \   000116   E0           MOVX      A,@DPTR
+   \   000117   FB           MOV       R3,A
+   \   000118   EA           MOV       A,R2
+   \   000119   4B           ORL       A,R3
+   \   00011A   6003         JZ        ??zclSampleSw_ProcessIncomingMsg_13
+    618              osal_mem_free( pInMsg->attrCmd );
+   \   00011C                ; Setup parameters for call to function osal_mem_free
+   \   00011C   12....       LCALL     `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+    619          }
+   \                     ??zclSampleSw_ProcessIncomingMsg_13:
+   \   00011F                REQUIRE ?Subroutine2
+   \   00011F                ; // Fall through to label ?Subroutine2
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine2:
+   \   000000   7F06         MOV       R7,#0x6
+   \   000002   02....       LJMP      ?BANKED_LEAVE_XDATA
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine4:
+   \   000000   85..82       MOV       DPL,?V0
+   \   000003   85..83       MOV       DPH,?V1
+   \   000006                REQUIRE ??Subroutine9_0
+   \   000006                ; // Fall through to label ??Subroutine9_0
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ??Subroutine9_0:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   F8           MOV       R0,A
+   \   000002   A3           INC       DPTR
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   F9           MOV       R1,A
+   \   000005   7A00         MOV       R2,#0x0
+   \   000007   22           RET
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine5:
+   \   000000   E0           MOVX      A,@DPTR
+   \   000001   F8           MOV       R0,A
+   \   000002   A3           INC       DPTR
+   \   000003   E0           MOVX      A,@DPTR
+   \   000004   F583         MOV       DPH,A
+   \   000006   8882         MOV       DPL,R0
+   \   000008   22           RET
+    620          
+    621          #ifdef ZCL_READ
+    622          /*********************************************************************
+    623           * @fn      zclSampleSw_ProcessInReadRspCmd
+    624           *
+    625           * @brief   Process the "Profile" Read Response Command
+    626           *
+    627           * @param   pInMsg - incoming message to process
+    628           *
+    629           * @return  none
+    630           */
+    631          static uint8 zclSampleSw_ProcessInReadRspCmd( zclIncomingMsg_t *pInMsg )
+    632          {
+    633            zclReadRspCmd_t *readRspCmd;
+    634            uint8 i;
+    635          
+    636            readRspCmd = (zclReadRspCmd_t *)pInMsg->attrCmd;
+    637            for (i = 0; i < readRspCmd->numAttr; i++)
+    638            {
+    639              // Notify the originator of the results of the original read attributes
+    640              // attempt and, for each successfull request, the value of the requested
+    641              // attribute
+    642              if( pInMsg->clusterId == ZCL_CLUSTER_ID_GEN_ON_OFF_SWITCH_CONFIG &&
+    643                  readRspCmd->attrList[i].attrID == ATTRID_ON_OFF_SWITCH_ACTIONS )
+    644              {
+    645                  uint8 val;
+    646                  val = *(readRspCmd->attrList[i].data);
+    647                  
+    648                  HalLcdWriteStringValue("Read:", val, 10, 4);
+    649              }
+    650            }
+    651          
+    652            return TRUE;
+    653          }
+    654          #endif // ZCL_READ
+    655          
+    656          #ifdef ZCL_WRITE
+    657          /*********************************************************************
+    658           * @fn      zclSampleSw_ProcessInWriteRspCmd
+    659           *
+    660           * @brief   Process the "Profile" Write Response Command
+    661           *
+    662           * @param   pInMsg - incoming message to process
+    663           *
+    664           * @return  none
+    665           */
+    666          static uint8 zclSampleSw_ProcessInWriteRspCmd( zclIncomingMsg_t *pInMsg )
+    667          {
+    668            zclWriteRspCmd_t *writeRspCmd;
+    669            uint8 i;
+    670          
+    671            writeRspCmd = (zclWriteRspCmd_t *)pInMsg->attrCmd;
+    672            for (i = 0; i < writeRspCmd->numAttr; i++)
+    673            {
+    674              // Notify the device of the results of the its original write attributes
+    675              // command.
+    676            }
+    677          
+    678            return TRUE;
+    679          }
+    680          #endif // ZCL_WRITE
+    681          
+    682          /*********************************************************************
+    683           * @fn      zclSampleSw_ProcessInDefaultRspCmd
+    684           *
+    685           * @brief   Process the "Profile" Default Response Command
+    686           *
+    687           * @param   pInMsg - incoming message to process
+    688           *
+    689           * @return  none
+    690           */
+    691          static uint8 zclSampleSw_ProcessInDefaultRspCmd( zclIncomingMsg_t *pInMsg )
+    692          {
+    693            // zclDefaultRspCmd_t *defaultRspCmd = (zclDefaultRspCmd_t *)pInMsg->attrCmd;
+    694            // Device is notified of the Default Response command.
+    695            (void)pInMsg;
+    696            return TRUE;
+    697          }
+    698          
+    699          #ifdef ZCL_DISCOVER
+    700          /*********************************************************************
+    701           * @fn      zclSampleSw_ProcessInDiscCmdsRspCmd
+    702           *
+    703           * @brief   Process the Discover Commands Response Command
+    704           *
+    705           * @param   pInMsg - incoming message to process
+    706           *
+    707           * @return  none
+    708           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    709          static uint8 zclSampleSw_ProcessInDiscCmdsRspCmd( zclIncomingMsg_t *pInMsg )
+   \                     zclSampleSw_ProcessInDiscCmdsRspCmd:
+    710          {
+   \   000000   C082         PUSH      DPL
+   \   000002   C083         PUSH      DPH
+   \   000004                ; Saved register size: 2
+   \   000004                ; Auto size: 0
+    711            zclDiscoverCmdsCmdRsp_t *discoverRspCmd;
+    712            uint8 i;
+    713          
+    714            discoverRspCmd = (zclDiscoverCmdsCmdRsp_t *)pInMsg->attrCmd;
+   \   000004   EA           MOV       A,R2
+   \   000005   2417         ADD       A,#0x17
+   \   000007   F582         MOV       DPL,A
+   \   000009   E4           CLR       A
+   \   00000A   3B           ADDC      A,R3
+   \   00000B   F583         MOV       DPH,A
+   \   00000D   12....       LCALL     ??Subroutine9_0 & 0xFFFF
+    715            for ( i = 0; i < discoverRspCmd->numCmd; i++ )
+   \                     ??CrossCallReturnLabel_8:
+   \   000010   8001         SJMP      ??zclSampleSw_ProcessInDiscCmdsRspCmd_0
+   \                     ??zclSampleSw_ProcessInDiscCmdsRspCmd_1:
+   \   000012   0A           INC       R2
+   \                     ??zclSampleSw_ProcessInDiscCmdsRspCmd_0:
+   \   000013   8882         MOV       DPL,R0
+   \   000015   8983         MOV       DPH,R1
+   \   000017   A3           INC       DPTR
+   \   000018   A3           INC       DPTR
+   \   000019   E0           MOVX      A,@DPTR
+   \   00001A   FB           MOV       R3,A
+   \   00001B   EA           MOV       A,R2
+   \   00001C   C3           CLR       C
+   \   00001D   9B           SUBB      A,R3
+   \   00001E   40F2         JC        ??zclSampleSw_ProcessInDiscCmdsRspCmd_1
+    716            {
+    717              // Device is notified of the result of its attribute discovery command.
+    718            }
+    719          
+    720            return TRUE;
+   \   000020   7901         MOV       R1,#0x1
+   \   000022   02....       LJMP      ?Subroutine1 & 0xFFFF
+    721          }
+    722          
+    723          /*********************************************************************
+    724           * @fn      zclSampleSw_ProcessInDiscAttrsRspCmd
+    725           *
+    726           * @brief   Process the "Profile" Discover Attributes Response Command
+    727           *
+    728           * @param   pInMsg - incoming message to process
+    729           *
+    730           * @return  none
+    731           */
+    732          static uint8 zclSampleSw_ProcessInDiscAttrsRspCmd( zclIncomingMsg_t *pInMsg )
+    733          {
+    734            zclDiscoverAttrsRspCmd_t *discoverRspCmd;
+    735            uint8 i;
+    736          
+    737            discoverRspCmd = (zclDiscoverAttrsRspCmd_t *)pInMsg->attrCmd;
+    738            for ( i = 0; i < discoverRspCmd->numAttr; i++ )
+    739            {
+    740              // Device is notified of the result of its attribute discovery command.
+    741            }
+    742          
+    743            return TRUE;
+    744          }
+    745          
+    746          /*********************************************************************
+    747           * @fn      zclSampleSw_ProcessInDiscAttrsExtRspCmd
+    748           *
+    749           * @brief   Process the "Profile" Discover Attributes Extended Response Command
+    750           *
+    751           * @param   pInMsg - incoming message to process
+    752           *
+    753           * @return  none
+    754           */
+    755          static uint8 zclSampleSw_ProcessInDiscAttrsExtRspCmd( zclIncomingMsg_t *pInMsg )
+    756          {
+    757            zclDiscoverAttrsExtRsp_t *discoverRspCmd;
+    758            uint8 i;
+    759          
+    760            discoverRspCmd = (zclDiscoverAttrsExtRsp_t *)pInMsg->attrCmd;
+    761            for ( i = 0; i < discoverRspCmd->numAttr; i++ )
+    762            {
+    763              // Device is notified of the result of its attribute discovery command.
+    764            }
+    765          
+    766            return TRUE;
+    767          }
+    768          #endif // ZCL_DISCOVER
+    769          
+    770          
+    771          
+    772          #ifdef ZCL_REPORT
+    773          /**
+    774           * @fn      zclSampleSw_ProcessInReportCmd
+    775           *
+    776           * @brief   Process the "Profile" Report Command
+    777           *
+    778           * @param   pInMsg - incoming message to process
+    779           *
+    780           * @return  none
+    781           */
+    782          static uint8 zclSampleSw_ProcessInReportCmd( zclIncomingMsg_t *pInMsg )
+    783          {
+    784            zclReportCmd_t *reportCmd;
+    785            uint8 i;
+    786            uint8 resstr[10];     //显示接收数据
+    787            HalLcdWriteString("GetEndDeviceNum", 3); //没数据的时候进行显示
+    788            
+    789            reportCmd = (zclReportCmd_t *)pInMsg->attrCmd;//接收
+    790            for ( i = 0; i < reportCmd->numAttr; i++ )    //看下有几个数据 默认是一个数据
+    791            {                                                     
+    792              if( pInMsg->clusterId == ZCL_CLUSTER_ID_GEN_ON_OFF_SWITCH_CONFIG && 
+    793                  reportCmd->attrList[i].attrID == ATTRID_ON_OFF_SWITCH_TYPE)     //接收类型
+    794              {
+    795                HalUARTWrite(0, "FSM:", 4);       //提示接收到数据
+    796                uint8 attrDat = *(reportCmd->attrList[i].attrData);       //得到数据
+    797                memset(resstr,0,10);      //清空数组
+    798                sprintf((char *)resstr,(const char*)"%x\r\n",attrDat);    //转为hex格式
+    799                HalUARTWrite(HAL_UART_PORT_0 ,  "RX seqNum:" , 10);
+    800                HalUARTWrite(HAL_UART_PORT_0 ,resstr , osal_strlen((char *)resstr));
+    801          
+    802                if(attrDat == 0x30)       //判断数据 30开灯 
+    803                {
+    804                  HalUARTWrite(HAL_UART_PORT_0 , "LED On",osal_strlen("LED On"));
+    805                  HalLcdWriteString( "Led On", HAL_LCD_LINE_3 ); //LCD显示 
+    806                  HalLedSet(HAL_LED_1,HAL_LED_MODE_OFF); //低电平开灯
+    807                } 
+    808                if(attrDat == 0x31)       //31关闭灯
+    809                {
+    810                  HalUARTWrite(HAL_UART_PORT_0 , "LED Off",osal_strlen("LED Off"));
+    811                  HalLcdWriteString( "Led Off", HAL_LCD_LINE_3 ); //LCD显示
+    812                  HalLedSet(HAL_LED_1,HAL_LED_MODE_ON);   //高电平关闭灯
+    813                }
+    814          
+    815                HalUARTWrite(0, "\r\n", 2);         // 回车换行
+    816              }
+    817            }
+    818          
+    819            return ( TRUE );
+    820          }
+    821          #endif // ZCL_REPORT
+    822          
+    823          
+    824          
+    825          
+    826          #if defined (OTA_CLIENT) && (OTA_CLIENT == TRUE)
+    827          /*********************************************************************
+    828           * @fn      zclSampleSw_ProcessOTAMsgs
+    829           *
+    830           * @brief   Called to process callbacks from the ZCL OTA.
+    831           *
+    832           * @param   none
+    833           *
+    834           * @return  none
+    835           */
+    836          static void zclSampleSw_ProcessOTAMsgs( zclOTA_CallbackMsg_t* pMsg )
+    837          {
+    838            uint8 RxOnIdle;
+    839          
+    840            switch(pMsg->ota_event)
+    841            {
+    842            case ZCL_OTA_START_CALLBACK:
+    843              if (pMsg->hdr.status == ZSuccess)
+    844              {
+    845                // Speed up the poll rate
+    846                RxOnIdle = TRUE;
+    847                ZMacSetReq( ZMacRxOnIdle, &RxOnIdle );
+    848                NLME_SetPollRate( 2000 );
+    849              }
+    850              break;
+    851          
+    852            case ZCL_OTA_DL_COMPLETE_CALLBACK:
+    853              if (pMsg->hdr.status == ZSuccess)
+    854              {
+    855                // Reset the CRC Shadow and reboot.  The bootloader will see the
+    856                // CRC shadow has been cleared and switch to the new image
+    857                HalOTAInvRC();
+    858                SystemReset();
+    859              }
+    860              else
+    861              {
+    862                // slow the poll rate back down.
+    863                RxOnIdle = FALSE;
+    864                ZMacSetReq( ZMacRxOnIdle, &RxOnIdle );
+    865                NLME_SetPollRate(DEVICE_POLL_RATE);
+    866              }
+    867              break;
+    868          
+    869            default:
+    870              break;
+    871            }
+    872          }
+    873          #endif // defined (OTA_CLIENT) && (OTA_CLIENT == TRUE)
+    874          
+    875          /****************************************************************************
+    876          ****************************************************************************/
+    877          
+    878          /**
+    879           * @fn      zclSampleSw_InitUart
+    880           *
+    881           * @brief   init. and open Uart
+    882           */
+    883          static void zclSampleSw_InitUart(void)
+    884          {
+    885            halUARTCfg_t uartConfig;
+    886          
+    887            /* UART Configuration */
+    888            uartConfig.configured           = TRUE;
+    889            uartConfig.baudRate             = HAL_UART_BR_115200;
+    890            uartConfig.flowControl          = FALSE;
+    891            uartConfig.flowControlThreshold = 0;
+    892            uartConfig.rx.maxBufSize        = ZCLSAMPLESW_UART_BUF_LEN;
+    893            uartConfig.tx.maxBufSize        = 0;
+    894            uartConfig.idleTimeout          = 6;
+    895            uartConfig.intEnable            = TRUE;
+    896            uartConfig.callBackFunc         = zclSampleSw_UartCB;
+    897          
+    898            /* Start UART */
+    899            HalUARTOpen(HAL_UART_PORT_0, &uartConfig);
+    900          }
+    901          
+    902          /**
+    903           * @fn      zclSampleSw_UartCB
+    904           *CSTX
+    905           * @brief   Uart Callback
+    906           */
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    907          static void zclSampleSw_UartCB(uint8 port, uint8 event)
+   \                     zclSampleSw_UartCB:
+    908          {
+   \   000000   74F7         MOV       A,#-0x9
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 9
+   \   000005                ; Auto size: 0
+    909            uint8 rxLen = Hal_UART_RxBufLen(HAL_UART_PORT_0);
+   \   000005                ; Setup parameters for call to function Hal_UART_RxBufLen
+   \   000005   7900         MOV       R1,#0x0
+   \   000007   12....       LCALL     `??Hal_UART_RxBufLen::?relay`; Banked call to: Hal_UART_RxBufLen
+   \   00000A   EA           MOV       A,R2
+    910            
+    911            if(rxLen != 0)
+   \   00000B   601A         JZ        ??zclSampleSw_UartCB_0
+    912            {
+    913              HalUARTRead(HAL_UART_PORT_0  ,  zclSampleSw_UartBuf , rxLen);
+   \   00000D   FE           MOV       R6,A
+   \   00000E                ; Setup parameters for call to function HalUARTRead
+   \   00000E   FC           MOV       R4,A
+   \   00000F   7D00         MOV       R5,#0x0
+   \   000011   7A..         MOV       R2,#zclSampleSw_UartBuf & 0xff
+   \   000013   7B..         MOV       R3,#(zclSampleSw_UartBuf >> 8) & 0xff
+   \   000015   7900         MOV       R1,#0x0
+   \   000017   12....       LCALL     `??HalUARTRead::?relay`; Banked call to: HalUARTRead
+    914              HalUARTWrite(HAL_UART_PORT_0 ,  zclSampleSw_UartBuf , rxLen);
+   \   00001A                ; Setup parameters for call to function HalUARTWrite
+   \   00001A   EE           MOV       A,R6
+   \   00001B   FC           MOV       R4,A
+   \   00001C   7D00         MOV       R5,#0x0
+   \   00001E   7A..         MOV       R2,#zclSampleSw_UartBuf & 0xff
+   \   000020   7B..         MOV       R3,#(zclSampleSw_UartBuf >> 8) & 0xff
+   \   000022   7900         MOV       R1,#0x0
+   \   000024   12....       LCALL     `??HalUARTWrite::?relay`; Banked call to: HalUARTWrite
+    915            }
+    916          }
+   \                     ??zclSampleSw_UartCB_0:
+   \   000027   02....       LJMP      ?Subroutine0 & 0xFFFF
+    917          
+    918          
+    919          //下面这个函数是终端发送数据到协调器函数
+    920          #ifdef ZDO_COORDINATOR  // CSTX Coordinator!
+    921          #else
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+    922            static void zclSampleSw_ReportTest(void)
+   \                     zclSampleSw_ReportTest:
+    923            {
+   \   000000                REQUIRE ?V0
+   \   000000                REQUIRE ?V2
+   \   000000                REQUIRE ?V3
+   \   000000                REQUIRE ?V4
+   \   000000                REQUIRE ?V5
+   \   000000   74F2         MOV       A,#-0xe
+   \   000002   12....       LCALL     ?BANKED_ENTER_XDATA
+   \   000005                ; Saved register size: 14
+   \   000005                ; Auto size: 12
+   \   000005   74F4         MOV       A,#-0xc
+   \   000007   12....       LCALL     ?ALLOC_XSTACK8
+    924                static uint8 seqNum = 0;  
+    925                uint8 state;      //定义状态 0X31 或者 0X30
+    926                static unsigned char flag = 0;    //状态用于切换
+    927                zclReportCmd_t *reportCmd;
+    928                
+    929                afAddrType_t destAddr;    // 指定目标网络地址进行单播点播传输 16位
+    930                destAddr.addrMode = afAddr16Bit;
+   \   00000A   7408         MOV       A,#0x8
+   \   00000C   12....       LCALL     ?XSTACK_DISP0_8
+   \   00000F   7402         MOV       A,#0x2
+   \   000011   F0           MOVX      @DPTR,A
+    931                destAddr.endPoint = SAMPLESW_ENDPOINT;
+   \   000012   7409         MOV       A,#0x9
+   \   000014   12....       LCALL     ?XSTACK_DISP0_8
+   \   000017   7408         MOV       A,#0x8
+   \   000019   F0           MOVX      @DPTR,A
+    932                destAddr.addr.shortAddr = 0x0000;
+   \   00001A   85..82       MOV       DPL,?XSP + 0
+   \   00001D   85..83       MOV       DPH,?XSP + 1
+   \   000020   E4           CLR       A
+   \   000021   F0           MOVX      @DPTR,A
+   \   000022   A3           INC       DPTR
+   \   000023   F0           MOVX      @DPTR,A
+    933                
+    934                if(flag == 0x01) //来回切换发送数据
+   \   000024   90....       MOV       DPTR,#??flag
+   \   000027   E0           MOVX      A,@DPTR
+   \   000028   601D         JZ        ??zclSampleSw_ReportTest_0
+    935                {
+    936                    flag=0;
+   \   00002A   E4           CLR       A
+   \   00002B   F0           MOVX      @DPTR,A
+    937                    state = 0x30;       //LED点亮
+   \   00002C   75..30       MOV       ?V0,#0x30
+    938                    HalUARTWrite(0,"Set Led On\r\n", osal_strlen("Set Led On\r\n"));     //串口显示
+   \   00002F                ; Setup parameters for call to function osal_strlen
+   \   00002F   7A..         MOV       R2,#`?<Constant "Set Led On\\r\\n">` & 0xff
+   \   000031   7B..         MOV       R3,#(`?<Constant "Set Led On\\r\\n">` >> 8) & 0xff
+   \   000033   12....       LCALL     ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_2:
+   \   000036                ; Setup parameters for call to function HalUARTWrite
+   \   000036   7A..         MOV       R2,#`?<Constant "Set Led On\\r\\n">` & 0xff
+   \   000038   7B..         MOV       R3,#(`?<Constant "Set Led On\\r\\n">` >> 8) & 0xff
+   \   00003A   7900         MOV       R1,#0x0
+   \   00003C   12....       LCALL     `??HalUARTWrite::?relay`; Banked call to: HalUARTWrite
+    939                    HalLcdWriteString( "Set Led On", HAL_LCD_LINE_3 ); //LCD显示 
+   \   00003F                ; Setup parameters for call to function HalLcdWriteString
+   \   00003F   7903         MOV       R1,#0x3
+   \   000041   7A..         MOV       R2,#`?<Constant "Set Led On">` & 0xff
+   \   000043   7B..         MOV       R3,#(`?<Constant "Set Led On">` >> 8) & 0xff
+   \   000045   801C         SJMP      ??zclSampleSw_ReportTest_1
+    940                }
+    941                else if(flag == 0x00)
+    942                {
+    943                    flag=1;
+   \                     ??zclSampleSw_ReportTest_0:
+   \   000047   7401         MOV       A,#0x1
+   \   000049   F0           MOVX      @DPTR,A
+    944                    state = 0x31;       //LED熄灭
+   \   00004A   75..31       MOV       ?V0,#0x31
+    945                    HalUARTWrite(0,"Set Led Off\r\n", osal_strlen("Set Led Off\r\n"));   //串口显示
+   \   00004D                ; Setup parameters for call to function osal_strlen
+   \   00004D   7A..         MOV       R2,#`?<Constant "Set Led Off\\r\\n">` & 0xff
+   \   00004F   7B..         MOV       R3,#(`?<Constant "Set Led Off\\r\\n">` >> 8) & 0xff
+   \   000051   12....       LCALL     ?Subroutine6 & 0xFFFF
+   \                     ??CrossCallReturnLabel_3:
+   \   000054                ; Setup parameters for call to function HalUARTWrite
+   \   000054   7A..         MOV       R2,#`?<Constant "Set Led Off\\r\\n">` & 0xff
+   \   000056   7B..         MOV       R3,#(`?<Constant "Set Led Off\\r\\n">` >> 8) & 0xff
+   \   000058   7900         MOV       R1,#0x0
+   \   00005A   12....       LCALL     `??HalUARTWrite::?relay`; Banked call to: HalUARTWrite
+    946                    HalLcdWriteString( "Set Led Off", HAL_LCD_LINE_3 ); //LCD显示 
+   \   00005D                ; Setup parameters for call to function HalLcdWriteString
+   \   00005D   7903         MOV       R1,#0x3
+   \   00005F   7A..         MOV       R2,#`?<Constant "Set Led Off">` & 0xff
+   \   000061   7B..         MOV       R3,#(`?<Constant "Set Led Off">` >> 8) & 0xff
+   \                     ??zclSampleSw_ReportTest_1:
+   \   000063   12....       LCALL     `??HalLcdWriteString::?relay`; Banked call to: HalLcdWriteString
+    947                }
+    948                  
+    949                reportCmd = (zclReportCmd_t *)osal_mem_alloc(sizeof(zclReportCmd_t) + 
+    950                                                             sizeof(zclReport_t));        //分配结构体
+   \   000066                ; Setup parameters for call to function osal_mem_alloc
+   \   000066   7A06         MOV       R2,#0x6
+   \   000068   7B00         MOV       R3,#0x0
+   \   00006A   12....       LCALL     `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
+   \   00006D   8A..         MOV       ?V2,R2
+   \   00006F   8B..         MOV       ?V3,R3
+    951                if(reportCmd == NULL)
+   \   000071   EA           MOV       A,R2
+   \   000072   4B           ORL       A,R3
+   \   000073   7003         JNZ       $+5
+   \   000075   02....       LJMP      ??zclSampleSw_ReportTest_2 & 0xFFFF
+    952                  return;
+    953                
+    954                reportCmd->attrList[0].attrData = (uint8 *)osal_mem_alloc(sizeof(uint8)); //分配数据空间
+   \   000078                ; Setup parameters for call to function osal_mem_alloc
+   \   000078   7A01         MOV       R2,#0x1
+   \   00007A   7B00         MOV       R3,#0x0
+   \   00007C   12....       LCALL     `??osal_mem_alloc::?relay`; Banked call to: osal_mem_alloc
+   \   00007F   E5..         MOV       A,?V2
+   \   000081   2404         ADD       A,#0x4
+   \   000083   F8           MOV       R0,A
+   \   000084   E4           CLR       A
+   \   000085   35..         ADDC      A,?V3
+   \   000087   F9           MOV       R1,A
+   \   000088   E8           MOV       A,R0
+   \   000089   FE           MOV       R6,A
+   \   00008A   E9           MOV       A,R1
+   \   00008B   FF           MOV       R7,A
+   \   00008C   8882         MOV       DPL,R0
+   \   00008E   F583         MOV       DPH,A
+   \   000090   EA           MOV       A,R2
+   \   000091   F0           MOVX      @DPTR,A
+   \   000092   A3           INC       DPTR
+   \   000093   EB           MOV       A,R3
+   \   000094   F0           MOVX      @DPTR,A
+    955                if(reportCmd->attrList[0].attrData == NULL)       
+   \   000095   EA           MOV       A,R2
+   \   000096   4B           ORL       A,R3
+   \   000097   607B         JZ        ??zclSampleSw_ReportTest_2
+    956                  return;
+    957                
+    958                if(seqNum>127)
+   \   000099   90....       MOV       DPTR,#??seqNum
+   \   00009C   E0           MOVX      A,@DPTR
+   \   00009D   C3           CLR       C
+   \   00009E   9480         SUBB      A,#-0x80
+   \   0000A0   4002         JC        ??zclSampleSw_ReportTest_3
+    959                  seqNum = 0;
+   \   0000A2   E4           CLR       A
+   \   0000A3   F0           MOVX      @DPTR,A
+    960                
+    961                reportCmd->numAttr = 1;   //一个数据
+   \                     ??zclSampleSw_ReportTest_3:
+   \   0000A4   85..82       MOV       DPL,?V2
+   \   0000A7   85..83       MOV       DPH,?V3
+   \   0000AA   7401         MOV       A,#0x1
+   \   0000AC   F0           MOVX      @DPTR,A
+    962                reportCmd->attrList[0].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
+   \   0000AD   A3           INC       DPTR
+   \   0000AE   E4           CLR       A
+   \   0000AF   F0           MOVX      @DPTR,A
+   \   0000B0   A3           INC       DPTR
+   \   0000B1   F0           MOVX      @DPTR,A
+    963                reportCmd->attrList[0].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
+   \   0000B2   85..82       MOV       DPL,?V2
+   \   0000B5   85..83       MOV       DPH,?V3
+   \   0000B8   A3           INC       DPTR
+   \   0000B9   A3           INC       DPTR
+   \   0000BA   A3           INC       DPTR
+   \   0000BB   7420         MOV       A,#0x20
+   \   0000BD   F0           MOVX      @DPTR,A
+    964                *((uint8 *)(reportCmd->attrList[0].attrData)) = state;    //数据
+   \   0000BE   8882         MOV       DPL,R0
+   \   0000C0   8983         MOV       DPH,R1
+   \   0000C2   12....       LCALL     ?Subroutine5 & 0xFFFF
+   \                     ??CrossCallReturnLabel_1:
+   \   0000C5   E5..         MOV       A,?V0
+   \   0000C7   F0           MOVX      @DPTR,A
+    965          
+    966                
+    967                zcl_SendReportCmd( SAMPLESW_ENDPOINT,                     //发送数据
+    968                                   &destAddr,
+    969                                   ZCL_CLUSTER_ID_GEN_ON_OFF_SWITCH_CONFIG, 
+    970                                   reportCmd,
+    971                                   ZCL_FRAME_CLIENT_SERVER_DIR, 
+    972                                   TRUE, 
+    973                                   seqNum++ );
+   \   0000C8   90....       MOV       DPTR,#??seqNum
+   \   0000CB   E0           MOVX      A,@DPTR
+   \   0000CC   F8           MOV       R0,A
+   \   0000CD   7401         MOV       A,#0x1
+   \   0000CF   28           ADD       A,R0
+   \   0000D0   F0           MOVX      @DPTR,A
+   \   0000D1                ; Setup parameters for call to function zcl_SendReportCmd
+   \   0000D1   E8           MOV       A,R0
+   \   0000D2   F5..         MOV       ?V0,A
+   \   0000D4   78..         MOV       R0,#?V0
+   \   0000D6   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   0000D9   75..01       MOV       ?V0,#0x1
+   \   0000DC   78..         MOV       R0,#?V0
+   \   0000DE   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   0000E1   75..00       MOV       ?V0,#0x0
+   \   0000E4   78..         MOV       R0,#?V0
+   \   0000E6   12....       LCALL     ?PUSH_XSTACK_I_ONE
+   \   0000E9   78..         MOV       R0,#?V2
+   \   0000EB   12....       LCALL     ?PUSH_XSTACK_I_TWO
+   \   0000EE   7C07         MOV       R4,#0x7
+   \   0000F0   7D00         MOV       R5,#0x0
+   \   0000F2   7405         MOV       A,#0x5
+   \   0000F4   12....       LCALL     ?XSTACK_DISP101_8
+   \   0000F7   7908         MOV       R1,#0x8
+   \   0000F9   12....       LCALL     `??zcl_SendReportCmd::?relay`; Banked call to: zcl_SendReportCmd
+   \   0000FC   7405         MOV       A,#0x5
+   \   0000FE   12....       LCALL     ?DEALLOC_XSTACK8
+    974          
+    975                
+    976                osal_mem_free(reportCmd->attrList[0].attrData);   //释放结构体
+   \   000101                ; Setup parameters for call to function osal_mem_free
+   \   000101   8E82         MOV       DPL,R6
+   \   000103   8F83         MOV       DPH,R7
+   \   000105   E0           MOVX      A,@DPTR
+   \   000106   FA           MOV       R2,A
+   \   000107   A3           INC       DPTR
+   \   000108   E0           MOVX      A,@DPTR
+   \   000109   FB           MOV       R3,A
+   \   00010A   12....       LCALL     `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+    977                osal_mem_free(reportCmd); //释放数据
+   \   00010D                ; Setup parameters for call to function osal_mem_free
+   \   00010D   AA..         MOV       R2,?V2
+   \   00010F   AB..         MOV       R3,?V3
+   \   000111   12....       LCALL     `??osal_mem_free::?relay`; Banked call to: osal_mem_free
+    978            }
+   \                     ??zclSampleSw_ReportTest_2:
+   \   000114   740C         MOV       A,#0xc
+   \   000116   12....       LCALL     ?DEALLOC_XSTACK8
+   \   000119   02....       LJMP      ?Subroutine2 & 0xFFFF
+
+   \                                 In  segment BANKED_CODE, align 1, keep-with-next
+   \                     ?Subroutine6:
+   \   000000   12....       LCALL     `??osal_strlen::?relay`; Banked call to: osal_strlen
+   \   000003   8A..         MOV       ?V2,R2
+   \   000005   8B..         MOV       ?V3,R3
+   \   000007   AC..         MOV       R4,?V2
+   \   000009   AD..         MOV       R5,?V3
+   \   00000B   22           RET
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ??seqNum:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_Z, align 1, keep-with-next
+   \                     ??flag:
+   \   000000                DS 1
+   \   000001                REQUIRE __INIT_XDATA_Z
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zclSampleSw_OnOffSwitchType>`:
+   \   000000   01           DB 1
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for sampleSw_TestEp>`:
+   \   000000   08           DB 8
+   \   000001   00           DB 0
+   \   000002   ....         DW zclSampleSw_TaskID
+   \   000004   0000         DW 0H
+   \   000006   00           DB 0
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zclSampleSw_NwkState>`:
+   \   000000   01           DB 1
+
+   \                                 In  segment XDATA_ID, align 1, keep-with-next
+   \                     `?<Initializer for zclSampleSw_CmdCallbacks>`:
+   \   000000   ....         DW `??zclSampleSw_BasicResetCB::?relay`
+   \   000002   0000         DW 0H
+   \   000004   0000         DW 0H
+   \   000006   0000         DW 0H
+   \   000008   0000         DW 0H
+   \   00000A   0000         DW 0H
+   \   00000C   0000         DW 0H
+   \   00000E   0000         DW 0H
+   \   000010   0000         DW 0H
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclSampleSw_Init::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclSampleSw_Init
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclSampleSw_event_loop::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclSampleSw_event_loop
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclSampleSw_ProcessCommissioningStatus::?rela`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclSampleSw_ProcessCommissioningStatus
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclSampleSw_BasicResetCB::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclSampleSw_BasicResetCB
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclSampleSw_ProcessIncomingMsg::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclSampleSw_ProcessIncomingMsg
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclSampleSw_ProcessInDiscCmdsRspCmd::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclSampleSw_ProcessInDiscCmdsRspCmd
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclSampleSw_UartCB::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclSampleSw_UartCB
+
+   \                                 In  segment BANK_RELAYS, align 1
+   \                     `??zclSampleSw_ReportTest::?relay`:
+   \   000000   12....       LCALL   ?BDISPATCH
+   \   000003   ......       DC24    zclSampleSw_ReportTest
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "UART0 Init Succeed\\r\\n">`:
+   \   000000   55415254     DB "UART0 Init Succeed\015\012"
+   \            3020496E
+   \            69742053
+   \            75636365
+   \            65640D0A
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "Read:">`:
+   \   000000   52656164     DB "Read:"
+   \            3A00    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "Set Led On\\r\\n">`:
+   \   000000   53657420     DB "Set Led On\015\012"
+   \            4C656420
+   \            4F6E0D0A
+   \            00      
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "Set Led On">`:
+   \   000000   53657420     DB "Set Led On"
+   \            4C656420
+   \            4F6E00  
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "Set Led Off\\r\\n">`:
+   \   000000   53657420     DB "Set Led Off\015\012"
+   \            4C656420
+   \            4F66660D
+   \            0A00    
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     `?<Constant "Set Led Off">`:
+   \   000000   53657420     DB "Set Led Off"
+   \            4C656420
+   \            4F666600
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_bb8:
+   \   000000   B80B0000     DD 3000
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_1f4:
+   \   000000   F4010000     DD 500
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_3e8:
+   \   000000   E8030000     DD 1000
+
+   \                                 In  segment XDATA_ROM_C, align 1
+   \                     __Constant_2710:
+   \   000000   10270000     DD 10000
+    979          #endif
+
+   Maximum stack usage in bytes:
+
+   ISTACK XSTACK Function
+   ------ ------ --------
+      2      0   zclSampleSw_BasicResetCB
+        2      0   -> zclSampleSw_ResetAttributesToDefaultValues
+      0     42   zclSampleSw_Init
+        0     38   -> HalUARTOpen
+        0     38   -> HalUARTWrite
+        0     38   -> RegisterForKeys
+        0     38   -> afRegister
+        0     38   -> bdb_RegisterCommissioningStatusCB
+        0     38   -> bdb_RegisterSimpleDescriptor
+        0     38   -> bdb_StartCommissioning
+        0     42   -> osal_start_timerEx
+        0     38   -> zclGeneral_RegisterCmdCallbacks
+        0     38   -> zclSampleSw_ResetAttributesToDefaultValues
+        0     38   -> zcl_registerAttrList
+        0     38   -> zcl_registerForMsg
+      2      4   zclSampleSw_ProcessCommissioningStatus
+        2      0   -> bdb_StartCommissioning
+        2      4   -> osal_start_timerEx
+      2     14   zclSampleSw_ProcessInDiscCmdsRspCmd
+      0     27   zclSampleSw_ProcessIncomingMsg
+        0     15   -> HalLcdWriteStringValue
+        0     14   -> osal_mem_free
+        0     14   -> zclSampleSw_ProcessInDiscCmdsRspCmd
+      1     43   zclSampleSw_ReportTest
+        0     26   -> HalLcdWriteString
+        0     26   -> HalUARTWrite
+        0     26   -> osal_mem_alloc
+        0     26   -> osal_mem_free
+        0     26   -> osal_strlen
+        0     31   -> zcl_SendReportCmd
+      0      9   zclSampleSw_UartCB
+        0      9   -> HalUARTRead
+        0      9   -> HalUARTWrite
+        0      9   -> Hal_UART_RxBufLen
+      0     23   zclSampleSw_event_loop
+        0     12   -> HalLedSet
+        0     12   -> bdb_StartCommissioning
+        0     12   -> bdb_ZedAttemptRecoverNwk
+        0     12   -> osal_msg_deallocate
+        0     12   -> osal_msg_receive
+        0     16   -> osal_start_timerEx
+        0     12   -> zclSampleSw_ProcessIncomingMsg
+        0     12   -> zclSampleSw_ReportTest
+        0     23   -> zcl_SendCommand
+
+
+   Segment part sizes:
+
+   Bytes  Function/Label
+   -----  --------------
+       6  ?<Constant "Read:">
+      12  ?<Constant "Set Led Off">
+      14  ?<Constant "Set Led Off\r\n">
+      11  ?<Constant "Set Led On">
+      13  ?<Constant "Set Led On\r\n">
+      21  ?<Constant "UART0 Init Succeed\r\n">
+       7  ?<Initializer for sampleSw_TestEp>
+      18  ?<Initializer for zclSampleSw_CmdCallbacks>
+       1  ?<Initializer for zclSampleSw_NwkState>
+       1  ?<Initializer for zclSampleSw_OnOffSwitchType>
+       2  ??Subroutine7_0
+      11  ??Subroutine8_0
+       8  ??Subroutine9_0
+       5  ?Subroutine0
+       7  ?Subroutine1
+       5  ?Subroutine2
+       2  ?Subroutine3
+       6  ?Subroutine4
+       9  ?Subroutine5
+      12  ?Subroutine6
+       1  P0DIR
+       1  P0SEL
+       4  __Constant_1f4
+       4  __Constant_2710
+       4  __Constant_3e8
+       4  __Constant_bb8
+       1  flag
+       7  sampleSw_TestEp
+       1  seqNum
+       1  zclSampleSwSeqNum
+       9  zclSampleSw_BasicResetCB
+       6  zclSampleSw_BasicResetCB::?relay
+      18  zclSampleSw_CmdCallbacks
+      12  zclSampleSw_DstAddr
+     232  zclSampleSw_Init
+       6  zclSampleSw_Init::?relay
+       1  zclSampleSw_NwkState
+       1  zclSampleSw_OnOffSwitchActions
+       1  zclSampleSw_OnOffSwitchType
+      80  zclSampleSw_ProcessCommissioningStatus
+       6  zclSampleSw_ProcessCommissioningStatus::?relay
+      37  zclSampleSw_ProcessInDiscCmdsRspCmd
+       6  zclSampleSw_ProcessInDiscCmdsRspCmd::?relay
+     287  zclSampleSw_ProcessIncomingMsg
+       6  zclSampleSw_ProcessIncomingMsg::?relay
+     284  zclSampleSw_ReportTest
+       6  zclSampleSw_ReportTest::?relay
+       1  zclSampleSw_TaskID
+     128  zclSampleSw_UartBuf
+      42  zclSampleSw_UartCB
+       6  zclSampleSw_UartCB::?relay
+     239  zclSampleSw_event_loop
+       6  zclSampleSw_event_loop::?relay
+
+ 
+ 1 277 bytes in segment BANKED_CODE
+    48 bytes in segment BANK_RELAYS
+     2 bytes in segment SFR_AN
+    27 bytes in segment XDATA_I
+    27 bytes in segment XDATA_ID
+    93 bytes in segment XDATA_ROM_C
+   145 bytes in segment XDATA_Z
+ 
+    75 bytes of CODE     memory
+    77 bytes of CONST    memory (+ 16 bytes shared)
+     0 bytes of DATA     memory (+  2 bytes shared)
+ 1 277 bytes of HUGECODE memory
+   172 bytes of XDATA    memory
+
+Errors: none
+Warnings: none

@@ -1,0 +1,1220 @@
+///////////////////////////////////////////////////////////////////////////////
+//
+// IAR C/C++ Compiler V10.20.1.5333 for 8051              08/Feb/2022  22:14:53
+// Copyright 2004-2018 IAR Systems AB.
+// PC-locked license - IAR Embedded Workbench for 8051
+//
+//    Core               =  plain
+//    Code model         =  banked
+//    Data model         =  large
+//    Calling convention =  xdata reentrant
+//    Constant location  =  data_rom
+//    Dptr setup         =  1,16
+//                          
+//    Source file        =  
+//        I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Components\stack\zcl\zcl_green_power.c
+//    Command line       =  
+//        -f C:\usertemp\AppData\Local\Temp\EWC542.tmp ("I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Components\stack\zcl\zcl_green_power.c" -D SECURE=1 -D
+//        TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D xZTOOL_P1 -D xMT_TASK -D
+//        xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xMT_ZDO_MGMT -D
+//        xMT_APP_CNF_FUNC -D LCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D
+//        ZCL_READ -D ZCL_DISCOVER -D ZCL_WRITE -D ZCL_BASIC -D ZCL_IDENTIFY -D
+//        ZCL_ON_OFF -D ZCL_GROUPS -D ZCL_REPORTING_DEVICE -D HAL_LED=TRUE -D
+//        HAL_KEY=TRUE -D ISR_KEYINTERRUPT -D HAL_UART=TRUE -D
+//        INT_HEAP_LEN=2300 -D HAL_LCD=TRUE -D xHAL_LCD_OLED12864 -D
+//        HAL_ADC=TRUE -lC "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\List"
+//        -lA "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\List"
+//        --diag_suppress Pe001,Pa010 -o "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\Obj"
+//        -e --debug --core=plain --dptr=16,1 --data_model=large
+//        --code_model=banked --calling_convention=xdata_reentrant
+//        --place_constants=data_rom --nr_virtual_regs 16 -f
+//        "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+//        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+//        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+//        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+//        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+//        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+//        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+//        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+//        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+//        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+//        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+//        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+//        -DMAX_BINDING_CLUSTER_IDS=4 -DDEFAULT_KEY={0}
+//        -DMAC_MAX_FRAME_SIZE=116 -DZDNWKMGR_MIN_TRANSMISSIONS=20
+//        "-DCONST=const __code" -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE
+//        -DPOLL_RATE=1000 -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100
+//        -DREJOIN_POLL_RATE=440 -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000
+//        -DENABLE_LED4_DISABLE_S1) -f "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\" -I
+//        "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\Source\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\Source\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\ZMain\TI2530DB\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\include\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\include\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mt\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\osal\include\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\af\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\bdb\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\gp\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\zmac\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\Common\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\SPI\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\Font\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_LCD_SPI\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_OLED\"
+//        -I "I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_TFT\"
+//        -Ohz --require_prototypes)
+//    Locale             =  Chinese (Simplified)_CHN.936
+//    List file          =  
+//        I:\ZigBee3.0\Zigbee3.0
+//        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+//        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\List\zcl_green_power.s51
+//
+///////////////////////////////////////////////////////////////////////////////
+
+        NAME zcl_green_power
+
+        RTMODEL "__SystemLibrary", "CLib"
+        RTMODEL "__calling_convention", "xdata_reentrant"
+        RTMODEL "__code_model", "banked"
+        RTMODEL "__core", "plain"
+        RTMODEL "__data_model", "large"
+        RTMODEL "__dptr_size", "16"
+        RTMODEL "__extended_stack", "disabled"
+        RTMODEL "__location_for_constants", "data"
+        RTMODEL "__number_of_dptrs", "1"
+        RTMODEL "__register_banks", "*"
+        RTMODEL "__rt_version", "1"
+
+        RSEG DOVERLAY:DATA:NOROOT(0)
+        RSEG IOVERLAY:IDATA:NOROOT(0)
+        RSEG ISTACK:IDATA:NOROOT(0)
+        RSEG PSTACK:XDATA:NOROOT(0)
+        RSEG XSTACK:XDATA:NOROOT(0)
+
+
+        END
+// I:\ZigBee3.0\Zigbee3.0 20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack 3.0.1\Components\stack\zcl\zcl_green_power.c
+//    1 /**************************************************************************************************
+//    2   Filename:       zcl_green_power.c
+//    3   Revised:        $Date: 2015-09-10 09:36:48 -0700 (Thu, 10 Sep 2015) $
+//    4   Revision:       $Revision: 44493 $
+//    5 
+//    6   Description:    Zigbee Cluster Library - General.  This application receives all
+//    7                   ZCL messages and initially parses them before passing to application.
+//    8 
+//    9 
+//   10   Copyright 2006-2015 Texas Instruments Incorporated. All rights reserved.
+//   11 
+//   12   IMPORTANT: Your use of this Software is limited to those specific rights
+//   13   granted under the terms of a software license agreement between the user
+//   14   who downloaded the software, his/her employer (which must be your employer)
+//   15   and Texas Instruments Incorporated (the "License"). You may not use this
+//   16   Software unless you agree to abide by the terms of the License. The License
+//   17   limits your use, and you acknowledge, that the Software may not be modified,
+//   18   copied or distributed unless embedded on a Texas Instruments microcontroller
+//   19   or used solely and exclusively in conjunction with a Texas Instruments radio
+//   20   frequency transceiver, which is integrated into your product. Other than for
+//   21   the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+//   22   works of, modify, distribute, perform, display or sell this Software and/or
+//   23   its documentation for any purpose.
+//   24 
+//   25   YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+//   26   PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+//   27   INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+//   28   NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+//   29   TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+//   30   NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+//   31   LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+//   32   INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+//   33   OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+//   34   OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+//   35   (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+//   36 
+//   37   Should you have any questions regarding your right to use this Software,
+//   38   contact Texas Instruments Incorporated at www.TI.com.
+//   39 **************************************************************************************************/
+//   40 
+//   41 
+//   42 
+//   43 /*********************************************************************
+//   44  * INCLUDES
+//   45  */
+//   46 
+//   47 #include "ZGlobals.h"  
+//   48 #include "ZComDef.h"
+//   49 #include "zcl.h"
+//   50 #include "zcl_green_power.h"
+//   51 #include "stub_aps.h"
+//   52 #include "gp_common.h"
+//   53 #include "bdb_interface.h"
+//   54    
+//   55 #if !defined (DISABLE_GREENPOWER_BASIC_PROXY) && (ZG_BUILD_RTR_TYPE)
+//   56 
+//   57 /*********************************************************************
+//   58  * MACROS
+//   59  */
+//   60 
+//   61 /*********************************************************************
+//   62  * CONSTANTS
+//   63  */
+//   64 
+//   65 /*********************************************************************
+//   66  * TYPEDEFS
+//   67  */
+//   68 
+//   69 typedef struct zclGpCBRec
+//   70 {
+//   71   struct zclGpCBRec        *next;
+//   72   uint8                     endpoint; // Used to link it into the endpoint descriptor
+//   73   zclGp_AppCallbacks_t     *CBs;      // Pointer to Callback function
+//   74 } zclGpCBRec_t;
+//   75 
+//   76 
+//   77 /*********************************************************************
+//   78  * GLOBAL VARIABLES
+//   79  */
+//   80 
+//   81 /*********************************************************************
+//   82  * GLOBAL FUNCTIONS
+//   83  */
+//   84 
+//   85 /*********************************************************************
+//   86  * LOCAL VARIABLES
+//   87  */
+//   88 static zclGpCBRec_t *zclGpCBs = (zclGpCBRec_t *)NULL;
+//   89 static uint8 zclGpPluginRegisted = FALSE;
+//   90 static gpNotificationMsg_t *pNotificationMsgHead = NULL;
+//   91 static gpCmdPayloadMsg_t *pCmdPayloadMsgHead = NULL;
+//   92 
+//   93 //static zclGenSceneItem_t *zclGenSceneTable = (zclGenSceneItem_t *)NULL;
+//   94 
+//   95 
+//   96 /*********************************************************************
+//   97  * LOCAL FUNCTIONS
+//   98  */
+//   99 static ZStatus_t zclGp_HdlIncoming( zclIncoming_t *pInMsg );
+//  100 static ZStatus_t zclGp_HdlInSpecificCommands( zclIncoming_t *pInMsg );
+//  101 static zclGp_AppCallbacks_t *zclGp_FindCallbacks( uint8 endpoint );
+//  102 static uint8 gp_addPairedSinksToMsgQueue( uint8 appId, uint8 *pId, gpCmdPayloadMsg_t* pMsg );
+//  103 
+//  104 static ZStatus_t zclGp_ProcessInProxyBasic( zclIncoming_t *pInMsg, zclGp_AppCallbacks_t *pCBs );
+//  105 
+//  106 
+//  107 /*********************************************************************
+//  108  * @fn      zclGp_RegisterCmdCallbacks
+//  109  *
+//  110  * @brief   Register an applications command callbacks
+//  111  *
+//  112  * @param   endpoint - application's endpoint
+//  113  * @param   callbacks - pointer to the callback record.
+//  114  *
+//  115  * @return  ZMemError if not able to allocate
+//  116  */
+//  117 ZStatus_t zclGp_RegisterCmdCallbacks( uint8 endpoint, zclGp_AppCallbacks_t *callbacks )
+//  118 {
+//  119   zclGpCBRec_t *pNewItem;
+//  120   zclGpCBRec_t *pLoop;
+//  121 
+//  122   // Register as a ZCL Plugin
+//  123   if ( zclGpPluginRegisted == FALSE )
+//  124   {
+//  125     zcl_registerPlugin( ZCL_CLUSTER_ID_GREEN_POWER,
+//  126                         ZCL_CLUSTER_ID_GREEN_POWER,
+//  127                         zclGp_HdlIncoming );
+//  128 
+//  129     zclGpPluginRegisted = TRUE;
+//  130   }
+//  131 
+//  132   // Fill in the new profile list
+//  133   pNewItem = zcl_mem_alloc( sizeof( zclGpCBRec_t ) );
+//  134   if ( pNewItem == NULL )
+//  135     return (ZMemError);
+//  136 
+//  137   pNewItem->next = (zclGpCBRec_t *)NULL;
+//  138   pNewItem->endpoint = endpoint;
+//  139   pNewItem->CBs = callbacks;
+//  140 
+//  141   // Find spot in list
+//  142   if (  zclGpCBs == NULL )
+//  143   {
+//  144     zclGpCBs = pNewItem;
+//  145   }
+//  146   else
+//  147   {
+//  148     // Look for end of list
+//  149     pLoop = zclGpCBs;
+//  150     while ( pLoop->next != NULL )
+//  151       pLoop = pLoop->next;
+//  152 
+//  153     // Put new item at end of list
+//  154     pLoop->next = pNewItem;
+//  155   }
+//  156 
+//  157   return ( ZSuccess );
+//  158 }
+//  159 
+//  160 /*********************************************************************
+//  161  * @fn      zclGp_FindCallbacks
+//  162  *
+//  163  * @brief   Find the callbacks for an endpoint
+//  164  *
+//  165  * @param   endpoint - endpoint to find the application callbacks for
+//  166  *
+//  167  * @return  pointer to the callbacks
+//  168  */
+//  169 static zclGp_AppCallbacks_t *zclGp_FindCallbacks( uint8 endpoint )
+//  170 {
+//  171   zclGpCBRec_t *pCBs;
+//  172 
+//  173   pCBs = zclGpCBs;
+//  174   while ( pCBs )
+//  175   {
+//  176     if ( pCBs->endpoint == endpoint )
+//  177       return ( pCBs->CBs );
+//  178     pCBs = pCBs->next;
+//  179   }
+//  180   return ( (zclGp_AppCallbacks_t *)NULL );
+//  181 }
+//  182 
+//  183 /*********************************************************************
+//  184  * @fn      zclGp_HdlIncoming
+//  185  *
+//  186  * @brief   Callback from ZCL to process incoming Commands specific
+//  187  *          to this cluster library or Profile commands for attributes
+//  188  *          that aren't in the attribute list
+//  189  *
+//  190  *
+//  191  * @param   pInMsg - pointer to the incoming message
+//  192  *
+//  193  * @return  ZStatus_t
+//  194  */
+//  195 static ZStatus_t zclGp_HdlIncoming( zclIncoming_t *pInMsg )
+//  196 {
+//  197   ZStatus_t stat = ZSuccess;
+//  198 
+//  199 #if defined ( INTER_PAN )
+//  200   if ( StubAPS_InterPan( pInMsg->msg->srcAddr.panId, pInMsg->msg->srcAddr.endPoint ) )
+//  201     return ( stat ); // Cluster not supported thru Inter-PAN
+//  202 #endif
+//  203   if ( zcl_ClusterCmd( pInMsg->hdr.fc.type ) )
+//  204   {
+//  205     // Is this a manufacturer specific command?
+//  206     if ( pInMsg->hdr.fc.manuSpecific == 0 )
+//  207     {
+//  208       stat = zclGp_HdlInSpecificCommands( pInMsg );
+//  209     }
+//  210     else
+//  211     {
+//  212       // We don't support any manufacturer specific command.
+//  213       stat = ZFailure;
+//  214     }
+//  215   }
+//  216   else
+//  217   {
+//  218     // Handle all the normal (Read, Write...) commands -- should never get here
+//  219     stat = ZFailure;
+//  220   }
+//  221   return ( stat );
+//  222 }
+//  223 
+//  224 /*********************************************************************
+//  225  * @fn      zclGp_HdlInSpecificCommands
+//  226  *
+//  227  * @brief   Callback from ZCL to process incoming Commands specific
+//  228  *          to this cluster library
+//  229 
+//  230  * @param   pInMsg - pointer to the incoming message
+//  231  *
+//  232  * @return  ZStatus_t
+//  233  */
+//  234 static ZStatus_t zclGp_HdlInSpecificCommands( zclIncoming_t *pInMsg )
+//  235 {
+//  236   ZStatus_t stat;
+//  237   zclGp_AppCallbacks_t *pCBs;
+//  238 
+//  239   // make sure endpoint exists
+//  240   pCBs = zclGp_FindCallbacks( pInMsg->msg->endPoint );
+//  241   if ( pCBs == NULL )
+//  242     return ( ZFailure );
+//  243 
+//  244   switch ( pInMsg->msg->clusterId )
+//  245   {
+//  246     case ZCL_CLUSTER_ID_GREEN_POWER:
+//  247       // Proxy Basic handler
+//  248       stat = zclGp_ProcessInProxyBasic( pInMsg, pCBs );
+//  249       break;
+//  250 
+//  251     default:
+//  252       stat = ZFailure;
+//  253       break;
+//  254   }
+//  255 
+//  256   return ( stat );
+//  257 }
+//  258 
+//  259 /*********************************************************************
+//  260  * @fn      zclGp_ProcessInProxyBasic
+//  261  *
+//  262  * @brief   Process in the received client commands for the Proxy Basic.
+//  263  *
+//  264  * @param   pInMsg - pointer to the incoming message
+//  265  *
+//  266  * @return  ZStatus_t
+//  267  */
+//  268 static ZStatus_t zclGp_ProcessInProxyBasic( zclIncoming_t *pInMsg,
+//  269                                           zclGp_AppCallbacks_t *pCBs )
+//  270 {
+//  271   // Server side command handler
+//  272   if ( zcl_ServerCmd( pInMsg->hdr.fc.direction ) )
+//  273   {
+//  274     // Server side command handling is not supported
+//  275     zclDefaultRspCmd_t defaultRspCmd;
+//  276 
+//  277     defaultRspCmd.commandID = pInMsg->hdr.commandID;
+//  278     defaultRspCmd.statusCode = ZCL_STATUS_UNSUP_CLUSTER_COMMAND;
+//  279     zcl_SendDefaultRspCmd( pInMsg->msg->endPoint, &(pInMsg->msg->srcAddr),
+//  280                            pInMsg->msg->clusterId, &defaultRspCmd,
+//  281                            ZCL_FRAME_SERVER_CLIENT_DIR, true, 0, pInMsg->hdr.transSeqNum );
+//  282   }
+//  283   // Client side command handler
+//  284   if ( zcl_ClientCmd( pInMsg->hdr.fc.direction ) )
+//  285   {
+//  286     switch ( pInMsg->hdr.commandID )
+//  287     {
+//  288       case COMMAND_GP_PAIRING:
+//  289         if ( pCBs->pfnGpPairingCmd )
+//  290         {
+//  291           zclGpPairing_t cmd;
+//  292           
+//  293           zcl_InSeqNum = pInMsg->hdr.transSeqNum;
+//  294           
+//  295           cmd.srcAddr = &(pInMsg->msg->srcAddr);
+//  296           osal_memcpy( cmd.options, (void*)pInMsg->pData, sizeof(cmd.options) );
+//  297           pInMsg->pData += sizeof(cmd.options);  // Move data pointer after options field
+//  298                     
+//  299           if ( cmd.pData == NULL )
+//  300           {
+//  301             return ZFailure;
+//  302           }
+//  303           
+//  304           cmd.pData = pInMsg->pData;
+//  305           pCBs->pfnGpPairingCmd( &cmd );
+//  306 
+//  307         }
+//  308         break;
+//  309         
+//  310       case COMMAND_GP_PROXY_TABLE_REQUEST:
+//  311         if ( pCBs->pfnGpProxyTableReqCmd )
+//  312         {
+//  313           zclGpProxyTableRequest_t cmd;
+//  314           
+//  315           zcl_InSeqNum = pInMsg->hdr.transSeqNum;
+//  316           
+//  317           cmd.srcAddr = &(pInMsg->msg->srcAddr);
+//  318           osal_memcpy( &cmd.options, (void*)pInMsg->pData, sizeof(cmd.options) );
+//  319           pInMsg->pData += sizeof(cmd.options);  // Move data pointer after options field
+//  320           
+//  321           
+//  322           cmd.pData = (void*)pInMsg->pData;
+//  323           pCBs->pfnGpProxyTableReqCmd( &cmd );
+//  324 
+//  325         }
+//  326         break;
+//  327       case COMMAND_GP_PROXY_COMMISSIONING_MODE:
+//  328         if(pCBs->pfnGpProxyCommissioningModeCmd)
+//  329         {
+//  330           zclGpProxyCommissioningMode_t cmd;
+//  331 
+//  332           osal_memcpy( &cmd.options, (void*)pInMsg->pData, sizeof(cmd.options) );
+//  333           pInMsg->pData += sizeof(cmd.options);  // Move data pointer after options field
+//  334 
+//  335           // alloc for data after options field
+//  336           uint8 responseLen = pInMsg->pDataLen - sizeof(cmd.options); 
+//  337          
+//  338           cmd.pData = osal_mem_alloc( responseLen );
+//  339           osal_memcpy(cmd.pData, (void*)pInMsg->pData, responseLen );
+//  340 
+//  341           if(pInMsg->msg->srcAddr.addrMode == afAddr16Bit)
+//  342           {
+//  343             cmd.srcAddr = pInMsg->msg->srcAddr.addr.shortAddr;
+//  344           }
+//  345           
+//  346           pCBs->pfnGpProxyCommissioningModeCmd( &cmd );
+//  347         }
+//  348         break;
+//  349         case COMMAND_GP_RESPONSE:
+//  350           
+//  351           if(pCBs->pfnGpResponseCommand)
+//  352           {
+//  353             zclGpResponse_t cmd;
+//  354             
+//  355             uint8 responseLen;
+//  356 
+//  357             osal_memcpy( &cmd.options, (void*)pInMsg->pData, sizeof(cmd.options) );
+//  358             pInMsg->pData += sizeof(cmd.options);  // Move data pointer after options field
+//  359             
+//  360             cmd.tempMasterShortAddr = osal_build_uint16(pInMsg->pData);
+//  361             pInMsg->pData += sizeof(cmd.tempMasterShortAddr);  // Move data pointer after tempMaster field
+//  362             
+//  363             osal_memcpy( &cmd.tempMasterTxChannel, (void*)pInMsg->pData, sizeof(cmd.tempMasterTxChannel) );
+//  364             pInMsg->pData += sizeof(cmd.tempMasterTxChannel);  // Move data pointer after options field
+//  365             
+//  366             cmd.dstAddr = pInMsg->msg->macDestAddr;  
+//  367                   
+//  368             responseLen = pInMsg->pDataLen - sizeof(cmd.tempMasterTxChannel) 
+//  369                                    - sizeof(cmd.tempMasterShortAddr) 
+//  370                                    - sizeof(cmd.options);
+//  371             cmd.pData = osal_mem_alloc( responseLen );
+//  372             
+//  373             osal_memcpy(cmd.pData, (void*)pInMsg->pData, responseLen );
+//  374 
+//  375             pCBs->pfnGpResponseCommand( &cmd ); 
+//  376           }
+//  377         break;
+//  378     }
+//  379   }
+//  380 
+//  381   return ( ZSuccess );
+//  382 }
+//  383 
+//  384 /*********************************************************************
+//  385  * @fn      zclGp_SendGpNotificationCommand
+//  386  *
+//  387  * @brief   Send the Green Power Notification Command to a device
+//  388  *
+//  389  * @param   pCmd - Pointer to GP Notification Struct
+//  390  *          secNum - Sequence number given by the GPDF  
+//  391  *
+//  392  * @return  ZStatus_t
+//  393  */
+//  394 ZStatus_t zclGp_SendGpNotificationCommand( gpNotificationCmd_t *pCmd, uint8 secNum )
+//  395 {
+//  396   uint8 *buf = NULL;
+//  397   uint8 *pBuf = NULL;
+//  398   uint8 *pGpdId = NULL;
+//  399   uint8 appId;
+//  400   ZStatus_t status;
+//  401   uint16 len = 11;  // options + GPD Sec Counter + Cmd ID + payloadLen + GPP Short Address + GPP-GPD link
+//  402   gpCmdPayloadMsg_t *pCmdPayloadMsgCurr = NULL;
+//  403   
+//  404   // Check some stuff to calculate the packet len
+//  405   // If Application Id bitfield is 0b000
+//  406   if( GP_IS_APPLICATION_ID_GPD( pCmd->options ) )
+//  407   {
+//  408     len += 4;  // GPD ID
+//  409   }
+//  410   // If Application Id bitfield is 0b010
+//  411   else if( GP_IS_APPLICATION_ID_IEEE( pCmd->options ) )
+//  412   {
+//  413     len += 9;  // IEEE addr + EP
+//  414   }
+//  415   
+//  416   // Length of the command payload
+//  417   len += pCmd->payloadLen;
+//  418 
+//  419   buf = zcl_mem_alloc( len );
+//  420   if ( buf )
+//  421   {
+//  422     pBuf = buf;
+//  423     
+//  424     zcl_memcpy( pBuf, &pCmd->options, sizeof ( uint16 ) );
+//  425     pBuf += sizeof ( uint16 );
+//  426     
+//  427     // If Application Id bitfield is 0b000
+//  428     if( GP_IS_APPLICATION_ID_GPD( pCmd->options ) )
+//  429     {
+//  430       zcl_memcpy( pBuf, &pCmd->gpdId, sizeof ( uint32 ) );
+//  431       pGpdId = ( uint8* )&pCmd->gpdId;
+//  432       appId = GP_OPT_APP_ID_GPD;
+//  433       pBuf += sizeof ( uint32 );
+//  434     }
+//  435     // If Application Id bitfield is 0b010
+//  436     else if( GP_IS_APPLICATION_ID_IEEE( pCmd->options ) )
+//  437     {
+//  438       zcl_memcpy( pBuf, &pCmd->gpdIEEE, Z_EXTADDR_LEN );
+//  439       pGpdId = pCmd->gpdIEEE;
+//  440       appId = GP_OPT_APP_ID_IEEE;
+//  441       pBuf += Z_EXTADDR_LEN;
+//  442       *pBuf++ = pCmd->ep;
+//  443     }
+//  444     
+//  445     zcl_memcpy( pBuf, &pCmd->gpdSecCounter, sizeof ( uint32 ) );
+//  446     pBuf += sizeof ( uint32 );
+//  447 
+//  448     *pBuf++ = pCmd->cmdId;
+//  449     
+//  450     *pBuf++ = pCmd->payloadLen;
+//  451     if ( pCmd->payloadLen > 0 )
+//  452     {
+//  453       zcl_memcpy( pBuf, &pCmd->cmdPayload, pCmd->payloadLen );
+//  454       pBuf += pCmd->payloadLen;
+//  455     }
+//  456     
+//  457     zcl_memcpy( pBuf, &pCmd->gppShortAddr, sizeof ( uint16 ) );
+//  458     pBuf += sizeof ( uint16 );
+//  459     
+//  460     *pBuf++ = pCmd->gppGpdLink;
+//  461     
+//  462     pCmdPayloadMsgCurr = gp_AddCmdPayloadMsgNode ( &pCmdPayloadMsgHead, buf, len );
+//  463     
+//  464     pCmdPayloadMsgCurr->secNum = secNum;
+//  465           
+//  466     if ( pCmdPayloadMsgCurr != NULL )
+//  467     {
+//  468       gp_addPairedSinksToMsgQueue( appId, pGpdId, pCmdPayloadMsgCurr );
+//  469       osal_start_timerEx( zcl_TaskID, ZCL_DATABUF_SEND, 50 );
+//  470     }
+//  471 
+//  472   }
+//  473   else
+//  474     status = ZMemError;
+//  475 
+//  476   return ( status );
+//  477 }
+//  478   
+//  479 /*********************************************************************
+//  480  * @fn      zclGp_SendGpCommissioningNotificationCommand
+//  481  *
+//  482  * @brief   Send the Green Power Commissioning Notification Command to a device
+//  483  *
+//  484  * @param   pCmd - Pointer to GP Commissioning Notification Struct
+//  485  *
+//  486  * @return  ZStatus_t
+//  487  */
+//  488 ZStatus_t zclGp_SendGpCommissioningNotificationCommand( gpCommissioningNotificationCmd_t *pCmd )
+//  489 {
+//  490   uint8 *buf = NULL;
+//  491   uint8 *pBuf = NULL;
+//  492   ZStatus_t status;
+//  493   uint16 len = 11;  // options + GPD Sec Counter + Cmd ID + payloadLen + GPP Short Address + GPP-GPD link
+//  494   
+//  495   // Check some stuff to calculate the packet len
+//  496   // If Application Id bitfield is 0b000
+//  497   if( GP_IS_APPLICATION_ID_GPD( pCmd->options ) )
+//  498   {
+//  499     len += 4;  // GPD ID
+//  500   }
+//  501   // If Application Id bitfield is 0b010
+//  502   else if( GP_IS_APPLICATION_ID_IEEE( pCmd->options ) )
+//  503   {
+//  504     len += 9;  // IEEE addr + EP
+//  505   }
+//  506   
+//  507   // Length of the command payload
+//  508   len += pCmd->payloadLen;
+//  509 
+//  510   buf = zcl_mem_alloc( len );
+//  511   if ( buf )
+//  512   {
+//  513     pBuf = buf;
+//  514     
+//  515     zcl_memcpy( pBuf, &pCmd->options, sizeof ( uint16 ) );
+//  516     pBuf += sizeof ( uint16 );
+//  517     
+//  518     // If Application Id bitfield is 0b000
+//  519     if( GP_IS_APPLICATION_ID_GPD( pCmd->options ) )
+//  520     {
+//  521       zcl_memcpy( pBuf, &pCmd->gpdId, sizeof ( uint32 ) );
+//  522       pBuf += sizeof ( uint32 );
+//  523     }
+//  524     // If Application Id bitfield is 0b010
+//  525     else if( GP_IS_APPLICATION_ID_IEEE( pCmd->options ) )
+//  526     {
+//  527       zcl_memcpy( pBuf, &pCmd->gpdIEEE, Z_EXTADDR_LEN );
+//  528       pBuf += Z_EXTADDR_LEN;
+//  529       *pBuf++ = pCmd->ep;
+//  530     }
+//  531     
+//  532     zcl_memcpy( pBuf, &pCmd->gpdSecCounter, sizeof ( uint32 ) );
+//  533     pBuf += sizeof ( uint32 );
+//  534 
+//  535     *pBuf++ = pCmd->cmdId;
+//  536     
+//  537     *pBuf++ = pCmd->payloadLen;
+//  538     if ( pCmd->payloadLen > 0 )
+//  539     {
+//  540       zcl_memcpy( pBuf, &pCmd->cmdPayload, pCmd->payloadLen );
+//  541       pBuf += pCmd->payloadLen;
+//  542     }
+//  543     
+//  544     zcl_memcpy( pBuf, &pCmd->gppShortAddr, sizeof ( uint16 ) );
+//  545     pBuf += sizeof ( uint16 );
+//  546     
+//  547     *pBuf++ = pCmd->gppGpdLink;
+//  548     
+//  549     afAddrType_t addr;
+//  550     addr.endPoint = GREEN_POWER_INTERNAL_ENDPOINT;
+//  551     addr.panId = _NIB.nwkPanId;
+//  552     addr.addr.shortAddr = gp_commissionerAddress; 
+//  553         
+//  554     if ( gp_commissionerAddress == 0xFFFF )
+//  555     {
+//  556       addr.addrMode = afAddrBroadcast;
+//  557     }
+//  558     else
+//  559     {
+//  560       addr.addrMode = afAddr16Bit;
+//  561     }
+//  562         
+//  563     zcl_SendCommand( GREEN_POWER_INTERNAL_ENDPOINT, &addr, ZCL_CLUSTER_ID_GREEN_POWER,
+//  564                       COMMAND_GP_COMMISSIONING_NOTIFICATION, TRUE, ZCL_FRAME_CLIENT_SERVER_DIR,
+//  565                       TRUE, 0,  bdb_getZCLFrameCounter(), len, buf ); 
+//  566       
+//  567     zcl_mem_free( buf );
+//  568   }
+//  569   else
+//  570     status = ZMemError;
+//  571 
+//  572   return ( status );
+//  573 }
+//  574 /*********************************************************************
+//  575  * @fn      zclGp_SendGpProxyTableResponse
+//  576  *
+//  577  * @brief   Send the Green Power Proxy Table Response to a device
+//  578  *
+//  579  * @param   dstAddr - where to send the request
+//  580  * @param   groupID - pointer to the group structure
+//  581  * @param   groupName - pointer to Group Name.  This is a Zigbee
+//  582  *          string data type, so the first byte is the length of the
+//  583  *          name (in bytes), then the name.
+//  584  *
+//  585  * @return  ZStatus_t
+//  586  */
+//  587 ZStatus_t zclGp_SendGpProxyTableResponse( afAddrType_t *dstAddr, zclGpProxyTableResponse_t *rsp, 
+//  588                                           uint8 seqNum )
+//  589 {
+//  590   uint8 *buf = NULL;
+//  591   uint8 *pBuf = NULL;
+//  592   uint8 *pEntry = NULL;
+//  593   
+//  594   ZStatus_t status;
+//  595   uint16 entryLen = 0;
+//  596   uint16 len;
+//  597   
+//  598   if ( rsp->proxyTableEntry != NULL )
+//  599   {
+//  600     pEntry = rsp->proxyTableEntry;
+//  601     zcl_memcpy( &entryLen, pEntry, sizeof ( uint16 ) );
+//  602     pEntry += sizeof ( uint16 );
+//  603   }
+//  604   
+//  605   len = entryLen + 4;
+//  606 
+//  607   buf = zcl_mem_alloc( len );
+//  608   if ( buf )
+//  609   {
+//  610     pBuf = buf;
+//  611     *pBuf++ = rsp->status;
+//  612     *pBuf++ = rsp->tableEntriesTotal;
+//  613     *pBuf++ = rsp->startIndex;
+//  614     *pBuf++ = rsp->entriesCount;
+//  615     if ( rsp->proxyTableEntry != NULL )
+//  616     {
+//  617       zcl_memcpy( pBuf, pEntry, entryLen );
+//  618     }
+//  619 
+//  620     status = zcl_SendCommand( GREEN_POWER_INTERNAL_ENDPOINT, dstAddr, ZCL_CLUSTER_ID_GREEN_POWER,
+//  621                               COMMAND_GP_PROXY_TABLE_RESPONSE, TRUE, ZCL_FRAME_CLIENT_SERVER_DIR,
+//  622                               TRUE, 0, seqNum, len, buf );
+//  623     zcl_mem_free( buf );
+//  624   }
+//  625   else
+//  626     status = ZMemError;
+//  627 
+//  628   return ( status );
+//  629 }
+//  630 
+//  631  /*********************************************************************
+//  632  * @fn          gp_addPairedSinksToMsgQueue
+//  633  *
+//  634  * @brief       General function to add Notification Msg to Queue for all 
+//  635  *              Sinks paired to the given GPD
+//  636  *
+//  637  * @param       nvIndex - NV Id of proxy table
+//  638  *              pEntry  - pointer to PROXY_TBL_ENTRY_LEN array
+//  639  *
+//  640  * @return      
+//  641  */
+//  642 static uint8 gp_addPairedSinksToMsgQueue( uint8 appId, uint8 *pId, gpCmdPayloadMsg_t* pMsg )
+//  643 {
+//  644   uint8 freeSinkEntry[LSINK_ADDR_LEN] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+//  645   uint8 status;
+//  646   uint8 i;
+//  647   uint8 currEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+//  648   afAddrType_t dstAddr = {0};
+//  649   gpNotificationMsg_t *pNotificationMsgCurr = NULL;
+//  650 
+//  651     
+//  652   for ( i = 0; i <= GPP_MAX_PROXY_TABLE_ENTRIES ; i++ )
+//  653   {
+//  654     status = gp_getProxyTableByIndex( ( ZCD_NV_PROXY_TABLE_START + i ), currEntry );
+//  655 
+//  656     if ( status == NV_OPER_FAILED )
+//  657     {
+//  658       break;
+//  659     }
+//  660     
+//  661     // if the entry is empty
+//  662     if ( status == NV_INVALID_DATA )
+//  663     {
+//  664       if ( i >= GPP_MAX_PROXY_TABLE_ENTRIES )
+//  665       {
+//  666         return status;
+//  667       }
+//  668       continue;
+//  669     }
+//  670     
+//  671     if ( PROXY_TBL_COMP_APPLICTION_ID( appId, currEntry[PROXY_TBL_ENTRY_OPT] ) )
+//  672     {
+//  673       if ( appId == GP_OPT_APP_ID_GPD )
+//  674       {
+//  675         if ( osal_memcmp( pId, &currEntry[PROXY_TBL_ENTRY_GPD_ID + 4], sizeof ( uint32 ) ) )
+//  676         {
+//  677           // Entry found
+//  678           break;
+//  679         }
+//  680       }
+//  681       else if ( appId == GP_OPT_APP_ID_IEEE )
+//  682       {
+//  683         if ( osal_memcmp( pId, &currEntry[PROXY_TBL_ENTRY_GPD_ID], Z_EXTADDR_LEN ) )
+//  684         {
+//  685           // Entry found
+//  686           break;
+//  687         }
+//  688       }
+//  689     }
+//  690   }
+//  691   
+//  692   dstAddr.endPoint = GREEN_POWER_INTERNAL_ENDPOINT;
+//  693   dstAddr.panId = _NIB.nwkPanId;
+//  694   
+//  695   if ( PROXY_TBL_GET_LIGHTWIGHT_UNICAST( currEntry[PROXY_TBL_ENTRY_OPT] ) )
+//  696   {
+//  697     dstAddr.addrMode = afAddr16Bit;
+//  698     if ( !osal_memcmp( freeSinkEntry, &currEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR], LSINK_ADDR_LEN ) )
+//  699     {
+//  700       osal_memcpy( &dstAddr.addr.shortAddr, &currEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR + Z_EXTADDR_LEN], sizeof ( uint16 ) );
+//  701       
+//  702       pNotificationMsgCurr = gp_AddNotificationMsgNode( &pNotificationMsgHead, pMsg );
+//  703       if ( pNotificationMsgCurr != NULL )
+//  704       {
+//  705         pNotificationMsgCurr->addr = dstAddr;
+//  706       }
+//  707     }
+//  708     if ( !osal_memcmp( freeSinkEntry, &currEntry[PROXY_TBL_ENTRY_2ND_LSINK_ADDR], LSINK_ADDR_LEN ) )
+//  709     {
+//  710       osal_memcpy( &dstAddr.addr.shortAddr, &currEntry[PROXY_TBL_ENTRY_2ND_LSINK_ADDR + Z_EXTADDR_LEN], sizeof ( uint16 ) );   
+//  711       
+//  712       pNotificationMsgCurr = gp_AddNotificationMsgNode( &pNotificationMsgHead, pMsg );
+//  713       if ( pNotificationMsgCurr != NULL )
+//  714       {
+//  715         pNotificationMsgCurr->addr = dstAddr;
+//  716       }
+//  717     }
+//  718   }
+//  719      
+//  720   if ( PROXY_TBL_GET_DGROUP( currEntry[PROXY_TBL_ENTRY_OPT] ) || PROXY_TBL_GET_CGROUP( currEntry[PROXY_TBL_ENTRY_OPT + 1] ) )
+//  721   {
+//  722     dstAddr.addrMode = afAddrGroup;
+//  723     if ( GET_BIT( &currEntry[PROXY_TBL_ENTRY_GRP_TBL_ENTRIES], PROXY_TBL_ENTRY_1ST_GRP_BIT ) )
+//  724     {
+//  725       osal_memcpy( &dstAddr.addr.shortAddr, &currEntry[PROXY_TBL_ENTRY_1ST_GRP_ADDR], sizeof ( uint16 ) );   
+//  726       
+//  727       pNotificationMsgCurr = gp_AddNotificationMsgNode( &pNotificationMsgHead, pMsg );
+//  728       if ( pNotificationMsgCurr != NULL )
+//  729       {
+//  730         pNotificationMsgCurr->addr = dstAddr;
+//  731       }
+//  732     }
+//  733     if ( GET_BIT( &currEntry[PROXY_TBL_ENTRY_GRP_TBL_ENTRIES], PROXY_TBL_ENTRY_2ND_GRP_BIT ) )
+//  734     {
+//  735       osal_memcpy( &dstAddr.addr.shortAddr, &currEntry[PROXY_TBL_ENTRY_2ND_GRP_ADDR], sizeof ( uint16 ) );   
+//  736       
+//  737       pNotificationMsgCurr = gp_AddNotificationMsgNode( &pNotificationMsgHead, pMsg );
+//  738       if ( pNotificationMsgCurr != NULL )
+//  739       {
+//  740         pNotificationMsgCurr->addr = dstAddr;
+//  741       }
+//  742     }
+//  743   }
+//  744 
+//  745   return status;
+//  746 }
+//  747 
+//  748 /*********************************************************************
+//  749  * @fn      gp_CreateNotificationMsgList
+//  750  *
+//  751  * @brief   Create Notification Msg List for paired sinks if empty
+//  752  *
+//  753  * @param   pHead - pointer to a pointer of the list head
+//  754  *
+//  755  * @return  none
+//  756  */
+//  757 void gp_CreateNotificationMsgList( gpNotificationMsg_t **pHead )
+//  758 {
+//  759 
+//  760   // Create the list if empty
+//  761   if ( *pHead == NULL )
+//  762   {
+//  763     *pHead = ( gpNotificationMsg_t* )osal_mem_alloc( sizeof( gpNotificationMsg_t ) );
+//  764     
+//  765     if ( *pHead != NULL )
+//  766     {
+//  767       (*pHead)->pNext = NULL;
+//  768     }
+//  769   }
+//  770   return;
+//  771 }
+//  772 
+//  773 /*********************************************************************
+//  774  * @fn      gp_CreateCmdPayloadMsgList
+//  775  *
+//  776  * @brief   Create Notification Msg List for paired sinks if empty
+//  777  *
+//  778  * @param   pHead - pointer to a pointer of the list head
+//  779  *
+//  780  * @return  none
+//  781  */
+//  782 void gp_CreateCmdPayloadMsgList( gpCmdPayloadMsg_t **pHead )
+//  783 {
+//  784 
+//  785   // Create the list if empty
+//  786   if ( *pHead == NULL )
+//  787   {
+//  788     *pHead = ( gpCmdPayloadMsg_t* )osal_mem_alloc( sizeof( gpCmdPayloadMsg_t ) );
+//  789     ( ( gpCmdPayloadMsg_t* )*pHead )->pMsg = NULL;
+//  790     
+//  791     if ( *pHead != NULL )
+//  792     {
+//  793       (*pHead)->pNext = NULL;
+//  794     }
+//  795   }
+//  796   return;
+//  797 }
+//  798 
+//  799 /*********************************************************************
+//  800  * @fn      gp_AddNotificationMsgNode
+//  801  *
+//  802  * @brief   Add node to Notification Msg list
+//  803  *
+//  804  * @param   pHead - pointer to a pointer of the list head
+//  805  *
+//  806  * @return  pointer to new node
+//  807  */
+//  808 gpNotificationMsg_t* gp_AddNotificationMsgNode( gpNotificationMsg_t **pHead, gpCmdPayloadMsg_t *pMsg )
+//  809 {
+//  810   gpNotificationMsg_t **pCurr;
+//  811   
+//  812     // Create respondent list if empty
+//  813   if ( *pHead == NULL )
+//  814   {
+//  815     gp_CreateNotificationMsgList( pHead );
+//  816     ( ( gpNotificationMsg_t* ) *pHead )->pMsg = ( uint8* )pMsg;
+//  817     return *pHead;
+//  818   }
+//  819   
+//  820   pCurr = &((*pHead)->pNext);
+//  821   
+//  822   while ( *pCurr != NULL )
+//  823   {
+//  824     pCurr = &((*pCurr)->pNext);
+//  825   }
+//  826 
+//  827   *pCurr = ( gpNotificationMsg_t* )osal_mem_alloc( sizeof( gpNotificationMsg_t ) );
+//  828     
+//  829   if ( (*pCurr)->pNext != NULL )
+//  830   {
+//  831     (*pCurr)->pNext = NULL;
+//  832   }
+//  833   ( ( gpNotificationMsg_t* ) *pCurr )->pMsg = ( uint8* )pMsg;
+//  834   return *pCurr;
+//  835 }
+//  836 
+//  837 /*********************************************************************
+//  838  * @fn      gp_AddCmdPayloadMsgNode
+//  839  *
+//  840  * @brief   Add node to Notification Msg list
+//  841  *
+//  842  * @param   pHead - pointer to a pointer of the list head
+//  843  *
+//  844  * @return  pointer to new node
+//  845  */
+//  846 gpCmdPayloadMsg_t* gp_AddCmdPayloadMsgNode( gpCmdPayloadMsg_t **pHead, uint8* pBuf, uint8 len )
+//  847 {
+//  848   gpCmdPayloadMsg_t **pCurr;
+//  849   
+//  850     // Create respondent list if empty
+//  851   if ( *pHead == NULL )
+//  852   {
+//  853     gp_CreateCmdPayloadMsgList( pHead );
+//  854     
+//  855     if ( pHead != NULL )
+//  856     {
+//  857       ( ( ( gpCmdPayloadMsg_t* ) *pHead )->lenght ) = len;
+//  858       ( ( ( gpCmdPayloadMsg_t* ) *pHead )->pMsg ) = ( uint8* )pBuf;
+//  859     }
+//  860     return *pHead;
+//  861   }
+//  862   
+//  863   pCurr = &((*pHead)->pNext);
+//  864   
+//  865   while ( *pCurr != NULL )
+//  866   {
+//  867     pCurr = &((*pCurr)->pNext);
+//  868   }
+//  869 
+//  870   *pCurr = ( gpCmdPayloadMsg_t* )osal_mem_alloc( sizeof( gpCmdPayloadMsg_t ) );
+//  871     
+//  872   if ( (*pCurr)->pNext != NULL )
+//  873   {
+//  874     (*pCurr)->pNext = NULL;
+//  875   }
+//  876   ( ( ( gpCmdPayloadMsg_t* ) *pCurr )->lenght ) = len;
+//  877   ( ( ( gpCmdPayloadMsg_t* ) *pCurr )->pMsg ) = ( uint8* )pBuf;
+//  878   
+//  879   return *pCurr;
+//  880 }
+//  881 
+//  882 /*********************************************************************
+//  883  * @fn      gp_GetHeadNotificationMsg
+//  884  *
+//  885  * @brief   Returns head pointer for  finding and binding respondent list
+//  886  *
+//  887  * @param   none
+//  888  *
+//  889  * @return  pointer to head
+//  890  */
+//  891 gpNotificationMsg_t* gp_GetHeadNotificationMsg(void)
+//  892 {
+//  893   return ( pNotificationMsgHead );
+//  894 }
+//  895 
+//  896 /*********************************************************************
+//  897  * @fn      gp_GetPHeadNotification
+//  898  *
+//  899  * @brief   Returns head pointer for  finding and binding respondent list
+//  900  *
+//  901  * @param   none
+//  902  *
+//  903  * @return  pointer to head
+//  904  */
+//  905 gpNotificationMsg_t** gp_GetPHeadNotification(void)
+//  906 {
+//  907   return ( &pNotificationMsgHead );
+//  908 }
+//  909 
+//  910 /*********************************************************************
+//  911  * @fn      gp_GetHeadCmdPayloadMsg
+//  912  *
+//  913  * @brief   Returns head pointer for  finding and binding respondent list
+//  914  *
+//  915  * @param   none
+//  916  *
+//  917  * @return  pointer to head
+//  918  */
+//  919 gpCmdPayloadMsg_t* gp_GetHeadCmdPayloadMsg(void)
+//  920 {
+//  921   return ( pCmdPayloadMsgHead );
+//  922 }
+//  923 
+//  924 /*********************************************************************
+//  925  * @fn      gp_GetHeadCmdPayloadMsg
+//  926  *
+//  927  * @brief   Returns head pointer for  finding and binding respondent list
+//  928  *
+//  929  * @param   none
+//  930  *
+//  931  * @return  pointer to head
+//  932  */
+//  933 gpCmdPayloadMsg_t** gp_GetPHeadCmdPayload(void)
+//  934 {
+//  935   return ( &pCmdPayloadMsgHead );
+//  936 }
+//  937 
+//  938 /*********************************************************************
+//  939  * @fn      gp_NotificationMsgClean
+//  940  *
+//  941  * @brief   This function free reserved memory for respondent list
+//  942  *
+//  943  * @param   pHead - begin of the Notification Msg list
+//  944  *
+//  945  * @return  status
+//  946  */
+//  947 void gp_NotificationMsgClean( gpNotificationMsg_t **pHead )
+//  948 {
+//  949   gpNotificationMsg_t **pCurr;
+//  950   gpNotificationMsg_t **pNext;
+//  951   
+//  952   if ( *pHead == NULL )
+//  953   {
+//  954     return;
+//  955   }
+//  956   
+//  957   pCurr = pHead;
+//  958   
+//  959   if( *pCurr != NULL )
+//  960   {
+//  961     pNext = &((*pCurr)->pNext);
+//  962     if ( ( ( gpNotificationMsg_t* ) *pCurr )->pMsg != ( ( gpNotificationMsg_t* ) *pNext )->pMsg )
+//  963     {
+//  964       gp_CmdPayloadMsgClean( gp_GetPHeadCmdPayload( ) );
+//  965     }
+//  966     osal_mem_free( *pCurr );
+//  967     *pCurr = ( gpNotificationMsg_t* )NULL;
+//  968     pCurr = pNext;
+//  969   }
+//  970   *pHead = *pCurr;
+//  971 }
+//  972 
+//  973 /*********************************************************************
+//  974  * @fn      gp_NotificationMsgClean
+//  975  *
+//  976  * @brief   This function free reserved memory for respondent list
+//  977  *
+//  978  * @param   pHead - begin of the Notification Msg list
+//  979  *
+//  980  * @return
+//  981  */
+//  982 void gp_CmdPayloadMsgClean( gpCmdPayloadMsg_t **pHead )
+//  983 {
+//  984   gpCmdPayloadMsg_t **pCurr;
+//  985   gpCmdPayloadMsg_t **pNext;
+//  986   
+//  987   if ( *pHead == NULL )
+//  988   {
+//  989     return;
+//  990   }
+//  991   
+//  992   pCurr = pHead;
+//  993   
+//  994   if( *pCurr != NULL )
+//  995   {
+//  996     pNext = &((*pCurr)->pNext);
+//  997     osal_mem_free ( ( ( gpCmdPayloadMsg_t* ) *pCurr )->pMsg );
+//  998     ( ( gpCmdPayloadMsg_t* ) *pCurr )->pMsg = NULL;
+//  999     osal_mem_free( *pCurr );
+// 1000     *pCurr = ( gpCmdPayloadMsg_t* )NULL;
+// 1001     pCurr = pNext;
+// 1002   }
+// 1003   pHead = pCurr;
+// 1004 }
+// 1005 
+// 1006 /*********************************************************************
+// 1007  * @fn      gp_ResetProxyBasicTblEntry
+// 1008  *
+// 1009  * @brief   This function removes data of the given entry
+// 1010  *
+// 1011  * @param   pHead - begin of the Notification Msg list
+// 1012  *
+// 1013  * @return
+// 1014  */
+// 1015 void gp_ResetProxyBasicTblEntry( uint8* entry )
+// 1016 {
+// 1017   uint8 emptyEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+// 1018   
+// 1019   osal_memcpy( entry, emptyEntry, PROXY_TBL_ENTRY_LEN );
+// 1020 }
+// 1021 
+// 1022 #endif
+// 1023 /***************************************************************************
+// 1024 ****************************************************************************/
+// 
+//
+// 
+//
+//
+//Errors: none
+//Warnings: none

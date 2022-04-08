@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<settings>
+    <Stack>
+        <FillEnabled>0</FillEnabled>
+        <OverflowWarningsEnabled>1</OverflowWarningsEnabled>
+        <WarningThreshold>90</WarningThreshold>
+        <SpWarningsEnabled>1</SpWarningsEnabled>
+        <WarnLogOnly>1</WarnLogOnly>
+        <UseTrigger>1</UseTrigger>
+        <TriggerName>main</TriggerName>
+        <LimitSize>0</LimitSize>
+        <ByteLimit>50</ByteLimit>
+    </Stack>
+    <DebugChecksum>
+        <Checksum>3825916256</Checksum>
+    </DebugChecksum>
+    <CallStack>
+        <ShowArgs>0</ShowArgs>
+    </CallStack>
+    <Disassembly>
+        <MixedMode>1</MixedMode>
+    </Disassembly>
+    <LogFile>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+        <Category>_ 0</Category>
+    </LogFile>
+    <TermIOLog>
+        <LoggingEnabled>_ 0</LoggingEnabled>
+        <LogFile>_ ""</LogFile>
+    </TermIOLog>
+    <Breakpoints>
+        <Count>0</Count>
+    </Breakpoints>
+    <ChipconEmu>
+        <StopTimersOnHalt>1</StopTimersOnHalt>
+        <LeaveTargetRunning>1</LeaveTargetRunning>
+    </ChipconEmu>
+    <Aliases>
+        <A0>_ "I:\ZigBee3.0\1. 基于ZCL属性上报测试非常成功终端和协调器组网\1. 基于ZCL属性上报2021092822\Z-Stack 3.0.1\Components\stack\nwk\nwk_globals.c" ""</A0>
+        <A1>_ "I:\ZigBee3.0\1. 基于ZCL属性上报测试非常成功终端和协调器组网\1. 基于ZCL属性上报2021092822\Z-Stack 3.0.1\Projects\zstack\ZMain\TI2530DB\ZMain.c" ""</A1>
+        <A2>_ "I:\ZigBee3.0\1. 基于ZCL属性上报测试非常成功终端和协调器组网\1. 基于ZCL属性上报20210929\Z-Stack 3.0.1\Components\hal\target\CC2530EB\hal_flash.c" ""</A2>
+        <A3>_ "I:\ZigBee3.0\1. 基于ZCL属性上报测试非常成功终端和协调器组网\1. 基于ZCL属性上报20210929\Z-Stack 3.0.1\Components\mac\low_level\srf04\mac_rx_onoff.c" ""</A3>
+        <A4>_ "I:\ZigBee3.0\1. 基于ZCL属性上报测试非常成功终端和协调器组网\1. 基于ZCL属性上报20210929\Z-Stack 3.0.1\Components\mac\low_level\srf04\single_chip\mac_csp_tx.c" ""</A4>
+        <A5>_ "I:\ZigBee3.0\1. 基于ZCL属性上报测试非常成功终端和协调器组网\1. 基于ZCL属性上报20210929\Z-Stack 3.0.1\Components\services\saddr\saddr.c" ""</A5>
+        <A6>_ "I:\ZigBee3.0\1. 基于ZCL属性上报测试非常成功终端和协调器组网\1. 基于ZCL属性上报20210929\Z-Stack 3.0.1\Projects\zstack\ZMain\TI2530DB\ZMain.c" ""</A6>
+        <A7>_ "I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\mac\low_level\srf04\mac_radio.c" ""</A7>
+        <A8>_ "I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\ZMain\TI2530DB\ZMain.c" ""</A8>
+        <A9>_ "I:\ZigBee3.0\7. 基于ZCL属性上报测试非常成功\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\mac\low_level\srf04\single_chip\mac_csp_tx.c" ""</A9>
+        <A10>_ "I:\ZigBee3.0\7. 基于ZCL属性上报测试非常成功\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\stack\nwk\nwk_globals.c" ""</A10>
+        <A11>_ "I:\ZigBee3.0\7. 基于ZCL属性上报测试非常成功\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\ZMain\TI2530DB\ZMain.c" ""</A11>
+        <Count>12</Count>
+        <SuppressDialog>0</SuppressDialog>
+    </Aliases>
+</settings>

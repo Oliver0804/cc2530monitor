@@ -1,0 +1,2353 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.20.1.5333 for 8051               08/Feb/2022  22:14:42
+# Copyright 2004-2018 IAR Systems AB.
+# PC-locked license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Components\stack\GP\gp_common.c
+#    Command line       =  
+#        -f C:\usertemp\AppData\Local\Temp\EW9A6A.tmp ("I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Components\stack\GP\gp_common.c" -D SECURE=1 -D TC_LINKKEY_JOIN
+#        -D NV_INIT -D NV_RESTORE -D xZTOOL_P1 -D xMT_TASK -D xMT_APP_FUNC -D
+#        xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xMT_ZDO_MGMT -D xMT_APP_CNF_FUNC -D
+#        LCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D ZCL_READ -D
+#        ZCL_DISCOVER -D ZCL_WRITE -D ZCL_BASIC -D ZCL_IDENTIFY -D ZCL_ON_OFF
+#        -D ZCL_GROUPS -D ZCL_REPORTING_DEVICE -D HAL_LED=TRUE -D HAL_KEY=TRUE
+#        -D ISR_KEYINTERRUPT -D HAL_UART=TRUE -D INT_HEAP_LEN=2300 -D
+#        HAL_LCD=TRUE -D xHAL_LCD_OLED12864 -D HAL_ADC=TRUE -lC
+#        "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\List"
+#        -lA "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\List"
+#        --diag_suppress Pe001,Pa010 -o "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f
+#        "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 -DDEFAULT_KEY={0} -DMAC_MAX_FRAME_SIZE=116
+#        -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const __code"
+#        -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000
+#        -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100 -DREJOIN_POLL_RATE=440
+#        -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000 -DENABLE_LED4_DISABLE_S1)
+#        -f "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\" -I
+#        "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\Source\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\Source\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\bdb\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\gp\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\Common\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\SPI\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\Font\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_LCD_SPI\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_OLED\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_TFT\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_CHN.936
+#    List file          =  
+#        I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\List\gp_common.lst
+#    Object file        =  
+#        I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\Obj\gp_common.r51
+#
+###############################################################################
+
+I:\ZigBee3.0\Zigbee3.0 20211214\1.Ð­ÒéÕ»¹¤×÷Á÷³ÌºÍÎÞÏßÊÕ·¢¿ØÖÆLED\Z-Stack 3.0.1\Components\stack\GP\gp_common.c
+      1          /**************************************************************************************************
+      2            Filename:       gp_common.c
+      3            Revised:        $Date: 2016-02-25 11:51:49 -0700 (Thu, 25 Feb 2016) $
+      4            Revision:       $Revision: - $
+      5          
+      6            Description:    This file contains the implementation of the cGP stub.
+      7          
+      8          
+      9            Copyright 2006-2015 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          /*********************************************************************
+     41           * INCLUDES
+     42           */
+     43          
+     44          #include "ZGlobals.h"
+     45          #include "ZComDef.h"
+     46          #include "zcl_general.h"
+     47          #include "AF.h"
+     48          #include "gp_common.h"
+     49          #include "gp_interface.h"
+     50          #include "zcl_green_power.h"
+     51          #include "OSAL.h"
+     52          #include "dGP_stub.h"
+     53          #include "mac_api.h"
+     54          #include "ZDSecMgr.h"
+     55          #include "bdb.h"
+     56          
+     57          #if !defined (DISABLE_GREENPOWER_BASIC_PROXY) && (ZG_BUILD_RTR_TYPE)
+     58          
+     59           /*********************************************************************
+     60           * MACROS
+     61           */ 
+     62          
+     63             
+     64           /*********************************************************************
+     65           * CONSTANTS
+     66           */
+     67          
+     68          #define PGG_COMMISSIONING_WINDOW   180  //180 seconds by defaut
+     69          
+     70          
+     71          #ifdef GP_SHARED_KEY
+     72            CONFIG_ITEM uint8 zgpSharedKey[SEC_KEY_LEN] = GP_SHARED_KEY;
+     73          #else
+     74            CONFIG_ITEM uint8 zgpSharedKey[SEC_KEY_LEN] = {0xFF};
+     75          #endif
+     76          
+     77          /*********************************************************************
+     78           * TYPEDEFS
+     79           */
+     80             
+     81           /*********************************************************************
+     82           * GLOBAL VARIABLES
+     83           */
+     84          
+     85          
+     86          uint8  zclGp_gppMaxProxyTableEntries = GPP_MAX_PROXY_TABLE_ENTRIES;
+     87          uint8 *pZclGp_ProxyTableEntries = NULL;
+     88          uint8  zclGp_gppNotificationRetryNumber = GPP_NOTIFICATION_RETRY_NUMBER;
+     89          uint8  zclGp_gppNotificationRetryTimer = GPP_NOTIFICATION_RETRY_TIMER;
+     90          uint8  zclGp_gppMaxSearchCounter = GPP_MAX_SEARCH_COUNTER;
+     91          uint8 *pZclGp_gppBlockedGPDID = NULL;
+     92          
+     93          /**********************************************************************************
+     94          ZigBee PRO Green Power feature specification
+     95          Basic functionality set
+     96          Version 1.0
+     97          
+     98          Table 42 – Format of the gppFunctionality attribute
+     99          ----------------------------------------------------------------------------------
+    100          Indication   | Functionality                                        | Basic Proxy
+    101          -------------|------------------------------------------------------|-------------
+    102          b0           | GP feature                                           | 0b1
+    103          b1           | Direct communication (reception of GPDF via GP stub) | 0b1
+    104          b2           | Derived groupcast communication                      | 0b1
+    105          b3           | Pre-commissioned groupcast communication             | 0b1
+    106          b4           | Full unicast communication                           | 0b0
+    107          b5           | Lightweight unicast communication                    | 0b1
+    108          b6           | Reserved                                             | 0b0
+    109          b7           | Bidirectional operation                              | 0b0
+    110          b8           | Proxy Table maintenance (active and passive,         | 0b0
+    111                       | for GPD mobility and GPP robustness)                 |
+    112          b9           | Reserved                                             | 0b0
+    113          b10          | GP commissioning                                     | 0b1
+    114          b11          | CT-based commissioning                               | 0b1
+    115          b12          | Maintenance of GPD (deliver channel/key              | 0b0
+    116                       | during operation)                                    | 
+    117          b13          | gpdSecurityLevel  = 0b00                             | 0b1
+    118          b14          | Deprecated: gpdSe curityLevel = 0b01                 | 0b0
+    119          b15          | gpdSecurityLevel  = 0b10                             | 0b1
+    120          b16          | gpdSecurityLevel  = 0b11                             | 0b1
+    121          b17          | Reserved                                             | 0b0
+    122          b18          | Reserved                                             | 0b0
+    123          b19          | GPD IEEE address                                     | 0b1
+    124          b20 – b23    | Reserved                                             | 0b0
+    125          ----------------------------------------------------------------------------------
+    126          ***********************************************************************************/
+    127          
+    128          //                                          b0-b7       b8-b15      b16-23
+    129          //                                        0b00101111  0b10101100  0b00001001
+    130          uint8  zclGp_gppFunctionality[3] =       {   0x2F,      0xAC,        0x09};
+    131          uint8  zclGp_gppActiveFunctionality[3] = {   0x2F,      0xAC,        0x09};
+    132          
+    133          uint8  zclGp_gpSharedSecurityKeyType = GP_SHARED_SEC_KEY_TYPE;
+    134          uint8  zclGp_gpSharedSecurityKey[SEC_KEY_LEN] = GP_SHARED_KEY;
+    135          uint8  zclGp_gpLinkKey[SEC_KEY_LEN] = GP_LINK_LEY;
+    136          uint16 zclGp_clusterRevision = GP_CLUSTER_REVISION;
+    137          
+    138          static gpCommissioningMode_t  pfnCommissioningMode = NULL;
+    139          static gpChangeChannelReq_t   pfnChangeChannelReq = NULL;
+    140          static gpChangeChannelReq_t   pfnChangeChannelReqForBDB = NULL;
+    141          
+    142          
+    143          uint8 gp_commissioningOptions = 0;           //Commissioning Options from the ommissioningMode command
+    144          uint16 gp_commissioningUnicastAddress = 0;   //address of the device to which send the notifications
+    145          
+    146          uint8  zgGP_InCommissioningMode = FALSE;     // Global flag that states if in commissioning mode or in operational mode.
+    147          uint16 gp_commissionerAddress = 0xFFFF;      //Address to which send the notifications during commissioning mode
+    148          byte   gp_tempLogicalChannel = 0;            //Holder of the operational nwk channel
+    149          
+    150          
+    151          
+    152            
+    153          
+    154          /*********************************************************************
+    155           * ATTRIBUTE DEFINITIONS - Uses REAL cluster IDs
+    156           */
+    157          CONST zclAttrRec_t zclGp_Attrs[] =
+    158          {
+    159            // *** Green Power Proxy Cluster Attributes ***
+    160            {
+    161              ZCL_CLUSTER_ID_GREEN_POWER,
+    162              {  // Attribute record
+    163                ATTRID_GP_GPP_MAX_PROXY_TABLE_ENTRIES,
+    164                ZCL_DATATYPE_UINT8,
+    165                ACCESS_CONTROL_READ | ACCESS_CLIENT,
+    166                (void *)&zclGp_gppMaxProxyTableEntries
+    167              }
+    168            },
+    169            {
+    170              ZCL_CLUSTER_ID_GREEN_POWER,
+    171              {  // Attribute record
+    172                ATTRID_GP_PROXY_TABLE,
+    173                ZCL_DATATYPE_LONG_OCTET_STR,
+    174                ACCESS_CONTROL_READ | ACCESS_CLIENT,
+    175                NULL // Use application's callback to Read this attribute
+    176              }
+    177            },
+    178            {
+    179              ZCL_CLUSTER_ID_GREEN_POWER,
+    180              {  // Attribute record
+    181                ATTRID_GP_GPP_NOTIFICATION_RETRY_NUMBER,
+    182                ZCL_DATATYPE_UINT8,
+    183                ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE | ACCESS_CLIENT,
+    184                (void *)&zclGp_gppNotificationRetryNumber
+    185              }
+    186            },
+    187            {
+    188              ZCL_CLUSTER_ID_GREEN_POWER,
+    189              {  // Attribute record
+    190                ATTRID_GP_GPP_NOTIFICATION_RETRY_TIMER,
+    191                ZCL_DATATYPE_UINT8,
+    192                ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE | ACCESS_CLIENT,
+    193                (void *)&zclGp_gppNotificationRetryTimer
+    194              }
+    195            },
+    196            {
+    197              ZCL_CLUSTER_ID_GREEN_POWER,
+    198              {  // Attribute record
+    199                ATTRID_GP_GPP_MAX_SEARCH_COUNTER,
+    200                ZCL_DATATYPE_UINT8,
+    201                ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE | ACCESS_CLIENT,
+    202                (void *)&zclGp_gppMaxSearchCounter
+    203              }
+    204            },
+    205            {
+    206              ZCL_CLUSTER_ID_GREEN_POWER,
+    207              {  // Attribute record
+    208                ATTRID_GP_GPP_BLOCKED_GPD_ID,
+    209                ZCL_DATATYPE_LONG_OCTET_STR,
+    210                ACCESS_CONTROL_READ | ACCESS_CLIENT,
+    211                (void *)&pZclGp_gppBlockedGPDID
+    212              }
+    213            },
+    214            {
+    215              ZCL_CLUSTER_ID_GREEN_POWER,
+    216              {  // Attribute record
+    217                ATTRID_GP_GPP_FUNCTIONALITY,
+    218                ZCL_DATATYPE_BITMAP24,
+    219                ACCESS_CONTROL_READ | ACCESS_CLIENT,
+    220                (void *)&zclGp_gppFunctionality
+    221              }
+    222            },
+    223            {
+    224              ZCL_CLUSTER_ID_GREEN_POWER,
+    225              {  // Attribute record
+    226                ATTRID_GP_GPP_ACTIVE_FUNCTIONALITY,
+    227                ZCL_DATATYPE_BITMAP24,
+    228                ACCESS_CONTROL_READ | ACCESS_CLIENT,
+    229                (void *)&zclGp_gppActiveFunctionality
+    230              }
+    231            },
+    232            {
+    233              ZCL_CLUSTER_ID_GREEN_POWER,
+    234              {  // Attribute record
+    235                ATTRID_GP_SHARED_SEC_KEY_TYPE,
+    236                ZCL_DATATYPE_BITMAP8,
+    237                ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE | ACCESS_CLIENT,
+    238                (void *)&zclGp_gpSharedSecurityKeyType
+    239              }
+    240            },
+    241            {
+    242              ZCL_CLUSTER_ID_GREEN_POWER,
+    243              {  // Attribute record
+    244                ATTRID_GP_SHARED_SEC_KEY,
+    245                ZCL_DATATYPE_128_BIT_SEC_KEY,
+    246                ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE | ACCESS_CLIENT,
+    247                (void *)&zclGp_gpSharedSecurityKey
+    248              }
+    249            },
+    250            {
+    251              ZCL_CLUSTER_ID_GREEN_POWER,
+    252              {  // Attribute record
+    253                ATTRID_GP_LINK_KEY,
+    254                ZCL_DATATYPE_128_BIT_SEC_KEY,
+    255                ACCESS_CONTROL_READ | ACCESS_CONTROL_WRITE | ACCESS_CLIENT,
+    256                (void *)&zclGp_gpLinkKey
+    257              }
+    258            },
+    259            {
+    260              ZCL_CLUSTER_ID_GREEN_POWER,
+    261              {  // Attribute record
+    262                ATTRID_CLUSTER_REVISION,
+    263                ZCL_DATATYPE_UINT16,
+    264                ACCESS_CONTROL_READ | ACCESS_CLIENT,
+    265                (void *)&zclGp_clusterRevision
+    266              }
+    267            }
+    268          };
+    269          
+    270          
+    271          uint8 CONST zclGp_NumAttributes = ( sizeof(zclGp_Attrs) / sizeof(zclGp_Attrs[0]) );
+    272          
+    273           /*********************************************************************
+    274           * EXTERNAL VARIABLES
+    275           */
+    276          
+    277          //List to filter duplicated packets
+    278          gp_DataInd_t        *gp_DataIndList;
+    279          
+    280          
+    281          /*********************************************************************
+    282           * EXTERNAL FUNCTIONS
+    283           */
+    284          
+    285          
+    286          /*********************************************************************
+    287           * LOCAL VARIABLES
+    288           */
+    289          // This is the Cluster ID List and should be filled with Application
+    290          // specific cluster IDs.
+    291          #define GREEN_POWER_EP_MAX_INCLUSTERS       1
+    292          
+    293          #define GREEN_POWER_EP_MAX_OUTCLUSTERS       1
+    294          static const cId_t greenPower_EP_OutClusterList[GREEN_POWER_EP_MAX_OUTCLUSTERS] =
+    295          {
+    296            ZCL_CLUSTER_ID_GREEN_POWER
+    297          };
+    298          
+    299          static SimpleDescriptionFormat_t greenPower_EP_SimpleDesc =
+    300          {
+    301            GREEN_POWER_INTERNAL_ENDPOINT,         //  int Endpoint;
+    302            ZCL_GP_PROFILE_ID,                     //  uint16 AppProfId;
+    303            ZCL_GP_DEVICEID_PROXY_BASIC,           //  uint16 AppDeviceId;
+    304            0,                                     //  int   AppDevVer:4;
+    305            0,                                     //  int   AppFlags:4;
+    306            0,                                     //  byte  AppNumInClusters;
+    307            NULL,                                  //  byte *pAppInClusterList;
+    308            GREEN_POWER_EP_MAX_OUTCLUSTERS,        //  byte  AppNumInClusters;
+    309            (cId_t *)greenPower_EP_OutClusterList  //  byte *pAppInClusterList;
+    310          };
+    311          
+    312          
+    313          
+    314          
+    315           /*********************************************************************
+    316           * LOCAL FUNCTIONS
+    317           */
+    318          static void GP_ProccessCommissioningNotification(gp_DataInd_t *gp_DataInd);
+    319          static void GP_ProccessNotification(gp_DataInd_t *gp_DataInd);
+    320          
+    321          static void zclGp_GpPairingCommandCB( zclGpPairing_t *pCmd );
+    322          static void zclGp_GpProxyTableReqCB( zclGpProxyTableRequest_t *pCmd );
+    323          static void zclGp_GpProxyCommissioningModeCB(zclGpProxyCommissioningMode_t* pCmd);
+    324          static void zclGp_GpResponseCommandCB(zclGpResponse_t* pCmd);
+    325          static void gp_u32CastPointer( uint8 *data, uint8 *p );
+    326          static void gp_u16CastPointer( uint8 *data, uint8 *p );
+    327          static void gp_u8CastPointer( uint8 *data, uint8 *p );
+    328          static void gp_ZclPairingParse( zclGpPairing_t* pCmd, gpPairingCmd_t* payload );
+    329          static void gp_ZclProxyTableReqParse( zclGpProxyTableRequest_t* pCmd, gpProxyTableReqCmd_t* payload );
+    330          static uint8 gp_SecurityOperationProxy( gp_DataInd_t* pInd, uint8* pKeyType, uint8* pKey);
+    331          static gp_DataInd_t* gp_DataIndFindDuplicate(uint8 handle, uint8 secLvl);
+    332          static uint8 GP_RecoveryKey(uint8 GPDFKeyType,uint8 KeyType, uint8 status, uint8 *Key);
+    333           
+    334          
+    335          
+    336          
+    337          /*********************************************************************
+    338           * ZCL General Profile Callback table
+    339           */
+    340          static zclGp_AppCallbacks_t zclGpProxy_CmdCallbacks =
+    341          {
+    342            zclGp_GpPairingCommandCB,            //
+    343            zclGp_GpProxyTableReqCB,
+    344            zclGp_GpProxyCommissioningModeCB,    //
+    345            zclGp_GpResponseCommandCB  
+    346          };
+    347          
+    348          /*********************************************************************
+    349           * PUBLIC FUNCTIONS
+    350           *********************************************************************/
+    351          
+    352          
+    353           
+    354          void gp_endpointInit(void)
+    355          {
+    356          
+    357            bdb_RegisterSimpleDescriptor( &greenPower_EP_SimpleDesc );
+    358            
+    359            zclGp_RegisterCmdCallbacks( GREEN_POWER_INTERNAL_ENDPOINT, &zclGpProxy_CmdCallbacks );
+    360            
+    361            // Register the application's attribute list
+    362            zcl_registerAttrList( GREEN_POWER_INTERNAL_ENDPOINT, zclGp_NumAttributes, zclGp_Attrs );
+    363            
+    364            zcl_registerReadWriteCB( GREEN_POWER_INTERNAL_ENDPOINT, zclGpp_ReadWriteAttrCB, NULL );
+    365            
+    366            gp_ProxyTblInit( FALSE );
+    367          
+    368          }
+    369          
+    370          /*********************************************************************
+    371           * @fn      gp_stopCommissioningMode
+    372           *
+    373           * @brief   Stops the commissioning mode
+    374           *
+    375           * @param   none
+    376           *
+    377           * @return  none
+    378           */
+    379          void gp_stopCommissioningMode(void)
+    380          {
+    381            //Callback to notify about the end of the commissioning mode
+    382            gp_commissioningOptions = 0;
+    383            zgGP_InCommissioningMode = FALSE;
+    384            gp_commissionerAddress = 0xFFFF;
+    385            osal_stop_timerEx(gp_TaskID,GP_COMMISSIONING_WINDOW_TIMEOUT);
+    386            
+    387            //Release the gpTxQueue, proxy does not support bidirectional communication on operational mode
+    388            //A.3.2.8
+    389            gp_FreeGpTxQueue();
+    390            
+    391            //Notify the user that we have exited the commissioning mode
+    392            if(pfnCommissioningMode)
+    393            {
+    394              pfnCommissioningMode(FALSE);
+    395            }
+    396          }
+    397          
+    398          /*********************************************************************
+    399           * @fn      zclGp_ManteinanceIndParse
+    400           *
+    401           * @brief   Parse the Gp Manteinance indication to Gp Notification command
+    402           *
+    403           * @param   pInd - Pointer to the incoming data
+    404           *
+    405           * @return  ZStatus_t
+    406           */
+    407          ZStatus_t zclGp_ManteinanceIndParse( gp_DataInd_t *pInd, gpCommissioningNotificationCmd_t *pGpNotification )
+    408          {
+    409            uint8 currEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+    410            uint8  ntfOpt[2] = {0x00, 0x00};
+    411            int8 RSSI;
+    412            uint8 LQI;
+    413            
+    414            if ( pInd->GPDCmmdID != GP_CHANNEL_REQ_COMMAND_ID )
+    415            {
+    416              if ( PROXY_TBL_COMP_APPLICTION_ID( pInd->appID, GP_OPT_APP_ID_GPD ) )
+    417              {
+    418                pGpNotification->gpdId = pInd->SrcId;
+    419                ntfOpt[0] = GP_OPT_APP_ID_GPD;
+    420              }
+    421              else if ( PROXY_TBL_COMP_APPLICTION_ID( pInd->appID, GP_OPT_APP_ID_IEEE ) )
+    422              {
+    423                osal_memcpy( pGpNotification->gpdIEEE, &(pInd->srcAddr.addr.extAddr), Z_EXTADDR_LEN );
+    424                pGpNotification->ep = pInd->EndPoint;
+    425                ntfOpt[0] = GP_OPT_APP_ID_IEEE;
+    426              }
+    427            }
+    428            
+    429            // Set the options bit field
+    430            ( pInd->RxAfterTx == TRUE ) ?PROXY_TBL_SET_RX_AFTER_TX( ( uint8* )&ntfOpt[0] ) : PROXY_TBL_CLR_RX_AFTER_TX( ( uint8* )&ntfOpt[0] );
+    431            GP_CNTF_SET_SEC_LEVEL( ( uint8* )&ntfOpt[0], currEntry[PROXY_TBL_ENTRY_SEC_OPT] );
+    432            GP_CNTF_SET_SEC_KEY_TYPE( ( uint16* )ntfOpt, currEntry[PROXY_TBL_ENTRY_SEC_OPT] );
+    433            if( pInd->status == GP_DATA_IND_STATUS_AUTH_FAILURE )
+    434            {
+    435              GP_CNTF_SET_SEC_FAIL( ( uint8* )&ntfOpt[1] );
+    436              pGpNotification->mic = pInd->MIC;
+    437            }
+    438            else
+    439            {
+    440              GP_CNTF_CLR_SEC_FAIL( ( uint8* )&ntfOpt[1] );
+    441              pGpNotification->mic = 0xFFFFFFFF;
+    442            }
+    443            GP_CNTF_SET_BIDIRECTIONAL_CAP( ( uint8* )&ntfOpt[1] );
+    444          
+    445            GP_CNTF_SET_PROXY_INFO( ( uint8* )&ntfOpt[1] );
+    446            
+    447            pGpNotification->options |= ( ( ntfOpt[0] ) & 0x00FF );
+    448            pGpNotification->options |= ( ( ( ntfOpt[1] ) <<  8 ) & 0xFF00 );
+    449            
+    450            pGpNotification->gpdSecCounter = pInd->GPDSecFrameCounter;
+    451            pGpNotification->cmdId = pInd->GPDCmmdID;
+    452          
+    453            if ( pInd->GPDasduLength > 0 )
+    454            {
+    455              pGpNotification->payloadLen = pInd->GPDasduLength;
+    456              pGpNotification->cmdPayload = pInd->GPDasdu;
+    457            }
+    458            
+    459            pGpNotification->gppShortAddr = _NIB.nwkDevAddress;
+    460            
+    461            RSSI = pInd->Rssi;
+    462            ( RSSI > 8 ) ?RSSI = 8 : ( RSSI < -109 ) ?RSSI = -109 : NULL;
+    463            RSSI += 110;
+    464            RSSI /= 2;
+    465            
+    466            ( pInd->LinkQuality == 0 ) ?LQI = 0 : ( pInd->LinkQuality > 0 ) ?LQI = 2 : NULL;
+    467            
+    468            pGpNotification->gppGpdLink = RSSI;
+    469            pGpNotification->gppGpdLink |= ( LQI << 6 );
+    470              
+    471            return SUCCESS;
+    472          }
+    473          
+    474          /*********************************************************************
+    475           * @fn      zclGp_DataIndParse
+    476           *
+    477          
+    478           * @brief   Parse the Gp Data indication to Gp Notification command
+    479           *
+    480           * @param   pInd - Pointer to the incoming data
+    481           *
+    482           * @return  ZStatus_t
+    483           */
+    484          ZStatus_t zclGp_DataIndParse( gp_DataInd_t *pInd, gpNotificationCmd_t *pGpNotification )
+    485          {
+    486            uint8 currEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+    487            uint8  ntfOpt[2] = {0x00, 0x00};
+    488            uint8 i;
+    489            int8 RSSI;
+    490            uint8 LQI;
+    491            uint8 status;
+    492            
+    493            for ( i = 0; i <= GPP_MAX_PROXY_TABLE_ENTRIES ; i++ )
+    494            {
+    495              status = gp_getProxyTableByIndex( ( ZCD_NV_PROXY_TABLE_START + i ), currEntry );
+    496          
+    497              if ( status == NV_OPER_FAILED )
+    498              {
+    499                return status;
+    500              }
+    501              
+    502              // if the entry is empty
+    503              if ( status == NV_INVALID_DATA )
+    504              {
+    505                continue;
+    506              }
+    507            
+    508              if ( PROXY_TBL_COMP_APPLICTION_ID( pInd->appID, currEntry[PROXY_TBL_ENTRY_OPT] ) )
+    509              {
+    510                if ( pInd->appID == GP_OPT_APP_ID_GPD )
+    511                {
+    512                  if ( osal_memcmp( &pInd->SrcId, &currEntry[PROXY_TBL_ENTRY_GPD_ID + 4], sizeof ( uint32 ) ) )
+    513                  {
+    514                    // Entry found
+    515                    pGpNotification->gpdId = pInd->SrcId;
+    516                    ntfOpt[0] = GP_OPT_APP_ID_GPD;
+    517                    break;
+    518                  }
+    519                }
+    520                else if ( pInd->appID == GP_OPT_APP_ID_IEEE )
+    521                {
+    522                  if ( osal_memcmp( &pInd->srcAddr, &currEntry[PROXY_TBL_ENTRY_GPD_ID], Z_EXTADDR_LEN ) )
+    523                  {
+    524                    // Entry found
+    525                    osal_memcpy( pGpNotification->gpdIEEE, &(pInd->srcAddr.addr.extAddr), Z_EXTADDR_LEN );
+    526                    pGpNotification->ep = pInd->EndPoint;
+    527                    ntfOpt[0] = GP_OPT_APP_ID_IEEE;
+    528                    break;
+    529                  }
+    530                }
+    531              }
+    532              else
+    533              {
+    534                continue;
+    535              }
+    536            }
+    537            
+    538            // Set the options bit field
+    539            GP_NTF_SET_ALSO_UNICAST( ( uint8* )&ntfOpt[0], currEntry[PROXY_TBL_ENTRY_OPT] );
+    540            GP_NTF_SET_ALSO_DGROUP( ( uint8* )&ntfOpt[0], currEntry[PROXY_TBL_ENTRY_OPT] );
+    541            GP_NTF_SET_ALSO_CGROUP( ( uint8* )&ntfOpt[0], currEntry[PROXY_TBL_ENTRY_OPT] );
+    542            GP_NTF_SET_SEC_LEVEL( ( uint8* )&ntfOpt[0], currEntry[PROXY_TBL_ENTRY_SEC_OPT] );
+    543            GP_NTF_SET_SEC_KEY_TYPE( ( uint8* )&ntfOpt[1], currEntry[PROXY_TBL_ENTRY_SEC_OPT] );
+    544            pInd->RxAfterTx ?PROXY_TBL_SET_RX_AFTER_TX( ( uint8* )&ntfOpt[1] ) : PROXY_TBL_CLR_RX_AFTER_TX( ( uint8* )&ntfOpt[1] );
+    545            
+    546            // Mandatory to set this sub fields to 0b1 by the Green Power Proxy Basic Spec in A.3.3.4.1
+    547            PROXY_TBL_CLR_TX_QUEUE_FULL( ( uint8* )&ntfOpt[1] );
+    548            PROXY_TBL_SET_BIDIRECTIONAL_CAP( ( uint8* )&ntfOpt[1] );
+    549            PROXY_TBL_SET_PROXY_INFO( ( uint8* )&ntfOpt[1] );
+    550            
+    551            pGpNotification->options |= ( ( ntfOpt[0] ) & 0x00FF );
+    552            pGpNotification->options |= ( ( ( ntfOpt[1] ) <<  8 ) & 0xFF00 );
+    553            
+    554            pGpNotification->gpdSecCounter = pInd->GPDSecFrameCounter;
+    555            pGpNotification->cmdId = pInd->GPDCmmdID;
+    556          
+    557            if ( pInd->GPDasduLength > 0 )
+    558            {
+    559              pGpNotification->payloadLen = pInd->GPDasduLength;
+    560              pGpNotification->cmdPayload = pInd->GPDasdu;
+    561            }
+    562            
+    563            pGpNotification->gppShortAddr = _NIB.nwkDevAddress;
+    564            
+    565            RSSI = pInd->Rssi;
+    566            ( RSSI > 8 ) ?RSSI = 8 : ( RSSI < -109 ) ?RSSI = -109 : NULL;
+    567            RSSI += 110;
+    568            RSSI /= 2;
+    569            
+    570            ( pInd->LinkQuality == 0 ) ?LQI = 0 : ( pInd->LinkQuality > 0 ) ?LQI = 2 : NULL;
+    571            
+    572            pGpNotification->gppGpdLink = RSSI;
+    573            pGpNotification->gppGpdLink |= ( LQI << 6 );
+    574              
+    575            return SUCCESS;
+    576          }
+    577          
+    578          /*********************************************************************
+    579           * @fn      zclGp_GpPairingCommandCB
+    580           *
+    581           * @brief   Callback from the ZCL GreenPower Cluster Library when
+    582           *          it received an Gp Notification Command for this application.
+    583           *
+    584           * @param   pCmd - command payload
+    585           *
+    586           * @return  none
+    587           */
+    588          static void zclGp_GpPairingCommandCB( zclGpPairing_t *pCmd )
+    589          {
+    590            gpPairingCmd_t pairingPayload = {0x00};
+    591          
+    592            gp_ZclPairingParse( pCmd, &pairingPayload );
+    593            gp_PairingUpdateProxyTlb( &pairingPayload );
+    594            
+    595            
+    596            if(gp_commissioningOptions & GP_COMM_OPT_EXIT_ON_PAIRING_SUCCESS_MASK)
+    597            {
+    598              gp_stopCommissioningMode();
+    599            }
+    600          }
+    601          
+    602          /*********************************************************************
+    603           * @fn      zclGp_GpProxyTableReqCB
+    604           *
+    605           * @brief   Callback from the ZCL GreenPower Cluster Library when
+    606           *          it received a Gp proxy table req.
+    607           *
+    608           * @param   pCmd - command payload
+    609           *
+    610           * @return  none
+    611           */
+    612          static void zclGp_GpProxyTableReqCB( zclGpProxyTableRequest_t *pCmd )
+    613          {
+    614            uint8 i;
+    615            uint8 emptyEntry = 0;
+    616            uint8 entryLen = 0;
+    617            uint8 maxEntryLen = 0;
+    618            uint8* buf = NULL;
+    619            uint8 currEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+    620            
+    621            zclGpProxyTableResponse_t proxyTblRsp = {0};
+    622            gpProxyTableReqCmd_t proxyTblReqPayload = {0};
+    623            
+    624            proxyTblRsp.proxyTableEntry = NULL;
+    625            
+    626          
+    627            gp_ZclProxyTableReqParse( pCmd, &proxyTblReqPayload );
+    628            
+    629            // To get total entries for "Total number of non-empty Proxy Table entries" field
+    630            for ( i = 0; i <= GPP_MAX_PROXY_TABLE_ENTRIES; i++ )
+    631            {
+    632              if ( gp_getProxyTableByIndex( ( ZCD_NV_PROXY_TABLE_START + i ), currEntry ) == SUCCESS )
+    633              {
+    634                proxyTblRsp.tableEntriesTotal += 1;
+    635              }
+    636            }
+    637            
+    638            if ( proxyTblRsp.tableEntriesTotal == 0x00 )
+    639            {
+    640              proxyTblRsp.status = SUCCESS;
+    641              proxyTblRsp.startIndex = 0x00;
+    642              proxyTblRsp.entriesCount = 0x00;
+    643              // Send response and exit
+    644              zclGp_SendGpProxyTableResponse( pCmd->srcAddr, &proxyTblRsp, zcl_InSeqNum );
+    645              return;
+    646            }
+    647            
+    648            // for Request Table Entries by Index
+    649            if ( GP_IS_REQ_TPY_INDEX ( proxyTblReqPayload.options ) )
+    650            {
+    651              
+    652              for ( i = proxyTblReqPayload.index; i <= GPP_MAX_PROXY_TABLE_ENTRIES; i++ )
+    653              {    
+    654                maxEntryLen = entryLen;    // Save the last iteration Lenght
+    655                
+    656                // Get the length of the payload
+    657                if ( pt_ZclReadGetProxyEntry ( ( ZCD_NV_PROXY_TABLE_START + i ), NULL, &entryLen ) != SUCCESS )
+    658                {
+    659                  break;
+    660                }
+    661                
+    662                if ( entryLen >= 75 )   // max payload for entries
+    663                {
+    664                  entryLen = maxEntryLen;   // The last valid lenght is the MAX for this packet
+    665                  break;
+    666                }
+    667              }
+    668          
+    669              if ( entryLen )
+    670              {
+    671                buf = zcl_mem_alloc( entryLen );
+    672                if ( buf != NULL )
+    673                {
+    674                  // Load the buffer - serially
+    675                  uint8 *pBuf = buf;
+    676                
+    677                  entryLen = 0;
+    678                  proxyTblRsp.entriesCount = 0;
+    679                  for ( i = proxyTblReqPayload.index; i <= GPP_MAX_PROXY_TABLE_ENTRIES ; i++ )
+    680                  {  
+    681                    if( pt_ZclReadGetProxyEntry ( ( ZCD_NV_PROXY_TABLE_START + i ), pBuf, &entryLen ) != SUCCESS )
+    682                    {
+    683                      break;
+    684                    }
+    685                    
+    686                    proxyTblRsp.entriesCount += 1;
+    687                    if ( entryLen >= maxEntryLen )   // to see if we reched the MAX calculated payload
+    688                    {
+    689                      break;
+    690                    }
+    691                  }
+    692                }
+    693              }
+    694            }
+    695            
+    696            // for Request Table Entries by GPD ID
+    697            if ( GP_IS_REQ_TYP_GPD ( proxyTblReqPayload.options ) )
+    698            {
+    699              uint8 lookForEntry = 0;
+    700              gpd_ID_t gpd_ID;
+    701              uint16 NvProxyTableIndex;
+    702              uint8  ProxyTableEntryTemp[PROXY_TBL_ENTRY_LEN];
+    703              
+    704              if ( GP_IS_APPLICATION_ID_GPD( proxyTblReqPayload.options ) )
+    705              {
+    706                gpd_ID.AppID = GP_OPT_APP_ID_GPD;
+    707                gpd_ID.GPDId.SrcID = proxyTblReqPayload.gpdId;
+    708                lookForEntry = 1;
+    709                proxyTblRsp.startIndex = 0xFF;
+    710              }
+    711              else if ( GP_IS_APPLICATION_ID_IEEE( proxyTblReqPayload.options ) )
+    712              {
+    713                gpd_ID.AppID = GP_OPT_APP_ID_IEEE;
+    714                osal_memcpy( gpd_ID.GPDId.GPDExtAddr, proxyTblReqPayload.gpdIEEE, Z_EXTADDR_LEN );
+    715                lookForEntry = 1;
+    716                proxyTblRsp.startIndex = 0xFF;
+    717              }
+    718              
+    719              if ( lookForEntry )
+    720              {
+    721                if ( gp_getProxyTableByGpId(&gpd_ID, ProxyTableEntryTemp, &NvProxyTableIndex) == ZSuccess )
+    722                {    
+    723                  maxEntryLen = entryLen;    // Save the last iteration Lenght
+    724                  
+    725                  // Get the length of the payload
+    726                  if ( pt_ZclReadGetProxyEntry ( NvProxyTableIndex, NULL, &entryLen ) != ZSuccess )
+    727                  {
+    728                    entryLen = 0;
+    729                  }
+    730                
+    731                  if ( entryLen >= 75 )   // max payload for entries
+    732                  {
+    733                    entryLen = maxEntryLen;   // The last valid lenght is the MAX for this packet
+    734                  }
+    735                }
+    736                else
+    737                {
+    738                  proxyTblRsp.status = ZCL_STATUS_NOT_FOUND;
+    739                }
+    740                
+    741                if ( entryLen )
+    742                {
+    743                  buf = zcl_mem_alloc( entryLen );
+    744                  if ( buf != NULL )
+    745                  {
+    746                    // Load the buffer - serially
+    747                    uint8 *pBuf = buf;
+    748                  
+    749                    entryLen = 0;
+    750                    proxyTblRsp.entriesCount = 0;
+    751                  
+    752                    if ( pt_ZclReadGetProxyEntry ( NvProxyTableIndex, pBuf, &entryLen ) == SUCCESS )
+    753                    {
+    754                      proxyTblRsp.entriesCount = 1;
+    755                    }
+    756                  }
+    757                }
+    758              }
+    759            }
+    760            
+    761            // If the entry is empty then point the buffer to an empty string
+    762            if ( buf == NULL )
+    763            {
+    764              buf = &emptyEntry;
+    765            }
+    766          
+    767              
+    768            // Send response and exit
+    769            proxyTblRsp.startIndex = proxyTblReqPayload.index;
+    770            proxyTblRsp.proxyTableEntry = buf;
+    771            zclGp_SendGpProxyTableResponse( pCmd->srcAddr, &proxyTblRsp, zcl_InSeqNum );
+    772            zcl_mem_free( buf );
+    773          }
+    774          
+    775          
+    776          /*********************************************************************
+    777           * @fn      zclGp_GpResponseCommandCB
+    778           *
+    779           * @brief   Callback from the ZCL GreenPower Cluster Library when
+    780           *          it received a Gp Response command. (Ref A.3.5.2.1)
+    781           *
+    782           * @param   pCmd - command payload
+    783           *
+    784           * @return  none
+    785           */
+    786          static void zclGp_GpResponseCommandCB(zclGpResponse_t *pCmd)
+    787          {
+    788            gp_DataReq_t  *gp_DataReq;
+    789            gpd_ID_t      gpd_ID;
+    790            uint8         endpoint = 0;
+    791            uint8         command;
+    792            uint8         payloadLen = 0;
+    793            
+    794            //No bidirectional communication in operational mode
+    795            //A.3.2.8
+    796            if(!zgGP_InCommissioningMode)
+    797            {
+    798              return;
+    799            }
+    800            
+    801            gpd_ID.AppID = pCmd->options & GP_RSP_CMD_OPT_APP_ID_MASK;
+    802            if(gpd_ID.AppID == GP_APP_ID_DEFAULT)
+    803            {
+    804              gpd_ID.GPDId.SrcID = osal_build_uint32(pCmd->pData,sizeof(uint32));
+    805              pCmd->pData += sizeof(uint32);
+    806            }
+    807            else if(gpd_ID.AppID == GP_APP_ID_DEFAULT)
+    808            {
+    809              gpd_ID.GPDId.SrcID = osal_build_uint32(pCmd->pData,sizeof(uint32));
+    810              pCmd->pData += sizeof(uint32);
+    811              
+    812              endpoint = *pCmd->pData;
+    813              pCmd->pData++;
+    814            }
+    815            else
+    816            {
+    817              //Invalid app ID
+    818              return;
+    819            }
+    820            
+    821            command  = *pCmd->pData;
+    822            pCmd->pData++;
+    823            payloadLen = *pCmd->pData;
+    824            pCmd->pData++;
+    825             
+    826            gp_DataReq = (gp_DataReq_t*)osal_msg_allocate(sizeof(gp_DataReq_t) + payloadLen);  
+    827            
+    828            if(gp_DataReq == NULL)
+    829            {
+    830              //FAIL no memory
+    831              return;
+    832            }
+    833            if(payloadLen == 0xFF)
+    834            {
+    835              payloadLen = 0;
+    836            }
+    837            gp_DataReq->TxOptions = GP_OPT_USE_TX_QUEUE_MASK;
+    838            gp_DataReq->EndPoint = endpoint;
+    839            osal_memcpy(gp_DataReq->GPDasdu,pCmd->pData,payloadLen);
+    840            gp_DataReq->GPDasduLength = payloadLen;
+    841            gp_DataReq->GPDCmmdId = command;
+    842            osal_memcpy(&gp_DataReq->gpd_ID,&gpd_ID,sizeof(gpd_ID_t));
+    843          
+    844            gp_DataReq->GPEPhandle = gp_GetHandle(GPEP_HANDLE_TYPE);
+    845                
+    846            gp_DataReq->hdr.event = GP_DATA_REQ;
+    847            gp_DataReq->hdr.status = 0;  
+    848            
+    849            if(pCmd->options & GP_RSP_CMD_OPT_TRANSMIT_ON_ENDPOINT_MATCH_MASK)
+    850            {
+    851              gp_DataReq->TxOptions |= GP_OPT_TX_ON_MATCHING_ENDPOINT_MASK;
+    852            }
+    853            
+    854            //Validate the command being send as unicast and we are the tempMaster
+    855            if((pCmd->tempMasterShortAddr == _NIB.nwkDevAddress) && (pCmd->dstAddr == _NIB.nwkDevAddress))
+    856            {
+    857              uint16 NvProxyTableIndex;
+    858              uint8  ProxyTableEntryTemp[PROXY_TBL_ENTRY_LEN];
+    859              
+    860              //Check if the entry exist, if so, set the first to forward flag to 1
+    861              if ( gp_getProxyTableByGpId(&gpd_ID,ProxyTableEntryTemp,&NvProxyTableIndex) == ZSuccess )
+    862              {
+    863                //Update FirstToForward to 1
+    864                if(PROXY_TBL_GET_FIRST_TO_FORWARD(ProxyTableEntryTemp[PROXY_TBL_ENTRY_OPT]) == 0)
+    865                {
+    866                  PROXY_TBL_SET_FIRST_TO_FORWARD(&ProxyTableEntryTemp[PROXY_TBL_ENTRY_OPT]);
+    867                  osal_nv_write(NvProxyTableIndex,PROXY_TBL_ENTRY_OPT,2,&ProxyTableEntryTemp[PROXY_TBL_ENTRY_OPT]);
+    868                }
+    869              }
+    870              //Depends on TempMasterAddress
+    871              gp_DataReq->Action = TRUE;
+    872              
+    873              //Step 6 of Section A.3.9.1 The Procedure
+    874              //Check if we are in a different channel
+    875              if((pCmd->tempMasterTxChannel + 0x0B) != _NIB.nwkLogicalChannel)
+    876              {
+    877                //did we got permission to attend channel request?
+    878                if(osal_get_timeoutEx(gp_TaskID,GP_CHANNEL_CONFIGURATION_TIMEOUT))
+    879                {
+    880                  gp_tempLogicalChannel = _NIB.nwkLogicalChannel;
+    881                  _NIB.nwkLogicalChannel = pCmd->tempMasterTxChannel;
+    882                  ZMacSetReq( ZMacChannel, &(_NIB.nwkLogicalChannel) );
+    883                }
+    884              }
+    885            }
+    886            else
+    887            {
+    888              uint16 NvProxyTableIndex;
+    889              uint8  ProxyTableEntryTemp[PROXY_TBL_ENTRY_LEN];
+    890                 
+    891              //We are not the tempMaster or this was not a unicast to us, set the first to forward flag to 0
+    892              if( gp_getProxyTableByGpId(&gpd_ID,ProxyTableEntryTemp,&NvProxyTableIndex) == ZSuccess )
+    893              {
+    894                if(PROXY_TBL_GET_FIRST_TO_FORWARD(ProxyTableEntryTemp[PROXY_TBL_ENTRY_OPT]) == 1)
+    895                {
+    896                  PROXY_TBL_SET_FIRST_TO_FORWARD(&ProxyTableEntryTemp[PROXY_TBL_ENTRY_OPT]);
+    897                  osal_nv_write(NvProxyTableIndex,PROXY_TBL_ENTRY_OPT,2,&ProxyTableEntryTemp[PROXY_TBL_ENTRY_OPT]);
+    898                } 
+    899              }
+    900              
+    901              //Also remove any packet to the GPD
+    902              gp_DataReq->Action = 0;
+    903            }
+    904            
+    905            osal_msg_send(gp_TaskID,(uint8*)gp_DataReq);
+    906          }
+    907          
+    908          
+    909          
+    910          /*********************************************************************
+    911           * @fn      zclGp_GpProxyCommissioningModeCB
+    912           *
+    913           * @brief   Callback from the ZCL GreenPower Cluster Library when
+    914           *          it received a Gp Commissioning Mode command.
+    915           *
+    916           * @param   pCmd - command payload
+    917           *
+    918           * @return  none
+    919           */
+    920          static void zclGp_GpProxyCommissioningModeCB(zclGpProxyCommissioningMode_t* pCmd)
+    921          {
+    922            gp_commissioningOptions = pCmd->options;
+    923            uint32 CommissioningWindow = PGG_COMMISSIONING_WINDOW;
+    924            
+    925            if ( ( zgGP_InCommissioningMode == TRUE ) && ( gp_commissionerAddress != pCmd->srcAddr ) )
+    926            {
+    927              // If is in commissioning mode and the soruce address is different from 
+    928              // the device that set the proxy in commissioning mode, then drop
+    929              // the request.
+    930              return;
+    931            }
+    932          
+    933            //Enter in commissioning mode
+    934            if(gp_commissioningOptions & GP_COMM_OPT_ACTION_MASK)
+    935            {
+    936            
+    937          #if 0
+    938              if(gp_commissioningOptions & GP_COMM_OPT_CHANNEL_PRES_MASK)
+    939              {
+    940                //Section A.3.3.5.3, channel field is not supported in the current version of the spec
+    941              }
+    942          #endif
+    943           
+    944              if(gp_commissioningOptions & GP_COMM_OPT_EXIT_ON_WINDOW_EXPIRATION_MASK)
+    945              {
+    946                CommissioningWindow = osal_build_uint16(pCmd->pData);
+    947                pCmd->pData += sizeof(uint16);
+    948                
+    949                
+    950              }
+    951              if(gp_commissioningOptions & GP_COMM_OPT_UNICAST_COMM_MASK)
+    952              {
+    953                gp_commissionerAddress = pCmd->srcAddr;
+    954              }
+    955              else
+    956              {
+    957                gp_commissionerAddress = 0xFFFF;
+    958              }
+    959              
+    960              //Convert to timer units
+    961              CommissioningWindow = CommissioningWindow * 1000;
+    962              
+    963              //Exit upon expire
+    964              zgGP_InCommissioningMode = TRUE;
+    965              
+    966              //Notify the user about entering in commissioning mode
+    967              if(pfnCommissioningMode)
+    968              {
+    969                pfnCommissioningMode(TRUE);
+    970              }
+    971            }
+    972            //Exit commissioning mode
+    973            else
+    974            { 
+    975              gp_stopCommissioningMode();
+    976            }
+    977          }
+    978          
+    979           /*********************************************************************
+    980           * @fn          gp_ZclPairingParse
+    981           *
+    982           * @brief       Parse the pairing data message payload
+    983           *
+    984           * @param       
+    985           *
+    986           * @return      
+    987           */
+    988          static void gp_ZclPairingParse( zclGpPairing_t* pCmd, gpPairingCmd_t* payload )
+    989          {
+    990          
+    991            payload->options |= ( ( ( uint32 ) pCmd->options[2] << 16 ) & 0x00FF0000 );
+    992            payload->options |= ( ( ( uint32 ) pCmd->options[1] <<  8 ) & 0x0000FF00 );
+    993            payload->options |= ( ( ( uint32 ) pCmd->options[0] )       & 0x000000FF );
+    994              
+    995            // Options bitfield
+    996            // If Application Id bitfield is 0b000
+    997            if( GP_IS_APPLICATION_ID_GPD( payload->options ) )
+    998            {        
+    999              // Populate GPD ID
+   1000              gp_PopulateField( ( uint8* )&payload->gpdId, &pCmd->pData, sizeof( payload->gpdId ) );
+   1001              
+   1002              // Populate GPD IEEE Invalid
+   1003              osal_memset ( &payload->gpdIEEE, 0xFF, Z_EXTADDR_LEN );
+   1004              // Populate EP Invalid
+   1005              payload->ep = 0xFF;
+   1006            }
+   1007            // If Application Id bitfield is 0b010
+   1008            else if( GP_IS_APPLICATION_ID_IEEE( payload->options ) )
+   1009            {
+   1010              // Populate GPD ID Invalid
+   1011              payload->gpdId = 0xFFFFFFFF;
+   1012              
+   1013              // Populate GPD IEEE
+   1014              gp_PopulateField( ( uint8* )&payload->gpdIEEE, &pCmd->pData, Z_EXTADDR_LEN );
+   1015              // Populate EP
+   1016              gp_PopulateField( ( uint8* )&payload->ep, &pCmd->pData, sizeof( payload->ep ) );
+   1017            }
+   1018            
+   1019            // If Remove GPD bit is 0b0
+   1020            if( !GP_REMOVE_GPD( payload->options ) )
+   1021            {
+   1022              // Communication Mode 0b00 or 0b11
+   1023              if( ( GP_IS_COMMUNICATION_MODE_FULL_UNICAST( payload->options ) ) || ( GP_IS_COMMUNICATION_MODE_LIGHT_UNICAST( payload->options ) ) )
+   1024              {
+   1025                // Populate Sink Addesses
+   1026                gp_PopulateField( ( uint8* )&payload->sinkIEEE, &pCmd->pData, Z_EXTADDR_LEN );
+   1027                gp_PopulateField( ( uint8* )&payload->sinkNwkAddr, &pCmd->pData, sizeof( payload->sinkNwkAddr ) );
+   1028                
+   1029                // Populate Grp Address Ivalid
+   1030                payload->sinkGroupID = 0xFFFF;
+   1031              }
+   1032              // Communication Mode 0b01 or 0b10
+   1033              else if ( ( GP_IS_COMMUNICATION_MODE_GRPCAST_DGROUP_ID( payload->options ) ) || ( GP_IS_COMMUNICATION_MODE_GRPCAST_GROUP_ID( payload->options ) ) )
+   1034              {
+   1035                // Populate Sink Addesses Invalid
+   1036                osal_memset ( &payload->sinkIEEE, 0xFF, Z_EXTADDR_LEN );
+   1037                payload->sinkNwkAddr = 0xFFFF;
+   1038                
+   1039                // Populate Grp Address
+   1040                gp_PopulateField( ( uint8* )&payload->sinkGroupID, &pCmd->pData, sizeof( payload->sinkGroupID ) );
+   1041              }
+   1042            }
+   1043            else
+   1044            {
+   1045              uint8 i;
+   1046              uint8 status;
+   1047              uint8 currEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+   1048                
+   1049              // Remove
+   1050              for ( i = 0; i <= GPP_MAX_PROXY_TABLE_ENTRIES ; i++ )
+   1051              {
+   1052                status = gp_getProxyTableByIndex( ( ZCD_NV_PROXY_TABLE_START + i ), currEntry );
+   1053          
+   1054                if ( status == NV_OPER_FAILED )
+   1055                {
+   1056                  // FAIL
+   1057                  return;
+   1058                }
+   1059              
+   1060                // if the entry is empty
+   1061                if ( status == NV_INVALID_DATA )
+   1062                {
+   1063                  // Look for the next entry
+   1064                  continue;
+   1065                }
+   1066                
+   1067                if( GP_IS_APPLICATION_ID_GPD( payload->options ) )
+   1068                {
+   1069                  if ( osal_memcmp( &currEntry[PROXY_TBL_ENTRY_GPD_ID + 4], &payload->gpdId, sizeof ( uint32 ) ) )
+   1070                  {
+   1071                    // Remove this GPD entry
+   1072                    gp_ResetProxyBasicTblEntry( currEntry );
+   1073                  }
+   1074                }
+   1075                else if( GP_IS_APPLICATION_ID_IEEE( payload->options ) )
+   1076                {   
+   1077                  if ( osal_memcmp( &currEntry[PROXY_TBL_ENTRY_GPD_ID ], payload->sinkIEEE, Z_EXTADDR_LEN ) )
+   1078                  {
+   1079                    // Remove this GPD entry
+   1080                    gp_ResetProxyBasicTblEntry( currEntry );
+   1081                  }
+   1082                }
+   1083              }
+   1084              return;
+   1085            }
+   1086            
+   1087            // If Add Sink bit is 0b1
+   1088            if ( GP_ADD_SINK( payload->options ) )
+   1089            {
+   1090              // Populate Device ID
+   1091              gp_PopulateField( ( uint8* )&payload->deviceId, &pCmd->pData, sizeof( payload->deviceId ) );
+   1092              
+   1093              if ( GP_SEC_COUNTER( payload->options ) )
+   1094              {
+   1095                // Populate GPD security frame counter
+   1096                gp_PopulateField( ( uint8* )&payload->gpdSecCounter, &pCmd->pData, sizeof( payload->gpdSecCounter ) );
+   1097              }
+   1098              else
+   1099              {
+   1100                payload->gpdSecCounter = 0xFFFFFFFF;
+   1101              }
+   1102              
+   1103              if ( GP_SEC_KEY ( payload->options ) )
+   1104              {
+   1105                gp_PopulateField( ( uint8* )&payload->gpdKey, &pCmd->pData, SEC_KEY_LEN );
+   1106              }
+   1107              else
+   1108              {
+   1109                osal_memset ( &payload->gpdKey, 0xFF, SEC_KEY_LEN );
+   1110              }
+   1111              
+   1112              if ( GP_ALIAS ( payload->options ) )
+   1113              {
+   1114                gp_PopulateField( ( uint8* )&payload->assignedAlias, &pCmd->pData, sizeof( payload->assignedAlias ) );
+   1115              }
+   1116              else
+   1117              {
+   1118                payload->assignedAlias = 0xFFFF;
+   1119              }
+   1120              if ( GP_FORWARDING_RADIUS ( payload->options ) )
+   1121              {
+   1122                gp_PopulateField( ( uint8* )&payload->forwardingRadius, &pCmd->pData, sizeof( payload->forwardingRadius ) );
+   1123              }
+   1124              else
+   1125              {
+   1126                payload->forwardingRadius = 0xFF;
+   1127              }
+   1128            }
+   1129            else
+   1130            {
+   1131              // Ivalidate every field
+   1132              payload->deviceId = 0xFF;
+   1133              payload->gpdSecCounter = 0xFFFFFFFF;
+   1134              payload->assignedAlias = 0xFFFF;
+   1135              payload->forwardingRadius = 0xFF;
+   1136            }
+   1137          }
+   1138          
+   1139           /*********************************************************************
+   1140           * @fn          gp_ZclProxyTableReqParse
+   1141           *
+   1142           * @brief       Parse the proxy table request data message payload
+   1143           *
+   1144           * @param       
+   1145           *
+   1146           * @return      
+   1147           */
+   1148          static void gp_ZclProxyTableReqParse( zclGpProxyTableRequest_t* pCmd, gpProxyTableReqCmd_t* payload )
+   1149          {
+   1150          
+   1151            payload->options =  pCmd->options;
+   1152              
+   1153            // If Request type bitfield is 0b00
+   1154            if( GP_IS_REQ_TYP_GPD( payload->options ) )
+   1155            {  
+   1156              // If Application Id bitfield is 0b000
+   1157              if( GP_IS_APPLICATION_ID_GPD( payload->options ) )
+   1158              {        
+   1159                // Populate GPD ID
+   1160                gp_PopulateField( ( uint8* )&payload->gpdId, &pCmd->pData, sizeof( payload->gpdId ) );
+   1161              
+   1162                // Populate GPD IEEE Invalid
+   1163                osal_memset ( &payload->gpdIEEE, 0xFF, Z_EXTADDR_LEN );
+   1164                // Populate EP Invalid
+   1165                payload->ep = 0xFF;
+   1166              }
+   1167              // If Application Id bitfield is 0b010
+   1168              else if( GP_IS_APPLICATION_ID_IEEE( payload->options ) )
+   1169              {
+   1170                // Populate GPD ID Invalid
+   1171                payload->gpdId = 0xFFFFFFFF;
+   1172              
+   1173                // Populate GPD IEEE
+   1174                gp_PopulateField( ( uint8* )&payload->gpdIEEE, &pCmd->pData, Z_EXTADDR_LEN );
+   1175                // Populate EP
+   1176                gp_PopulateField( ( uint8* )&payload->ep, &pCmd->pData, sizeof( payload->ep ) );
+   1177              }
+   1178              // Populate Index Invalid
+   1179              payload->index = 0xFF;
+   1180            }
+   1181            // If Request type bitfield is 0b01
+   1182            else if( GP_IS_REQ_TPY_INDEX( payload->options ) )
+   1183            {
+   1184              // Populate GPD ID Invalid
+   1185              payload->gpdId = 0xFFFFFFFF;
+   1186              
+   1187              // Populate GPD IEEE Invalid
+   1188              osal_memset ( &payload->gpdIEEE, 0xFF, Z_EXTADDR_LEN );
+   1189              
+   1190              // Populate EP Invalid
+   1191              payload->ep = 0xFF;
+   1192              
+   1193              // Populate index
+   1194              gp_PopulateField( ( uint8* )&payload->index, &pCmd->pData, sizeof( payload->index ) );
+   1195            }
+   1196          
+   1197          }
+   1198          
+   1199           /*********************************************************************
+   1200           * @fn          gp_PopulateField
+   1201           *
+   1202           * @brief       General function fill the proxy table vector item
+   1203           *
+   1204           * @param       
+   1205           *
+   1206           * @return      
+   1207           */
+   1208          void gp_PopulateField( uint8* pField, uint8** pData, uint8 size )
+   1209          {
+   1210            switch ( size )
+   1211            {
+   1212              case ( sizeof( uint8 ) ):
+   1213                gp_u8CastPointer( pField, *pData );
+   1214                break;
+   1215              case ( sizeof( uint16 ) ):
+   1216                gp_u16CastPointer( pField, *pData );
+   1217                break;
+   1218              case ( sizeof( uint32 ) ):
+   1219                gp_u32CastPointer( pField, *pData );
+   1220                break;
+   1221              case ( Z_EXTADDR_LEN ):
+   1222                osal_memcpy( pField, *pData, Z_EXTADDR_LEN );
+   1223                break;
+   1224              case ( SEC_KEY_LEN ):
+   1225                osal_memcpy( pField, *pData, SEC_KEY_LEN );
+   1226                break;
+   1227            }
+   1228            *pData += size;
+   1229          }
+   1230          
+   1231           /*********************************************************************
+   1232           * @fn          gp_ProxyTblInit
+   1233           *
+   1234           * @brief       General function to init the NV items for proxy table
+   1235           *
+   1236           * @param       
+   1237           *
+   1238           * @return      
+   1239           */
+   1240          
+   1241          uint8 gp_ProxyTblInit( uint8 resetTable )
+   1242          {
+   1243            uint8 i;
+   1244            uint8 status;
+   1245            uint8 emptyEntry[PROXY_TBL_ENTRY_LEN];
+   1246            
+   1247            gp_ResetProxyBasicTblEntry( emptyEntry );
+   1248            
+   1249            for ( i = 0; i <= GPP_MAX_PROXY_TABLE_ENTRIES ; i++ )
+   1250            {
+   1251              status = osal_nv_item_init( ( ZCD_NV_PROXY_TABLE_START + i ),
+   1252                                                 PROXY_TBL_ENTRY_LEN, &emptyEntry );
+   1253              
+   1254              if ( ( status != SUCCESS ) && ( status != NV_ITEM_UNINIT ) )
+   1255              {
+   1256                return status;
+   1257              }
+   1258              if ( ( status == SUCCESS ) && ( resetTable == TRUE ) )
+   1259              {
+   1260                status = osal_nv_write( ( ZCD_NV_PROXY_TABLE_START + i ), 0,
+   1261                                              PROXY_TBL_ENTRY_LEN, &emptyEntry );
+   1262              }
+   1263            }
+   1264            return status;
+   1265          }
+   1266          
+   1267          
+   1268           /*********************************************************************
+   1269           * @fn          gp_getProxyTableByGpId
+   1270           *
+   1271           * @brief       General function to get proxy table entry by gpd_ID (GP Src ID or Extended Adddress)
+   1272           *
+   1273           * @param       gpd_ID  - address to look for in the table
+   1274           *              pEntry  - buffer in which the entry of the table will be copied
+   1275           *
+   1276           * @return      
+   1277           */
+   1278          
+   1279          uint8 gp_getProxyTableByGpId(gpd_ID_t *gpd_ID, uint8 *pEntry,uint16 *NvProxyTableIndex)
+   1280          {
+   1281            uint8 i;
+   1282            uint8 status;
+   1283          
+   1284            if((pEntry == NULL) ||  (gpd_ID == NULL))
+   1285            {
+   1286              return ZInvalidParameter;
+   1287            }     
+   1288            
+   1289          
+   1290            for ( i = 0; i <= GPP_MAX_PROXY_TABLE_ENTRIES ; i++ )
+   1291            {
+   1292              status = gp_getProxyTableByIndex( ( ZCD_NV_PROXY_TABLE_START + i ), pEntry );
+   1293          
+   1294              if ( status == NV_OPER_FAILED )
+   1295              {
+   1296                // FAIL
+   1297                return ZFailure;
+   1298              }
+   1299              
+   1300              // if the entry is empty
+   1301              if ( status == NV_INVALID_DATA )
+   1302              {
+   1303                continue;
+   1304              }
+   1305          
+   1306              //Check that App ID is the same
+   1307          
+   1308              if ( PROXY_TBL_COMP_APPLICTION_ID( gpd_ID->AppID, pEntry[PROXY_TBL_ENTRY_OPT] ) )
+   1309              {
+   1310                if ( gpd_ID->AppID == GP_OPT_APP_ID_GPD )
+   1311                {
+   1312                  if ( osal_memcmp( &gpd_ID->GPDId.SrcID, &pEntry[PROXY_TBL_ENTRY_GPD_ID + 4], sizeof ( uint32 ) ) )
+   1313                  {
+   1314                    // Entry found
+   1315                    break;
+   1316                  }
+   1317                }
+   1318          
+   1319                else if ( gpd_ID->AppID == GP_OPT_APP_ID_IEEE )
+   1320                {
+   1321                  if ( osal_memcmp( &gpd_ID->GPDId.GPDExtAddr, &pEntry[PROXY_TBL_ENTRY_GPD_ID], Z_EXTADDR_LEN ) )
+   1322                  {
+   1323                    // Entry found
+   1324                    break;
+   1325                  }
+   1326                }
+   1327              }
+   1328              else
+   1329              {
+   1330                continue;
+   1331              }
+   1332            }
+   1333          
+   1334            if(i <= GPP_MAX_PROXY_TABLE_ENTRIES)
+   1335            {
+   1336              if(NvProxyTableIndex != NULL)
+   1337              {
+   1338                *NvProxyTableIndex = ZCD_NV_PROXY_TABLE_START + i;
+   1339              }
+   1340              return ZSuccess;
+   1341            }
+   1342              
+   1343            return ZInvalidParameter;
+   1344          }
+   1345          
+   1346           /*********************************************************************
+   1347           * @fn          gp_SecurityOperationProxy
+   1348           *
+   1349           * @brief       Performs Security Operations according to Proxy
+   1350           *
+   1351           * @param       ind - pointer to gp data indication
+   1352           * @param       pFrameCounter 
+   1353           * @param       pKeyType 
+   1354           * @param       pkey Key to be used to decript the packet (if applies)
+   1355           *
+   1356           * @return      GP_SEC_RSP status
+   1357           */
+   1358          uint8 gp_SecurityOperationProxy( gp_DataInd_t* pInd, uint8* pKeyType, uint8* pKey)
+   1359          {
+   1360            uint8    currEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+   1361            uint8    status;
+   1362            uint32   SecFrameCounter = 0;
+   1363            uint8    securityCheckFail = FALSE;
+   1364            uint8    endpointCheckFail = FALSE;
+   1365            uint16   NvProxyTableIndex = 0;
+   1366            gpd_ID_t gpd_ID;
+   1367            
+   1368            
+   1369            if((pKeyType == NULL) || (pKey == NULL) || (pInd == NULL))
+   1370            {
+   1371              return GP_SEC_RSP_ERROR;
+   1372            }
+   1373            *pKeyType = 0;
+   1374            osal_memset(pKey,0,SEC_KEY_LEN);
+   1375            
+   1376            gpd_ID.AppID = pInd->appID;
+   1377            
+   1378            if(gpd_ID.AppID == GP_APP_ID_DEFAULT)
+   1379            {
+   1380              gpd_ID.GPDId.SrcID = pInd->SrcId;
+   1381            }
+   1382            else
+   1383            {
+   1384              osal_memcpy(gpd_ID.GPDId.GPDExtAddr,pInd->srcAddr.addr.extAddr,Z_EXTADDR_LEN);
+   1385            }
+   1386            
+   1387            status = gp_getProxyTableByGpId(&gpd_ID,currEntry,&NvProxyTableIndex);
+   1388            
+   1389            //Not found
+   1390            if(status == ZInvalidParameter)
+   1391            {
+   1392              //Section A.3.5.2.1 if in commissioning mode and GPDF from proxy that do not 
+   1393              //have entry, then drop frame
+   1394              if(zgGP_InCommissioningMode == FALSE)
+   1395              {
+   1396                return GP_SEC_RSP_DROP_FRAME;
+   1397              }
+   1398              if(pInd->GPDFKeyType == 0)
+   1399              {
+   1400                //If there is no shared key, then pass unprocess
+   1401                if(osal_memcmp(pKey,zgpSharedKey,SEC_KEY_LEN))
+   1402                {
+   1403                  return GP_SEC_RSP_PASS_UNPROCESSED;
+   1404                }
+   1405                osal_memcpy(pKey,zgpSharedKey,SEC_KEY_LEN);
+   1406              }
+   1407              else
+   1408              {
+   1409                return GP_SEC_RSP_PASS_UNPROCESSED;
+   1410              }
+   1411            }
+   1412            
+   1413            //error
+   1414            else if(status == ZFailure)
+   1415            {
+   1416              //Not found, or error, drop the frame
+   1417              return GP_SEC_RSP_DROP_FRAME;
+   1418            }
+   1419            
+   1420            //Found
+   1421            else
+   1422            {
+   1423              
+   1424          //Active/Inactive entries in the proxy table are not supported    
+   1425          #if 1
+   1426                //If security level is zero then don't check and pass unproessed
+   1427                if( (pInd->GPDFSecLvl == PROXY_TBL_GET_SEC_OPT_SECURITY_LVL(currEntry[PROXY_TBL_ENTRY_SEC_OPT]) ) &&
+   1428                    ( GP_SECURITY_LVL_NO_SEC == PROXY_TBL_GET_SEC_OPT_SECURITY_LVL(currEntry[PROXY_TBL_ENTRY_SEC_OPT]) ))
+   1429                {
+   1430                  pInd->GPDSecFrameCounter = (uint32)pInd->SeqNumber;
+   1431                  return GP_SEC_RSP_PASS_UNPROCESSED;
+   1432                }
+   1433                //Check security Section A.3.7.3.3
+   1434                //Check framecounter freshness
+   1435                SecFrameCounter = osal_build_uint32(&currEntry[PROXY_TBL_ENTRY_SEC_FRAME],sizeof(uint32));
+   1436                if(SecFrameCounter >= pInd->GPDSecFrameCounter)
+   1437                {
+   1438                  securityCheckFail = TRUE;
+   1439                }
+   1440                //Compare the security level
+   1441                else if(pInd->GPDFSecLvl != PROXY_TBL_GET_SEC_OPT_SECURITY_LVL(currEntry[PROXY_TBL_ENTRY_SEC_OPT]))
+   1442                {
+   1443                  securityCheckFail = TRUE;
+   1444                }
+   1445                //Mapping of security key type (section A.1.4.1.3 Table 12)
+   1446                else if((PROXY_TBL_GET_SEC_OPT_SECURITY_KEY_TYP(currEntry[PROXY_TBL_ENTRY_SEC_OPT]) <= 0x03)
+   1447                        && (pInd->GPDFKeyType == 1))
+   1448                {
+   1449                  securityCheckFail = TRUE;
+   1450                }
+   1451                else if(  ((PROXY_TBL_GET_SEC_OPT_SECURITY_KEY_TYP(currEntry[PROXY_TBL_ENTRY_SEC_OPT]) == 0x07) ||
+   1452                           (PROXY_TBL_GET_SEC_OPT_SECURITY_KEY_TYP(currEntry[PROXY_TBL_ENTRY_SEC_OPT]) == 0x04)) 
+   1453                         && (pInd->GPDFKeyType == 0) )
+   1454                {
+   1455                  securityCheckFail = TRUE;
+   1456                  
+   1457                }
+   1458                else if( (PROXY_TBL_GET_SEC_OPT_SECURITY_KEY_TYP(currEntry[PROXY_TBL_ENTRY_SEC_OPT]) == 0x05) ||
+   1459                         (PROXY_TBL_GET_SEC_OPT_SECURITY_KEY_TYP(currEntry[PROXY_TBL_ENTRY_SEC_OPT]) == 0x06) )
+   1460                {
+   1461                  //keytype reserved
+   1462                  securityCheckFail = TRUE;
+   1463                }
+   1464                
+   1465                if(securityCheckFail == TRUE)
+   1466                {
+   1467                  if(zgGP_InCommissioningMode == FALSE)
+   1468                  {
+   1469                    return GP_SEC_RSP_DROP_FRAME;
+   1470                  }
+   1471                  else
+   1472                  {
+   1473                    return GP_SEC_RSP_PASS_UNPROCESSED;
+   1474                  }
+   1475                }
+   1476                else
+   1477                {
+   1478                  //Securty check success
+   1479                  osal_memcpy(pKey,&currEntry[PROXY_TBL_ENTRY_GPD_KEY],SEC_KEY_LEN);
+   1480                  *pKeyType = PROXY_TBL_GET_SEC_OPT_SECURITY_KEY_TYP(currEntry[PROXY_TBL_ENTRY_SEC_OPT]);
+   1481                
+   1482                  //compare the endpoint
+   1483                  if(endpointCheckFail)
+   1484                  {
+   1485                    return GP_SEC_RSP_TX_THEN_DROP;
+   1486                  }
+   1487                  else
+   1488                  {
+   1489                    return GP_SEC_RSP_MATCH;
+   1490                  }
+   1491                }
+   1492                
+   1493          //Active/Inactive entries in the proxy table are not supported
+   1494          #else
+   1495              //Is active
+   1496              if(PROXY_TBL_GET_ENTRY_ACTIVE(currEntry[PROXY_TBL_ENTRY_OPT]))
+   1497              {
+   1498                //Check security Section A.3.7.3.3
+   1499                //Check framecounter freshness
+   1500                SecFrameCounter = osal_build_uint32(&currEntry[PROXY_TBL_ENTRY_SEC_FRAME],sizeof(uint32));
+   1501                if(SecFrameCounter >= pInd->GPDSecFrameCounter)
+   1502                {
+   1503                  securityCheckFail = TRUE;
+   1504                }
+   1505                //Compare the security level
+   1506                else if(pInd->GPDFSecLvl != PROXY_TBL_GET_SEC_OPT_SECURITY_LVL(currEntry[PROXY_TBL_ENTRY_SEC_OPT]))
+   1507                {
+   1508                  securityCheckFail = TRUE;
+   1509                }
+   1510                //Mapping of security key type (section A.1.4.1.3 Table 12)
+   1511                else if((PROXY_TBL_GET_SEC_OPT_SECURITY_KEY_TYP(currEntry[PROXY_TBL_ENTRY_SEC_OPT]) <= 0x03)
+   1512                        && (pInd->GPDFKeyType == 1))
+   1513                {
+   1514                  securityCheckFail = TRUE;
+   1515                }
+   1516                else if(  ((PROXY_TBL_GET_SEC_OPT_SECURITY_KEY_TYP(currEntry[PROXY_TBL_ENTRY_SEC_OPT]) == 0x07) ||
+   1517                           (PROXY_TBL_GET_SEC_OPT_SECURITY_KEY_TYP(currEntry[PROXY_TBL_ENTRY_SEC_OPT]) == 0x04)) 
+   1518                         && (pInd->GPDFKeyType == 0) )
+   1519                {
+   1520                  securityCheckFail = TRUE;
+   1521                  
+   1522                }
+   1523                else if( (PROXY_TBL_GET_SEC_OPT_SECURITY_KEY_TYP(currEntry[PROXY_TBL_ENTRY_SEC_OPT]) == 0x05) ||
+   1524                         (PROXY_TBL_GET_SEC_OPT_SECURITY_KEY_TYP(currEntry[PROXY_TBL_ENTRY_SEC_OPT]) == 0x06) )
+   1525                {
+   1526                  //keytype reserved
+   1527                  securityCheckFail = TRUE;
+   1528                }
+   1529                
+   1530                if(securityCheckFail == TRUE)
+   1531                {
+   1532                  if(zgGP_InCommissioningMode == FALSE)
+   1533                  {
+   1534                    return GP_SEC_RSP_DROP_FRAME;
+   1535                  }
+   1536                  else
+   1537                  {
+   1538                    return GP_SEC_RSP_PASS_UNPROCESSED;
+   1539                  }
+   1540                }
+   1541                else
+   1542                {
+   1543                  //Securty check success
+   1544                  osal_memcpy(pKey,&currEntry[PROXY_TBL_ENTRY_GPD_KEY],SEC_KEY_LEN);
+   1545                  *pKeyType = GP_GET_SEC_KEY_TYPE(currEntry[PROXY_TBL_ENTRY_SEC_OPT]);
+   1546                
+   1547                  //compare the endpoint
+   1548                  if(endpointCheckFail)
+   1549                  {
+   1550                    return GP_SEC_RSP_TX_THEN_DROP;
+   1551                  }
+   1552                  else
+   1553                  {
+   1554                    return GP_SEC_RSP_MATCH;
+   1555                  }
+   1556                }
+   1557              }
+   1558          
+   1559              //Inactive
+   1560              else
+   1561              {
+   1562                //Found, inactive and in operational mode
+   1563                if(zgGP_InCommissioningMode == FALSE)
+   1564                {
+   1565                  //Check framecounter freshness
+   1566                  SecFrameCounter = osal_build_uint32(&currEntry[PROXY_TBL_ENTRY_SEC_FRAME],sizeof(uint32));
+   1567                  if(SecFrameCounter < pInd->GPDSecFrameCounter)
+   1568                  {
+   1569                    //Update framecounter
+   1570                     osal_memcpy(&currEntry[PROXY_TBL_ENTRY_SEC_FRAME],(uint8*)&pInd->GPDSecFrameCounter,sizeof(uint32));
+   1571          
+   1572                     status = osal_nv_write( NvProxyTableIndex, 0,
+   1573                                         PROXY_TBL_ENTRY_LEN, currEntry );
+   1574                     
+   1575                     if ( status != SUCCESS )
+   1576                     {
+   1577                       // FAIL
+   1578                       return GP_SEC_RSP_ERROR;
+   1579                     }
+   1580                  }
+   1581                  return GP_SEC_RSP_DROP_FRAME;
+   1582                }
+   1583                //Found,inactive, and in commissioning mode
+   1584                else
+   1585                {
+   1586                  //If key type = 0, its the same as not found
+   1587                  if(pInd->GPDFKeyType == 0)
+   1588                  {
+   1589                    Found = FALSE;
+   1590                  }
+   1591                  else
+   1592                  {
+   1593                    return GP_SEC_RSP_PASS_UNPROCESSED;
+   1594                  }
+   1595                }
+   1596              }
+   1597          #endif
+   1598              
+   1599            }
+   1600          
+   1601          
+   1602            //Should not reach this point
+   1603            return GP_SEC_RSP_DROP_FRAME;
+   1604          }
+   1605          
+   1606           /*********************************************************************
+   1607           * @fn          gp_u32CastPointer
+   1608           *
+   1609           * @brief       General function fill uint32 from pionter.
+   1610           *
+   1611           * @param       pBitField - pointer to the bit field.
+   1612           *              bit       - position of the bit to set in the given bitfield.
+   1613           *
+   1614           * @return      
+   1615           */
+   1616          static void gp_u32CastPointer( uint8 *data, uint8 *p )
+   1617          {
+   1618              *( uint32* )data |= ( ( *( uint32* ) p++ )       & 0x000000FF );
+   1619              *( uint32* )data |= ( ( *( uint32* ) p++ <<  8 ) & 0x0000FF00 );
+   1620              *( uint32* )data |= ( ( *( uint32* ) p++ << 16 ) & 0x00FF0000 );
+   1621              *( uint32* )data |= ( ( *( uint32* ) p++ << 24 ) & 0xFF000000 );
+   1622          }
+   1623          
+   1624           /*********************************************************************
+   1625           * @fn          gp_u16CastPointer
+   1626           *
+   1627           * @brief       General function fill uint16 from pionter.
+   1628           *
+   1629           * @param       pBitField - pointer to the bit field.
+   1630           *              bit       - position of the bit to set in the given bitfield.
+   1631           *
+   1632           * @return      
+   1633           */
+   1634          static void gp_u16CastPointer( uint8 *data, uint8 *p )
+   1635          {
+   1636              *( uint16* )data |= ( ( *( uint16* ) p++ )       & 0x00FF );
+   1637              *( uint16* )data |= ( ( *( uint16* ) p++ <<  8 ) & 0xFF00 );
+   1638          }
+   1639          
+   1640           /*********************************************************************
+   1641           * @fn          gp_u8CastPointer
+   1642           *
+   1643           * @brief       General function fill uint16 from pionter.
+   1644           *
+   1645           * @param       pBitField - pointer to the bit field.
+   1646           *              bit       - position of the bit to set in the given bitfield.
+   1647           *
+   1648           * @return      
+   1649           */
+   1650          static void gp_u8CastPointer( uint8 *data, uint8 *p )
+   1651          {
+   1652              *( uint8* )data |= ( ( *( uint8* ) p ) );
+   1653          }
+   1654          
+   1655           /*********************************************************************
+   1656           * @fn          gp_getProxyTableByIndex
+   1657           *
+   1658           * @brief       General function to get proxy table entry by NV index
+   1659           *
+   1660           * @param       nvIndex - NV Id of proxy table
+   1661           *              pEntry  - pointer to PROXY_TBL_ENTRY_LEN array
+   1662           *
+   1663           * @return      
+   1664           */
+   1665          uint8 gp_getProxyTableByIndex( uint16 nvIndex, uint8 *pEntry )
+   1666          {
+   1667            uint8 status;
+   1668            uint16 emptyEntry = 0xFFFF;
+   1669            
+   1670            
+   1671            if ( ( nvIndex < ZCD_NV_PROXY_TABLE_START ) || ( nvIndex > ZCD_NV_PROXY_TABLE_END ) )
+   1672            {
+   1673              return NV_OPER_FAILED;
+   1674            }
+   1675            
+   1676            status = osal_nv_read( nvIndex, 0,
+   1677                                    PROXY_TBL_ENTRY_LEN, pEntry );
+   1678            
+   1679            if ( status != SUCCESS )
+   1680            {
+   1681              // Return the failure status of NV read procedure
+   1682              return status;
+   1683            }
+   1684              
+   1685                
+   1686            // if the entry is empty
+   1687            if ( osal_memcmp( pEntry, &emptyEntry, sizeof ( uint16 ) ) )
+   1688            {
+   1689              return NV_INVALID_DATA;
+   1690            }
+   1691            
+   1692            return status;
+   1693          }
+   1694          
+   1695          /*********************************************************************
+   1696           * @fn          GP_DataInd
+   1697           *
+   1698           * @brief       This passes the MCPS data indications received in MAC to the application
+   1699           *
+   1700           * @param       gp_DataInd
+   1701           *
+   1702           * @return      FreeMsg - TRUE if the message will be released, False if it will 
+   1703           *                        be keeped for duplicate filtering
+   1704           */
+   1705          uint8 GP_DataInd(gp_DataInd_t *gp_DataInd)
+   1706          {
+   1707            uint32   timeout;
+   1708            uint8    freeMsg = FALSE;
+   1709            gpd_ID_t gpd_ID;
+   1710            uint8    ProxyTableEntryTemp[PROXY_TBL_ENTRY_LEN];
+   1711            uint16   ProxyTableEntryIndex = 0;
+   1712            
+   1713            //If authentication/decryption fail, then drop the frame and stop processing
+   1714            //GP Basic proxy A.3.5.2.3
+   1715            if(gp_DataInd->status == GP_DATA_IND_STATUS_COUNTER_FAILURE ||
+   1716                gp_DataInd->status == GP_DATA_IND_STATUS_AUTH_FAILURE )
+   1717            {
+   1718              return freeMsg;
+   1719            }
+   1720          
+   1721            gp_DataIndAppendToList(gp_DataInd, &gp_DataIndList);
+   1722            
+   1723            gp_DataInd->SecReqHandling.timeout = gpDuplicateTimeout;
+   1724            //Consider the current time elepsed to the next timeout
+   1725            timeout = osal_get_timeoutEx(gp_TaskID,GP_DUPLICATE_FILTERING_TIMEOUT_EVENT);
+   1726            
+   1727            if(timeout)
+   1728            {
+   1729              gp_DataInd->SecReqHandling.timeout += timeout;
+   1730            }  
+   1731            else
+   1732            {
+   1733              osal_start_timerEx(gp_TaskID,GP_DUPLICATE_FILTERING_TIMEOUT_EVENT,gp_DataInd->SecReqHandling.timeout);
+   1734            }  
+   1735          
+   1736            gpd_ID.AppID = gp_DataInd->appID;
+   1737            if(gp_DataInd->appID == GP_OPT_APP_ID_IEEE)
+   1738            {
+   1739              osal_memcpy(gpd_ID.GPDId.GPDExtAddr, gp_DataInd->srcAddr.addr.extAddr, Z_EXTADDR_LEN);
+   1740            }
+   1741            else
+   1742            {
+   1743              gpd_ID.GPDId.SrcID = gp_DataInd->SrcId;
+   1744            }
+   1745          
+   1746            if(gp_getProxyTableByGpId(&gpd_ID,ProxyTableEntryTemp,&ProxyTableEntryIndex) == ZSuccess)
+   1747            {
+   1748          
+   1749              //Update Sec Frame counter to proxy table  A.3.6.1.3
+   1750              osal_nv_write( ProxyTableEntryIndex, PROXY_TBL_ENTRY_SEC_FRAME,
+   1751                                 sizeof(uint32), (uint8*) &gp_DataInd->GPDSecFrameCounter );
+   1752            }  
+   1753          
+   1754            if ( zgGP_InCommissioningMode == TRUE )
+   1755            {
+   1756              if(gp_DataInd->GPDCmmdID == GP_CHANNEL_REQ_COMMAND_ID)
+   1757              {
+   1758                if(pfnChangeChannelReqForBDB)
+   1759                {
+   1760                  //Check if we got permission from BDB
+   1761                  if(!pfnChangeChannelReqForBDB())
+   1762                  {
+   1763                    //No permisssion
+   1764                    return freeMsg;
+   1765                  }
+   1766                }
+   1767                if(pfnChangeChannelReq)
+   1768                {
+   1769                  //Check if we got permission from BDB
+   1770                  if(!pfnChangeChannelReq())
+   1771                  {
+   1772                    //No permisssion
+   1773                    return freeMsg;
+   1774                  }
+   1775                }
+   1776                
+   1777                osal_start_timerEx(gp_TaskID,GP_CHANNEL_CONFIGURATION_TIMEOUT,gpBirectionalCommissioningChangeChannelTimeout);
+   1778              }
+   1779              GP_ProccessCommissioningNotification( gp_DataInd );
+   1780            }
+   1781            else if ( ( zgGP_InCommissioningMode == FALSE ) )
+   1782            {
+   1783              GP_ProccessNotification( gp_DataInd );
+   1784            }
+   1785            
+   1786            return freeMsg;
+   1787          }
+   1788          
+   1789          /*********************************************************************
+   1790           * @fn          GP_ProccessCommissioningNotification
+   1791           *
+   1792           * @brief       General function to process the GP Manteinance Indication in operational mode
+   1793           *
+   1794           * @param       gp_DataInd
+   1795           *
+   1796           * @return      none
+   1797           */
+   1798          static void GP_ProccessCommissioningNotification(gp_DataInd_t *gp_DataInd)
+   1799          {
+   1800            gpCommissioningNotificationCmd_t gpNotification;
+   1801            
+   1802            if ( ( gp_DataInd->GPDCmmdID == GP_COMMISSIONING_COMMAND_ID ) || ( gp_DataInd->GPDCmmdID == GP_SUCCESS_COMMAND_ID ) ||
+   1803                 ( gp_DataInd->GPDCmmdID == GP_CHANNEL_REQ_COMMAND_ID ) )
+   1804            {
+   1805            
+   1806              osal_memset( &gpNotification, 0, sizeof ( gpCommissioningNotificationCmd_t ) );
+   1807              zclGp_ManteinanceIndParse( gp_DataInd, &gpNotification );
+   1808            
+   1809              zclGp_SendGpCommissioningNotificationCommand ( &gpNotification );
+   1810            }
+   1811          }
+   1812          
+   1813          /*********************************************************************
+   1814           * @fn          GP_ProccessNotification
+   1815           *
+   1816           * @brief       General function to process the GP Data Indication in operational mode
+   1817           *
+   1818           * @param       gp_DataInd
+   1819           *
+   1820           * @return      none
+   1821           */
+   1822          static void GP_ProccessNotification(gp_DataInd_t *gp_DataInd)
+   1823          {
+   1824            gpNotificationCmd_t gpNotification;
+   1825            
+   1826            osal_memset( &gpNotification, 0, sizeof ( gpNotificationCmd_t ) );
+   1827            zclGp_DataIndParse( gp_DataInd, &gpNotification );
+   1828            
+   1829            zclGp_SendGpNotificationCommand ( &gpNotification, gp_DataInd->SeqNumber );
+   1830          }
+   1831          
+   1832          /*********************************************************************
+   1833           * @fn          GP_SecReq
+   1834           *
+   1835           * @brief       Primitive from dGP stub to GP EndPoint asking how to process a GPDF.
+   1836           *
+   1837           * @param       gp_SecReq 
+   1838           *
+   1839           * @return      none
+   1840           */
+   1841          uint8 GP_SecReq(gp_SecReq_t *gp_SecReq)
+   1842          {
+   1843            gp_SecRsp_t *gp_SecRsp = NULL;
+   1844            uint8 status;
+   1845            uint8  ProxyTableEntryTemp[PROXY_TBL_ENTRY_LEN];
+   1846            gp_DataInd_t* temp;
+   1847            uint8   KeyType;
+   1848            uint8   Key[SEC_KEY_LEN];
+   1849          
+   1850          
+   1851            gp_SecRsp = (gp_SecRsp_t*)osal_msg_allocate(sizeof(gp_SecRsp_t));
+   1852          
+   1853            //No mem, then do not release the msg, process later
+   1854            if(gp_SecRsp == NULL)
+   1855            {
+   1856              return FALSE;
+   1857            }
+   1858            
+   1859            gp_SecRsp->hdr.event = GP_SEC_RSP;
+   1860            gp_SecRsp->hdr.status = ZSuccess;
+   1861          
+   1862            gp_SecRsp->dGPStubHandle = gp_SecReq->dGPStubHandle;
+   1863            gp_SecRsp->EndPoint = gp_SecReq->EndPoint;
+   1864          
+   1865            osal_memcpy(&gp_SecRsp->gp_SecData,&gp_SecReq->gp_SecData, sizeof(gp_SecData_t));
+   1866            osal_memcpy(&gp_SecRsp->gpd_ID,&gp_SecReq->gpd_ID, sizeof(gpd_ID_t));
+   1867          
+   1868            gp_SecRsp->Status = GP_SEC_RSP_DROP_FRAME;
+   1869           
+   1870            //Find duplicates A.3.6.1.2 Duplicate filtering
+   1871            if( gp_DataIndFindDuplicate(gp_SecReq->dGPStubHandle, gp_SecReq->gp_SecData.GPDFSecLvl) )
+   1872            {  //Check if the entry exist
+   1873              if ( gp_getProxyTableByGpId(&gp_SecReq->gpd_ID, ProxyTableEntryTemp, NULL) == ZSuccess )
+   1874              {
+   1875                gp_SecRsp->Status = GP_SEC_RSP_DROP_FRAME;
+   1876                osal_msg_send(gp_TaskID,(uint8*)gp_SecRsp);
+   1877          
+   1878                return TRUE;
+   1879              }
+   1880            }
+   1881            
+   1882            temp = gp_DataIndGet(gp_SecReq->dGPStubHandle);
+   1883              
+   1884            //Section A.3.7.3.3
+   1885            status = gp_SecurityOperationProxy(temp,&KeyType,Key);
+   1886          
+   1887            switch(status)
+   1888            {
+   1889              case GP_SEC_RSP_ERROR:  //This should not happen
+   1890              case GP_SEC_RSP_DROP_FRAME:
+   1891                gp_SecRsp->Status = GP_SEC_RSP_DROP_FRAME;
+   1892              break;
+   1893              
+   1894              case GP_SEC_RSP_PASS_UNPROCESSED:  
+   1895                gp_SecRsp->Status = GP_SEC_RSP_PASS_UNPROCESSED;
+   1896              break;
+   1897              
+   1898              case GP_SEC_RSP_MATCH:
+   1899              case GP_SEC_RSP_TX_THEN_DROP:
+   1900                if(GP_RecoveryKey(gp_SecReq->gp_SecData.GPDFKeyType,KeyType,status,Key) == GP_SEC_RSP_DROP_FRAME)
+   1901                {
+   1902                  gp_SecRsp->Status = GP_SEC_RSP_DROP_FRAME;
+   1903                }
+   1904                else
+   1905                {
+   1906                  gp_SecRsp->Status = status;
+   1907                  osal_memcpy(gp_SecRsp->GPDKey,Key,SEC_KEY_LEN);
+   1908                }
+   1909              break;
+   1910            }
+   1911          
+   1912          
+   1913            osal_msg_send(gp_TaskID,(uint8*)gp_SecRsp);
+   1914            return TRUE;
+   1915          }
+   1916          
+   1917          /*********************************************************************
+   1918           * @fn          GP_RecoveryKey
+   1919           *
+   1920           * @brief       Procedure to retrive the key to be used to decrypt the GPDF
+   1921           *
+   1922           * @param       GPDFKeyType   KeyType from the GPDF
+   1923           * @param       KeyType       Key type in the Proxy table entry for this GPD
+   1924           * @param       Status        Previous status to search key (MATCH, TX_THEN_DROP)
+   1925           * @param       Key[out]      Key to be used
+   1926           *                       
+   1927           * @return      Status
+   1928           */
+   1929          uint8 GP_RecoveryKey(uint8 GPDFKeyType,uint8 KeyType, uint8 status, uint8 *Key)
+   1930          {
+   1931            //TODO: A.3.7.3.4 Incoming frames: key recovery
+   1932            if(GPDFKeyType)
+   1933            {
+   1934              uint8 TempKey[SEC_KEY_LEN] = {0xFF};
+   1935              if(KeyType == GP_SECURITY_KEY_TYPE_OUT_OF_BOX_GPD_KEY)
+   1936              {
+   1937                //Is the key of the Proxy table entry empty?
+   1938                if(osal_memcmp(&Key,&TempKey,SEC_KEY_LEN))
+   1939                {
+   1940                  return GP_SEC_RSP_DROP_FRAME;
+   1941                }          
+   1942                else
+   1943                {
+   1944                  //There is a key, then use it
+   1945                  return status;
+   1946                }
+   1947              }
+   1948              else if(KeyType == GP_SECURITY_KEY_TYPE_DERIVED_IND_GPD_KEY)
+   1949              {
+   1950                //Is the key of the Proxy table entry empty?
+   1951                if(osal_memcmp(&Key,&TempKey,SEC_KEY_LEN))
+   1952                {
+   1953                  return GP_SEC_RSP_DROP_FRAME;
+   1954                }  
+   1955                //There is a key, then use it. Derived keys are provided by the Sink 
+   1956                //device at paring time according to A.3.7.1.2.2
+   1957                return status;
+   1958              }
+   1959              else
+   1960              {
+   1961                return GP_SEC_RSP_DROP_FRAME;
+   1962              }
+   1963            }
+   1964            else
+   1965            {
+   1966              uint8  gpSharedSecKeyType;
+   1967              uint16 AttLen;
+   1968              uint8 TempKey[SEC_KEY_LEN] = {0xFF};
+   1969          
+   1970              //Get the SharedKeyType Attribute
+   1971              zcl_ReadAttrData(GREEN_POWER_INTERNAL_ENDPOINT,ZCL_CLUSTER_ID_GREEN_POWER,ATTRID_GP_SHARED_SEC_KEY_TYPE,&gpSharedSecKeyType,&AttLen);
+   1972          
+   1973              if(KeyType == gpSharedSecKeyType)
+   1974              {
+   1975                if(!osal_memcmp(TempKey,zgpSharedKey,SEC_KEY_LEN))
+   1976                {
+   1977                  //Use key shared key
+   1978                  osal_memcpy(Key,zgpSharedKey,SEC_KEY_LEN);
+   1979                  return status;
+   1980                }
+   1981              }
+   1982              if(KeyType == GP_SECURITY_KEY_TYPE_ZIGBEE_NWK_KEY)
+   1983              {
+   1984                ZDSecMgrReadKeyFromNv(ZCD_NV_PRECFGKEY,Key);
+   1985              }
+   1986              //There is a key, then use it. Derived keys are provided by the Sink 
+   1987              //device at paring time according to A.3.7.1.2.2
+   1988              else
+   1989              {
+   1990                return GP_SEC_RSP_DROP_FRAME;
+   1991              }
+   1992            }
+   1993            return status;
+   1994          }
+   1995          
+   1996          
+   1997          gp_DataInd_t* gp_DataIndFindDuplicate(uint8 handle, uint8 secLvl)
+   1998          {
+   1999            gp_DataInd_t* temp;
+   2000            gp_DataInd_t* tempList;
+   2001            temp = gp_DataIndGet(handle);
+   2002            
+   2003            if(temp != NULL)
+   2004            {
+   2005              tempList = gp_DataIndList;
+   2006              
+   2007              while(tempList != NULL)
+   2008              {
+   2009                //search for MAC seq num
+   2010                if(secLvl == 0)
+   2011                {
+   2012                  if((temp->SeqNumber == tempList->SeqNumber) && (temp->appID == tempList->appID)&&
+   2013                     (temp->SecReqHandling.dGPStubHandle != tempList->SecReqHandling.dGPStubHandle))
+   2014                  {
+   2015                    break;
+   2016                  }
+   2017                }
+   2018                //Other secLevels uses SecFrameCounter
+   2019                else
+   2020                {
+   2021                  if((temp->GPDSecFrameCounter == tempList->GPDSecFrameCounter) && 
+   2022                     (temp->SecReqHandling.dGPStubHandle != tempList->SecReqHandling.dGPStubHandle))
+   2023                  {
+   2024                    
+   2025                    break;
+   2026                  }
+   2027                }
+   2028                tempList = tempList->SecReqHandling.next;
+   2029              }
+   2030            }
+   2031            return tempList;
+   2032          }
+   2033           
+   2034          /*********************************************************************
+   2035           * @fn          GP_DataCnf
+   2036           *
+   2037           * @brief       Primitive to notify GP EndPoint the status of a previews DataReq
+   2038           *
+   2039           * @param       gp_DataCnf
+   2040           *
+   2041           * @return      none
+   2042           */
+   2043          void GP_DataCnf(gp_DataCnf_t *gp_DataCnf)
+   2044          {
+   2045            //Current spec does not mandates to do anything with this.
+   2046            switch(gp_DataCnf->status)
+   2047            {
+   2048              case GP_DATA_CNF_TX_QUEUE_FULL:
+   2049              case GP_DATA_CNF_ENTRY_REPLACED:
+   2050              case GP_DATA_CNF_ENTRY_ADDED:
+   2051              case GP_DATA_CNF_ENTRY_EXPIRED:
+   2052              case GP_DATA_CNF_ENTRY_REMOVED:
+   2053              case GP_DATA_CNF_GPDF_SENDING_FINALIZED:
+   2054              break;
+   2055            }  
+   2056          }
+   2057          
+   2058           /*********************************************************************
+   2059           * PRIVATE FUNCTIONS
+   2060           *********************************************************************/
+   2061          
+   2062          void gp_RegisterCommissioningModeCB(gpCommissioningMode_t gpCommissioningMode)
+   2063          {
+   2064            if(gpCommissioningMode)
+   2065            {
+   2066               pfnCommissioningMode = gpCommissioningMode;
+   2067            }
+   2068          }
+   2069          
+   2070          /*********************************************************************
+   2071           * @fn          gp_RegisterGPChangeChannelReqCB
+   2072           *
+   2073           * @brief       Register a callback in which the application will be notified about a change
+   2074           *              of channel for at most gpBirectionalCommissioningChangeChannelTimeout ms
+   2075           *              to perform GP bidirectional commissioning in the channel parameter.
+   2076           *
+   2077           * @param       gpChangeChannelReq
+   2078           *
+   2079           * @return      none
+   2080           */
+   2081          void gp_RegisterGPChangeChannelReqCB(gpChangeChannelReq_t gpChangeChannelReq)
+   2082          {
+   2083            if(gpChangeChannelReq)
+   2084            {
+   2085              pfnChangeChannelReq = gpChangeChannelReq;
+   2086            }
+   2087          }
+   2088          
+   2089          /*********************************************************************
+   2090           * @fn          gp_RegisterGPChangeChannelReqForBDBCB
+   2091           *
+   2092           * @brief       Register a callback in which the bdb will be notified about a change
+   2093           *              of channel for at most gpBirectionalCommissioningChangeChannelTimeout ms
+   2094           *              to perform GP bidirectional commissioning in the channel parameter.
+   2095           *
+   2096           * @param       gpChangeChannelReq
+   2097           *
+   2098           * @return      none
+   2099           */
+   2100          void gp_RegisterGPChangeChannelReqForBDBCB(gpChangeChannelReq_t gpChangeChannelReq)
+   2101          {
+   2102            if(gpChangeChannelReq)
+   2103            {
+   2104              pfnChangeChannelReqForBDB = gpChangeChannelReq;
+   2105            }
+   2106          }
+   2107          
+   2108          
+   2109          
+   2110          
+   2111          /*********************************************************************
+   2112           * @fn          gp_returnOperationalChannel
+   2113           *
+   2114           * @brief       Return to the operational channel after bidirectional commissioning
+   2115           *
+   2116           * @param       none
+   2117           *
+   2118           * @return      none
+   2119           */
+   2120          void gp_returnOperationalChannel(void)
+   2121          {
+   2122            gp_DataReq_t gp_DataReq;
+   2123            _NIB.nwkLogicalChannel = gp_tempLogicalChannel;
+   2124            ZMacSetReq( ZMacChannel, &(_NIB.nwkLogicalChannel) );
+   2125            osal_stop_timerEx(gp_TaskID,GP_CHANNEL_CONFIGURATION_TIMEOUT);
+   2126            
+   2127            gp_DataReq.Action = 0;
+   2128            gp_DataReq.gpd_ID.AppID = GP_APP_ID_DEFAULT;
+   2129            gp_DataReq.gpd_ID.GPDId.SrcID = 0;
+   2130            
+   2131            GP_DataReq(&gp_DataReq);
+   2132          }
+   2133          
+   2134               
+   2135           /*********************************************************************
+   2136           * @fn          gp_expireDuplicateFiltering
+   2137           *
+   2138           * @brief       Process the expiration of the packets in the duplicate filtering
+   2139           *              list. Assumption is the first in the queue is the first into expire.
+   2140           *
+   2141           * @param       none
+   2142           *
+   2143           * @return      none
+   2144           */    
+   2145          void gp_expireDuplicateFiltering(void)
+   2146          {
+   2147            gp_DataInd_t * temp;
+   2148            uint32 timeout;
+   2149            
+   2150            temp = gp_DataIndList;
+   2151            timeout = gp_DataIndList->SecReqHandling.timeout;
+   2152            
+   2153            while(temp != NULL)
+   2154            {
+   2155              if(timeout >= temp->SecReqHandling.timeout)
+   2156              {
+   2157                gp_DataInd_t *expired = temp;   
+   2158                
+   2159                temp = temp->SecReqHandling.next;
+   2160                gp_DataIndReleaseFromList(TRUE, expired,&gp_DataIndList);
+   2161              }
+   2162              else
+   2163              {
+   2164                temp->SecReqHandling.timeout -= timeout;
+   2165                temp = temp->SecReqHandling.next;
+   2166              }
+   2167            }
+   2168          }
+   2169          
+   2170          #endif
+   2171          /*********************************************************************
+   2172          *********************************************************************/
+   2173          
+
+
+ 
+
+ 
+
+
+Errors: none
+Warnings: none

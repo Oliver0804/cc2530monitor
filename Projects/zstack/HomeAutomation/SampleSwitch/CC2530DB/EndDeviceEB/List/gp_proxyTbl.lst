@@ -1,0 +1,1126 @@
+###############################################################################
+#
+# IAR C/C++ Compiler V10.20.1.5333 for 8051               08/Feb/2022  22:14:43
+# Copyright 2004-2018 IAR Systems AB.
+# PC-locked license - IAR Embedded Workbench for 8051
+#
+#    Core               =  plain
+#    Code model         =  banked
+#    Data model         =  large
+#    Calling convention =  xdata reentrant
+#    Constant location  =  data_rom
+#    Dptr setup         =  1,16
+#                          
+#    Source file        =  
+#        I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Components\stack\GP\gp_proxyTbl.c
+#    Command line       =  
+#        -f C:\usertemp\AppData\Local\Temp\EW9BD2.tmp ("I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Components\stack\GP\gp_proxyTbl.c" -D SECURE=1 -D
+#        TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D xZTOOL_P1 -D xMT_TASK -D
+#        xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D xMT_ZDO_MGMT -D
+#        xMT_APP_CNF_FUNC -D LCD_SUPPORTED=DEBUG -D MULTICAST_ENABLED=FALSE -D
+#        ZCL_READ -D ZCL_DISCOVER -D ZCL_WRITE -D ZCL_BASIC -D ZCL_IDENTIFY -D
+#        ZCL_ON_OFF -D ZCL_GROUPS -D ZCL_REPORTING_DEVICE -D HAL_LED=TRUE -D
+#        HAL_KEY=TRUE -D ISR_KEYINTERRUPT -D HAL_UART=TRUE -D INT_HEAP_LEN=2300
+#        -D HAL_LCD=TRUE -D xHAL_LCD_OLED12864 -D HAL_ADC=TRUE -lC
+#        "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\List"
+#        -lA "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\List"
+#        --diag_suppress Pe001,Pa010 -o "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\Obj"
+#        -e --debug --core=plain --dptr=16,1 --data_model=large
+#        --code_model=banked --calling_convention=xdata_reentrant
+#        --place_constants=data_rom --nr_virtual_regs 16 -f
+#        "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\Tools\CC2530DB\f8wEndev.cfg"
+#        (-DCPU32MHZ -DROOT=__near_func -DMAC_CFG_TX_DATA_MAX=3
+#        -DMAC_CFG_TX_MAX=6 -DMAC_CFG_RX_MAX=3) -f "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\Tools\CC2530DB\f8wConfig.cfg"
+#        (-DZIGBEEPRO -DSECURE=1 -DZG_SECURE_DYNAMIC=0 -DREFLECTOR
+#        -DDEFAULT_CHANLIST=0x00000800 -DZDAPP_CONFIG_PAN_ID=0xFFFF
+#        -DNWK_START_DELAY=100 -DEXTENDED_JOINING_RANDOM_MASK=0x007F
+#        -DBEACON_REQUEST_DELAY=100 -DBEACON_REQ_DELAY_MASK=0x00FF
+#        -DLINK_STATUS_JITTER_MASK=0x007F -DROUTE_EXPIRY_TIME=30
+#        -DAPSC_ACK_WAIT_DURATION_POLLED=3000 -DNWK_INDIRECT_MSG_TIMEOUT=7
+#        -DMAX_RREQ_ENTRIES=8 -DAPSC_MAX_FRAME_RETRIES=3
+#        -DNWK_MAX_DATA_RETRIES=2 -DMAX_POLL_FAILURE_RETRIES=2 -DMAX_BCAST=9
+#        -DAPS_MAX_GROUPS=16 -DMAX_RTG_ENTRIES=40 -DNWK_MAX_BINDING_ENTRIES=4
+#        -DMAX_BINDING_CLUSTER_IDS=4 -DDEFAULT_KEY={0} -DMAC_MAX_FRAME_SIZE=116
+#        -DZDNWKMGR_MIN_TRANSMISSIONS=20 "-DCONST=const __code"
+#        -DGENERIC=__generic -DRFD_RCVC_ALWAYS_ON=FALSE -DPOLL_RATE=1000
+#        -DQUEUED_POLL_RATE=100 -DRESPONSE_POLL_RATE=100 -DREJOIN_POLL_RATE=440
+#        -DREJOIN_BACKOFF=900000 -DREJOIN_SCAN=900000 -DENABLE_LED4_DISABLE_S1)
+#        -f "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\Tools\CC2530DB\f8wZCL.cfg"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\" -I
+#        "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\Source\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\Source\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\ZMain\TI2530DB\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\include\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\include\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\high_level\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mt\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\osal\include\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\services\saddr\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\services\sdata\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\af\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\bdb\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\gp\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\nwk\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sapi\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sec\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sys\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\zcl\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\zdo\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\zmac\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\zmac\f8w\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\Common\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\SPI\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\Font\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_LCD_SPI\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_OLED\"
+#        -I "I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_TFT\"
+#        -Ohz --require_prototypes)
+#    Locale             =  Chinese (Simplified)_CHN.936
+#    List file          =  
+#        I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\List\gp_proxyTbl.lst
+#    Object file        =  
+#        I:\ZigBee3.0\Zigbee3.0
+#        20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack
+#        3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\EndDeviceEB\Obj\gp_proxyTbl.r51
+#
+###############################################################################
+
+I:\ZigBee3.0\Zigbee3.0 20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack 3.0.1\Components\stack\GP\gp_proxyTbl.c
+      1          /**************************************************************************************************
+      2            Filename:       gp_proxyTbl.c
+      3            Revised:        $Date: 2016-02-25 11:51:49 -0700 (Thu, 25 Feb 2016) $
+      4            Revision:       $Revision: - $
+      5          
+      6            Description:    This file contains the implementation of the cGP stub.
+      7          
+      8          
+      9            Copyright 2006-2015 Texas Instruments Incorporated. All rights reserved.
+     10          
+     11            IMPORTANT: Your use of this Software is limited to those specific rights
+     12            granted under the terms of a software license agreement between the user
+     13            who downloaded the software, his/her employer (which must be your employer)
+     14            and Texas Instruments Incorporated (the "License").  You may not use this
+     15            Software unless you agree to abide by the terms of the License. The License
+     16            limits your use, and you acknowledge, that the Software may not be modified,
+     17            copied or distributed unless embedded on a Texas Instruments microcontroller
+     18            or used solely and exclusively in conjunction with a Texas Instruments radio
+     19            frequency transceiver, which is integrated into your product.  Other than for
+     20            the foregoing purpose, you may not use, reproduce, copy, prepare derivative
+     21            works of, modify, distribute, perform, display or sell this Software and/or
+     22            its documentation for any purpose.
+     23          
+     24            YOU FURTHER ACKNOWLEDGE AND AGREE THAT THE SOFTWARE AND DOCUMENTATION ARE
+     25            PROVIDED "AS IS" WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESS OR IMPLIED,
+     26            INCLUDING WITHOUT LIMITATION, ANY WARRANTY OF MERCHANTABILITY, TITLE,
+     27            NON-INFRINGEMENT AND FITNESS FOR A PARTICULAR PURPOSE. IN NO EVENT SHALL
+     28            TEXAS INSTRUMENTS OR ITS LICENSORS BE LIABLE OR OBLIGATED UNDER CONTRACT,
+     29            NEGLIGENCE, STRICT LIABILITY, CONTRIBUTION, BREACH OF WARRANTY, OR OTHER
+     30            LEGAL EQUITABLE THEORY ANY DIRECT OR INDIRECT DAMAGES OR EXPENSES
+     31            INCLUDING BUT NOT LIMITED TO ANY INCIDENTAL, SPECIAL, INDIRECT, PUNITIVE
+     32            OR CONSEQUENTIAL DAMAGES, LOST PROFITS OR LOST DATA, COST OF PROCUREMENT
+     33            OF SUBSTITUTE GOODS, TECHNOLOGY, SERVICES, OR ANY CLAIMS BY THIRD PARTIES
+     34            (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF), OR OTHER SIMILAR COSTS.
+     35          
+     36            Should you have any questions regarding your right to use this Software,
+     37            contact Texas Instruments Incorporated at www.TI.com.
+     38          **************************************************************************************************/
+     39          
+     40          
+     41          
+     42          /*********************************************************************
+     43           * INCLUDES
+     44           */
+     45             
+     46          #include "ZGlobals.h"
+     47          #include "ZDObject.h"
+     48          #include "nwk_util.h"   
+     49          #include "ZComDef.h"
+     50          #include "cGP_stub.h"
+     51          #include "gp_common.h"
+     52          #include "gp_interface.h"
+     53          #include "zcl_green_power.h"
+     54          #include "OSAL.h"
+     55          
+     56          #if !defined (DISABLE_GREENPOWER_BASIC_PROXY) && (ZG_BUILD_RTR_TYPE)
+     57             
+     58           /*********************************************************************
+     59           * MACROS
+     60           */ 
+     61          
+     62           /*********************************************************************
+     63           * CONSTANTS
+     64           */
+     65          
+     66          /*********************************************************************
+     67           * TYPEDEFS
+     68           */
+     69             
+     70           /*********************************************************************
+     71           * GLOBAL VARIABLES
+     72           */
+     73          ZDO_DeviceAnnce_t aliasConflictAnnce;
+     74          
+     75           /*********************************************************************
+     76           * EXTERNAL VARIABLES
+     77           */
+     78          
+     79          /*********************************************************************
+     80           * EXTERNAL FUNCTIONS
+     81           */
+     82          
+     83          /*********************************************************************
+     84           * LOCAL VARIABLES
+     85           */
+     86          
+     87           /*********************************************************************
+     88           * LOCAL FUNCTIONS
+     89           */
+     90          static void gp_PopulateProxyTblEntry( uint8* pData, uint8 size, uint8* pTblEntryVector, uint8* vectorLen );
+     91          static uint8 pt_getAlias( uint8* pNew );
+     92          static uint8 pt_getSecurity( uint8* pNew );
+     93          static uint8 pt_getSecFrameCounterCapabilities( uint8* pNew );
+     94          static uint8 pt_updateLightweightUnicastSink( uint8* pNew, uint8* pCurr, uint8 addSink );
+     95          static uint8 pt_addSinkGroup( uint8* pNew, uint8* pCurr );
+     96          static uint8 pt_lookForGpd( uint16 currProxyEntryId, uint8* pNew );
+     97          
+     98          /*********************************************************************
+     99           * PUBLIC FUNCTIONS
+    100           *********************************************************************/
+    101          
+    102          /*********************************************************************
+    103           * @fn          pt_ZclReadGetProxyEntry
+    104           *
+    105           * @brief       Populate the given item data
+    106           *
+    107           * @param       nvId - NV entry to read
+    108           *              pData - Pointer to OTA message payload
+    109           *              len - Lenght of the payload
+    110           *
+    111           * @return
+    112           */
+    113          uint8 pt_ZclReadGetProxyEntry( uint16 nvId, uint8* pData, uint8* len )
+    114          {
+    115            uint8  freeSinkEntry[LSINK_ADDR_LEN] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+    116            uint8  currEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+    117            uint8  gpdEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+    118            uint8  gpdEntryLen = 0;
+    119            uint8  status;
+    120            uint16 options;
+    121          
+    122            status = gp_getProxyTableByIndex( nvId, currEntry );
+    123          
+    124            // if FAIL or Empty
+    125            if ( ( status == NV_OPER_FAILED ) || ( status == NV_INVALID_DATA ) )
+    126            {
+    127              // FAIL
+    128              return status;
+    129            }
+    130          
+    131            osal_memcpy( &gpdEntry[gpdEntryLen], &currEntry[PROXY_TBL_ENTRY_OPT], sizeof ( uint16 ) );
+    132            osal_memcpy( &options, &currEntry[PROXY_TBL_ENTRY_OPT], sizeof ( uint16 ) );
+    133            gpdEntryLen += sizeof ( uint16 );
+    134            
+    135            // Options bitfield
+    136            // If Application Id bitfield is 0b000
+    137            if( GP_IS_APPLICATION_ID_GPD( options ) )
+    138            {        
+    139              // Populate GPD ID
+    140              gp_PopulateProxyTblEntry( ( uint8* )&currEntry[PROXY_TBL_ENTRY_GPD_ID + 4], sizeof ( uint32 ), gpdEntry, &gpdEntryLen );
+    141            }
+    142            // If Application Id bitfield is 0b010
+    143            else if( GP_IS_APPLICATION_ID_IEEE( options ) )
+    144            {   
+    145              gp_PopulateProxyTblEntry( ( uint8* )&currEntry[PROXY_TBL_ENTRY_GPD_ID], Z_EXTADDR_LEN, gpdEntry, &gpdEntryLen );
+    146              gp_PopulateProxyTblEntry( ( uint8* )&currEntry[PROXY_TBL_ENTRY_GPD_EP], sizeof ( uint8 ), gpdEntry, &gpdEntryLen );
+    147            }
+    148            
+    149            if ( PROXY_TBL_GET_ASSIGNED_ALIAS( currEntry[PROXY_TBL_ENTRY_OPT + 1] ) )
+    150            {
+    151              gp_PopulateProxyTblEntry( ( uint8* )&currEntry[PROXY_TBL_ENTRY_ALIAS], sizeof ( uint16 ), gpdEntry, &gpdEntryLen );
+    152            }
+    153            
+    154            if ( PROXY_TBL_GET_SEC_USE( currEntry[PROXY_TBL_ENTRY_OPT + 1] ) )
+    155            {
+    156              gp_PopulateProxyTblEntry( ( uint8* )&currEntry[PROXY_TBL_ENTRY_SEC_OPT], sizeof ( uint8 ), gpdEntry, &gpdEntryLen );
+    157            }
+    158            
+    159            if ( ( PROXY_TBL_GET_SEC_USE( currEntry[PROXY_TBL_ENTRY_OPT + 1] ) || ( PROXY_TBL_GET_SEC_CAP( currEntry[PROXY_TBL_ENTRY_OPT] ) ) ) )
+    160            {
+    161              gp_PopulateProxyTblEntry( ( uint8* )&currEntry[PROXY_TBL_ENTRY_SEC_FRAME], sizeof ( uint32 ), gpdEntry, &gpdEntryLen );
+    162            }
+    163            
+    164            if ( PROXY_TBL_GET_SEC_USE( currEntry[PROXY_TBL_ENTRY_OPT + 1] ) )
+    165            {
+    166              gp_PopulateProxyTblEntry( ( uint8* )&currEntry[PROXY_TBL_ENTRY_GPD_KEY], SEC_KEY_LEN, gpdEntry, &gpdEntryLen );
+    167            }
+    168            
+    169            if ( PROXY_TBL_GET_LIGHTWIGHT_UNICAST( currEntry[PROXY_TBL_ENTRY_OPT] ) )
+    170            {
+    171              uint8 sinkCount = 0;
+    172              uint8 sinkCountByte = gpdEntryLen;
+    173              
+    174              gpdEntryLen += sizeof ( sinkCountByte );
+    175              
+    176              if ( !osal_memcmp( freeSinkEntry, &currEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR], LSINK_ADDR_LEN ) )
+    177              {
+    178                sinkCount += 1;
+    179                osal_memcpy( &gpdEntry[sinkCountByte], &sinkCount, sizeof ( uint8 ) );
+    180                gp_PopulateProxyTblEntry( ( uint8* )&currEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR], LSINK_ADDR_LEN, gpdEntry, &gpdEntryLen );
+    181              }
+    182              if ( !osal_memcmp( freeSinkEntry, &currEntry[PROXY_TBL_ENTRY_2ND_LSINK_ADDR], LSINK_ADDR_LEN ) )
+    183              {
+    184                sinkCount += 1;
+    185                osal_memcpy( &gpdEntry[sinkCountByte], &sinkCount, sizeof ( uint8 ) );
+    186                gp_PopulateProxyTblEntry( ( uint8* )&currEntry[PROXY_TBL_ENTRY_2ND_LSINK_ADDR], LSINK_ADDR_LEN, gpdEntry, &gpdEntryLen );
+    187              }
+    188            }
+    189               
+    190            if ( PROXY_TBL_GET_CGROUP( currEntry[PROXY_TBL_ENTRY_OPT + 1] ) )
+    191            {
+    192              uint8 groupCount = 0;
+    193              uint8 groupCountByte = gpdEntryLen;
+    194              
+    195              gpdEntryLen++;
+    196              
+    197              if ( GET_BIT( &currEntry[PROXY_TBL_ENTRY_GRP_TBL_ENTRIES], PROXY_TBL_ENTRY_1ST_GRP_BIT ) )
+    198              {
+    199                groupCount += 1;
+    200                osal_memcpy( &gpdEntry[groupCountByte], &groupCount, sizeof ( uint8 ) );
+    201                gp_PopulateProxyTblEntry( ( uint8* )&currEntry[PROXY_TBL_ENTRY_1ST_GRP_ADDR], sizeof ( uint32 ), gpdEntry, &gpdEntryLen );
+    202              }
+    203              if ( GET_BIT( &currEntry[PROXY_TBL_ENTRY_GRP_TBL_ENTRIES], PROXY_TBL_ENTRY_2ND_GRP_BIT ) )
+    204              {
+    205                groupCount += 1;
+    206                osal_memcpy( &gpdEntry[groupCountByte], &groupCount, sizeof( uint8 ) );
+    207                gp_PopulateProxyTblEntry( ( uint8* )&currEntry[PROXY_TBL_ENTRY_2ND_GRP_ADDR], sizeof ( uint32 ), gpdEntry, &gpdEntryLen );
+    208              }
+    209            }
+    210            
+    211            gp_PopulateProxyTblEntry( ( uint8* )&currEntry[PROXY_TBL_ENTRY_GRP_RAD], sizeof ( uint8 ), gpdEntry, &gpdEntryLen );
+    212            
+    213            if ( ( PROXY_TBL_GET_ENTRY_ACTIVE( currEntry[PROXY_TBL_ENTRY_OPT] ) == 0 ) || ( PROXY_TBL_GET_ENTRY_VALID( currEntry[PROXY_TBL_ENTRY_OPT] ) == 0 ) )
+    214            {
+    215              gp_PopulateProxyTblEntry( ( uint8* )&currEntry[PROXY_TBL_ENTRY_SEARCH_COUNTER], sizeof ( uint8 ), gpdEntry, &gpdEntryLen );
+    216            }
+    217            
+    218            if ( pData != NULL )
+    219            {
+    220              uint8 sinkEntryLen;
+    221              uint16 totalLen;
+    222              
+    223              sinkEntryLen = gpdEntryLen;
+    224              if ( *len != 0 )
+    225              {
+    226              gpdEntryLen -= sizeof ( uint16 );
+    227              }
+    228              totalLen = gpdEntryLen;
+    229              totalLen += *len;
+    230              osal_memcpy( pData, &totalLen, sizeof ( uint16 ) );
+    231              if ( *len == 0 )
+    232              {
+    233                pData += sizeof ( uint16 );
+    234              }
+    235              gpdEntryLen += sizeof ( uint16 );
+    236              
+    237              pData += *len;
+    238              osal_memcpy( pData, gpdEntry, sinkEntryLen );
+    239              if ( *len != 0 )
+    240              {
+    241                *len = totalLen;
+    242                return status;
+    243              }
+    244              *len += gpdEntryLen;
+    245              return status;
+    246            }
+    247            else
+    248            {
+    249              if ( *len == 0 )
+    250              {
+    251                gpdEntryLen += sizeof ( uint16 );
+    252              }
+    253              *len += gpdEntryLen;
+    254              return status;
+    255            }
+    256          }
+    257          
+    258          /*********************************************************************
+    259           * @fn      zclGpp_ReadWriteAttrCB
+    260           *
+    261           * @brief   Handle Diagnostics attributes.
+    262           *
+    263           * @param   clusterId - cluster that attribute belongs to
+    264           * @param   attrId - attribute to be read or written
+    265           * @param   oper - ZCL_OPER_LEN, ZCL_OPER_READ, or ZCL_OPER_WRITE
+    266           * @param   pValue - pointer to attribute value, OTA endian
+    267           * @param   pLen - length of attribute value read, native endian
+    268           *
+    269           * @return  status
+    270           */
+    271          ZStatus_t zclGpp_ReadWriteAttrCB( uint16 clusterId, uint16 attrId, uint8 oper,
+    272                                                   uint8 *pValue, uint16 *pLen )
+    273          {
+    274            ZStatus_t status = ZSuccess;
+    275            uint16 proxyTableIndex;
+    276            uint8 i;
+    277          
+    278            switch ( oper )
+    279            {
+    280              case ZCL_OPER_LEN:
+    281              case ZCL_OPER_READ:
+    282                if ( attrId == ATTRID_GP_PROXY_TABLE )
+    283                { 
+    284                  for ( i = 0; i <= GPP_MAX_PROXY_TABLE_ENTRIES ; i++ )
+    285                  {
+    286                    proxyTableIndex = ZCD_NV_PROXY_TABLE_START + i;
+    287                    
+    288                    status = pt_ZclReadGetProxyEntry ( proxyTableIndex, pValue, (uint8*)pLen );
+    289                    if ( status != ZSuccess )
+    290                    {
+    291                      status = ZFailure;
+    292                      break;
+    293                    }
+    294                  }
+    295                  
+    296                }
+    297                break;
+    298          
+    299              case ZCL_OPER_WRITE:
+    300                status = ZFailure;
+    301                break;
+    302            }
+    303          
+    304            return ( status );
+    305          }
+    306          
+    307           /*********************************************************************
+    308           * @fn          gp_pairingSetProxyTblOptions
+    309           *
+    310           * @brief       Function to fill the options pramenter in a Proxy Table entry
+    311           *              from a GP Pairing Command
+    312           *
+    313           * @param       pBitField - pointer to the bit field.
+    314           *              bit       - position of the bit to set in the given bitfield.
+    315           *
+    316           * @return      
+    317           */
+    318          static uint16 gp_pairingSetProxyTblOptions ( uint32 pairingOpt )
+    319          {
+    320            uint8  proxyOpt[2] = {0x00, 0x00};
+    321            uint16 opt = 0; 
+    322            
+    323            PAIRING_PROXY_TBL_SET_APPLICATION_ID(( uint8* )&proxyOpt[0], pairingOpt);
+    324            PROXY_TBL_SET_ENTRY_ACTIVE( &proxyOpt[0] );
+    325            PROXY_TBL_SET_ENTRY_VALID( &proxyOpt[0] );
+    326            PAIRING_PROXY_TBL_SET_MAC_SEQ_CAP(( uint16* )&proxyOpt, pairingOpt);
+    327            
+    328            if ( GP_IS_COMMUNICATION_MODE_LIGHT_UNICAST( pairingOpt ) )
+    329            {
+    330              PROXY_TBL_SET_LIGHTWIGHT_UNICAST( &proxyOpt[0] );
+    331            }
+    332            else
+    333            {
+    334              PROXY_TBL_CLR_LIGHTWIGHT_UNICAST( &proxyOpt[0] );
+    335            }
+    336            if ( GP_IS_COMMUNICATION_MODE_GRPCAST_DGROUP_ID( pairingOpt ) )
+    337            {
+    338              PROXY_TBL_SET_DGROUP( &proxyOpt[0] );
+    339            }
+    340            else
+    341            {
+    342              PROXY_TBL_CLR_DGROUP( &proxyOpt[0] );
+    343            }
+    344            if ( GP_IS_COMMUNICATION_MODE_GRPCAST_GROUP_ID( pairingOpt ) )
+    345            {
+    346              PROXY_TBL_SET_CGROUP( &proxyOpt[1] );
+    347            }
+    348            else
+    349            {
+    350              PROXY_TBL_CLR_CGROUP( &proxyOpt[1] );
+    351            }
+    352            
+    353            // FALSE by default
+    354            PROXY_TBL_CLR_FIRST_TO_FORWARD( &proxyOpt[1] );
+    355            
+    356            // The InRange sub-field, if set to 0b1, indicates that this GPD is in range 
+    357            // of this proxy. The default value is FALSE
+    358            PROXY_TBL_CLR_IN_RANGE( &proxyOpt[1] );
+    359            // The GPDfixed sub-field, if set to 0b1, indicates portability capabilities 
+    360            if ( GP_GET_GPD_FIXED_BIT( pairingOpt ) )
+    361            {
+    362              PROXY_TBL_SET_GPD_FIXED( &proxyOpt[1] );
+    363            }
+    364            else
+    365            {
+    366              PROXY_TBL_CLR_GPD_FIXED( &proxyOpt[1] );
+    367            }
+    368            
+    369            if ( GP_IS_COMMUNICATION_MODE_FULL_UNICAST( pairingOpt ) )
+    370            {
+    371              PROXY_TBL_SET_HAS_ALL_ROUTES( &proxyOpt[1] );
+    372            }
+    373            else
+    374            {
+    375              PROXY_TBL_CLR_HAS_ALL_ROUTES( &proxyOpt[1] );
+    376            }
+    377            if ( (GP_ALIAS ( pairingOpt )) && (!GP_IS_COMMUNICATION_MODE_GRPCAST_GROUP_ID( pairingOpt )) )
+    378            {
+    379              PROXY_TBL_SET_ASSIGNED_ALIAS( &proxyOpt[1] );
+    380            }
+    381            else
+    382            {
+    383              PROXY_TBL_CLR_ASSIGNED_ALIAS( &proxyOpt[1]);
+    384            }
+    385            if ( GP_GET_SEC_LEVEL( pairingOpt ) > 1 )
+    386            {
+    387              PROXY_TBL_SET_SEC_USE( &proxyOpt[1] );
+    388            }
+    389            else
+    390            {
+    391              PROXY_TBL_CLR_SEC_USE( &proxyOpt[1] );
+    392            }
+    393            PROXY_TBL_SET_OPT_EXT( &proxyOpt[1] );
+    394            PROXY_TBL_CLR_OPT_EXT( &proxyOpt[1] );
+    395            
+    396            opt |= ( ( proxyOpt[0] ) & 0x00FF );
+    397            opt |= ( ( ( proxyOpt[1] ) <<  8 ) & 0xFF00 );
+    398              
+    399            return opt;
+    400          }
+    401          
+    402          /*********************************************************************
+    403           * @fn          gp_PairingUpdateProxyTlb
+    404           *
+    405           * @brief       General function fill the proxy table vector
+    406           *
+    407           * @param       
+    408           *
+    409           * @return      
+    410           */
+    411          void gp_PairingUpdateProxyTlb( gpPairingCmd_t* payload )
+    412          {
+    413            uint8  entryVector[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+    414            uint8  entryLen = 0;
+    415            uint8  addSink;
+    416            uint8  newSinkGroup = 0;
+    417            uint16 entryOptions = 0;
+    418            uint8  securityOpt = 0;
+    419            uint8  searchCounter = 0x0A;
+    420            uint16 invalidAlias = 0xFFFF;
+    421            
+    422            addSink = GP_ADD_SINK( payload->options );
+    423            
+    424            entryOptions = gp_pairingSetProxyTblOptions( payload->options );
+    425            gp_PopulateProxyTblEntry( ( uint8* )&entryOptions, sizeof( entryOptions ), entryVector, &entryLen );
+    426              
+    427            // Options bitfield
+    428            // If Application Id bitfield is 0b000
+    429            if( GP_IS_APPLICATION_ID_GPD( payload->options ) )
+    430            {        
+    431              // Populate GPD ID
+    432              entryLen += sizeof( uint32 );
+    433              gp_PopulateProxyTblEntry( ( uint8* )&payload->gpdId, sizeof( payload->gpdId ), entryVector, &entryLen );
+    434            }
+    435            // If Application Id bitfield is 0b010
+    436            else if( GP_IS_APPLICATION_ID_IEEE( payload->options ) )
+    437            {   
+    438              gp_PopulateProxyTblEntry( payload->gpdIEEE, Z_EXTADDR_LEN, entryVector, &entryLen );
+    439            }
+    440            
+    441             gp_PopulateProxyTblEntry( ( uint8* )&payload->ep, sizeof( payload->ep ), entryVector, &entryLen );
+    442          
+    443            if( !GP_IS_COMMUNICATION_MODE_GRPCAST_GROUP_ID( payload->options ) )
+    444            {
+    445              gp_PopulateProxyTblEntry( ( uint8* )&payload->assignedAlias, sizeof( payload->assignedAlias ), entryVector, &entryLen );
+    446            }
+    447            else
+    448            {
+    449              gp_PopulateProxyTblEntry( ( uint8* )&invalidAlias, sizeof( uint16 ), entryVector, &entryLen );
+    450            }
+    451          
+    452          
+    453            //Security options
+    454            securityOpt |= GP_GET_SEC_LEVEL( payload->options );
+    455            securityOpt |= GP_GET_SEC_KEY_TYPE (payload->options ) << GP_OPT_SEC_LEVEL_LEN;
+    456            osal_memcpy( &entryVector[entryLen], &securityOpt, sizeof ( uint8 ) );
+    457            entryLen += sizeof ( uint8 );
+    458          
+    459            gp_PopulateProxyTblEntry( ( uint8* )&payload->gpdSecCounter, sizeof( payload->gpdSecCounter ), entryVector, &entryLen );
+    460            gp_PopulateProxyTblEntry( ( uint8* )&payload->gpdKey, SEC_KEY_LEN, entryVector, &entryLen );
+    461            
+    462            gp_PopulateProxyTblEntry( payload->sinkIEEE, Z_EXTADDR_LEN, entryVector, &entryLen );
+    463            gp_PopulateProxyTblEntry( ( uint8* )&payload->sinkNwkAddr, sizeof( payload->sinkNwkAddr ), entryVector, &entryLen );
+    464            // to add the invalid entries
+    465            osal_memset ( &payload->sinkIEEE, 0xFF, Z_EXTADDR_LEN );
+    466            payload->sinkNwkAddr = 0xFFFF;
+    467            gp_PopulateProxyTblEntry( payload->sinkIEEE, Z_EXTADDR_LEN, entryVector, &entryLen );
+    468            gp_PopulateProxyTblEntry( ( uint8* )&payload->sinkNwkAddr, sizeof( payload->sinkNwkAddr ), entryVector, &entryLen );
+    469            
+    470            newSinkGroup = PROXY_TBL_GET_DGROUP( entryOptions & 0x00FF );
+    471            newSinkGroup |= PROXY_TBL_GET_CGROUP( ( entryOptions & 0xFF00 ) >> 8 );
+    472            osal_memset( &entryVector[entryLen], newSinkGroup, sizeof ( uint8 ) );
+    473            entryLen++;
+    474            
+    475            gp_PopulateProxyTblEntry( ( uint8* )&payload->sinkGroupID, sizeof( payload->sinkGroupID ), entryVector, &entryLen );
+    476            if( GP_IS_COMMUNICATION_MODE_GRPCAST_GROUP_ID( payload->options ) || GP_IS_COMMUNICATION_MODE_GRPCAST_DGROUP_ID( payload->options ) )
+    477            {
+    478              gp_PopulateProxyTblEntry( ( uint8* )&payload->assignedAlias, sizeof( payload->assignedAlias ), entryVector, &entryLen );
+    479            }
+    480            else
+    481            {
+    482              gp_PopulateProxyTblEntry( ( uint8* )&invalidAlias, sizeof ( uint16 ), entryVector, &entryLen );
+    483            }
+    484            // to add the invalid entries
+    485            payload->sinkGroupID = 0xFFFF;
+    486            gp_PopulateProxyTblEntry( ( uint8* )&payload->sinkGroupID, sizeof( payload->sinkGroupID ), entryVector, &entryLen );
+    487            gp_PopulateProxyTblEntry( ( uint8* )&invalidAlias, sizeof ( uint16 ), entryVector, &entryLen );
+    488          
+    489            
+    490            gp_PopulateProxyTblEntry( &payload->forwardingRadius, sizeof( payload->forwardingRadius ), entryVector, &entryLen );
+    491           
+    492            if ( ( PROXY_TBL_GET_ENTRY_ACTIVE( entryVector[0] ) == 0 ) && ( PROXY_TBL_GET_ENTRY_VALID( entryVector[0] ) == 0) )
+    493            {
+    494              osal_memcpy( &entryVector[entryLen], &searchCounter, sizeof ( uint8 ) );
+    495            }
+    496            else
+    497            {
+    498              searchCounter = 0xFF;
+    499              osal_memcpy( &entryVector[entryLen], &searchCounter, sizeof ( uint8 ) );
+    500            }
+    501            // Update the proxy table
+    502            gp_UpdateProxyTlb( entryVector, addSink );
+    503          }
+    504          
+    505          /*********************************************************************
+    506           * @fn          gp_UpdateProxyTlb
+    507           *
+    508           * @brief       To update the proxy table NV vectors
+    509           *
+    510           * @param       pNpEntryew - New entry array to be added
+    511           *
+    512           * @return
+    513           */
+    514          uint8 gp_UpdateProxyTlb( uint8* pEntry, uint8 addSink )
+    515          {
+    516            uint8 i;
+    517            uint8 newEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+    518            uint8 currEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+    519            uint16 proxyTableIndex;
+    520            uint8 status;
+    521            
+    522            // Copy the new entry pointer to array
+    523            osal_memcpy( &newEntry, pEntry, PROXY_TBL_ENTRY_LEN );
+    524          
+    525            for ( i = 0; i <= GPP_MAX_PROXY_TABLE_ENTRIES ; i++ )
+    526            {
+    527              proxyTableIndex = ZCD_NV_PROXY_TABLE_START + i;
+    528              status = gp_getProxyTableByIndex( proxyTableIndex, currEntry );
+    529          
+    530              if ( status == NV_OPER_FAILED )
+    531              {
+    532                // FAIL
+    533                return status;
+    534              }
+    535              
+    536              // if the entry is empty
+    537              if ( ( status == NV_INVALID_DATA ) && ( addSink == TRUE ) )
+    538              {
+    539                // Save new entry
+    540                status = osal_nv_write( proxyTableIndex, 0,
+    541                                     PROXY_TBL_ENTRY_LEN, newEntry );
+    542                
+    543                if ( osal_memcmp( &_NIB.nwkDevAddress, &newEntry[PROXY_TBL_ENTRY_ALIAS], sizeof( uint16 ) )        ||
+    544                     osal_memcmp( &_NIB.nwkDevAddress, &newEntry[PROXY_TBL_ENTRY_1ST_GRP_ADDR], sizeof( uint16 ) ) ||
+    545                     osal_memcmp( &_NIB.nwkDevAddress, &newEntry[PROXY_TBL_ENTRY_2ND_GRP_ADDR], sizeof( uint16 ) )   )
+    546                {
+    547                  NLME_ReportAddressConflict( _NIB.nwkDevAddress, TRUE );  
+    548                }
+    549                return status;
+    550              }
+    551              
+    552              if ( pt_lookForGpd( proxyTableIndex, newEntry ) )
+    553              {
+    554                // Entry found
+    555                break;
+    556              }
+    557              
+    558              if ( i >= GPP_MAX_PROXY_TABLE_ENTRIES )
+    559              {
+    560                // No space for new entries
+    561                return FAILURE;
+    562              }
+    563            }
+    564            
+    565            // Remove the entry
+    566            if ( addSink == FALSE )
+    567            {
+    568              gp_ResetProxyBasicTblEntry( currEntry );
+    569              
+    570              status = osal_nv_write( proxyTableIndex, 0,
+    571                               PROXY_TBL_ENTRY_LEN, currEntry );
+    572              return status;
+    573            }
+    574          
+    575            if ( PROXY_TBL_GET_LIGHTWIGHT_UNICAST( newEntry[PROXY_TBL_ENTRY_OPT] ) )
+    576            {
+    577              if ( ( !pt_updateLightweightUnicastSink( newEntry, currEntry, addSink ) ) )
+    578              {
+    579                // The entry is full
+    580                return NV_BAD_ITEM_LEN;
+    581              }
+    582            }
+    583            else if ( PROXY_TBL_GET_CGROUP( newEntry[PROXY_TBL_ENTRY_OPT + 1] ) )
+    584            {
+    585              if ( ( !pt_addSinkGroup( newEntry, currEntry ) ) )
+    586              {
+    587                // The entry is full
+    588                return NV_BAD_ITEM_LEN;
+    589              }
+    590            }
+    591          
+    592            if ( pt_getAlias( newEntry ) )
+    593            {
+    594              osal_memcpy( &currEntry[PROXY_TBL_ENTRY_ALIAS], &newEntry[PROXY_TBL_ENTRY_ALIAS], sizeof ( uint16 ) );
+    595            }
+    596              
+    597            if ( pt_getSecurity( newEntry ) )
+    598            {
+    599              PROXY_TBL_SET_SEC_USE( &currEntry[PROXY_TBL_ENTRY_OPT + 1] );
+    600              osal_memcpy( &currEntry[PROXY_TBL_ENTRY_SEC_OPT], &newEntry[PROXY_TBL_ENTRY_SEC_OPT], sizeof ( uint8 ) );
+    601              osal_memcpy( &currEntry[PROXY_TBL_ENTRY_GPD_KEY], &newEntry[PROXY_TBL_ENTRY_GPD_KEY], SEC_KEY_LEN );
+    602            }
+    603                   
+    604            if ( pt_getSecFrameCounterCapabilities( newEntry ) )
+    605            {
+    606              PROXY_TBL_SET_SEC_CAP( &currEntry[PROXY_TBL_ENTRY_OPT] );
+    607            }
+    608            
+    609            osal_memcpy( &currEntry[PROXY_TBL_ENTRY_SEC_FRAME], &newEntry[PROXY_TBL_ENTRY_SEC_FRAME], sizeof ( uint32 ) );
+    610          
+    611            currEntry[PROXY_TBL_ENTRY_GRP_RAD] = newEntry[PROXY_TBL_ENTRY_GRP_RAD];
+    612              
+    613            currEntry[PROXY_TBL_ENTRY_SEARCH_COUNTER] = newEntry[PROXY_TBL_ENTRY_SEARCH_COUNTER];
+    614             
+    615            status = osal_nv_write( proxyTableIndex, 0,
+    616                               PROXY_TBL_ENTRY_LEN, currEntry );
+    617            
+    618            if ( osal_memcmp( &_NIB.nwkDevAddress, &currEntry[PROXY_TBL_ENTRY_ALIAS], sizeof( uint16 ) )        ||
+    619                 osal_memcmp( &_NIB.nwkDevAddress, &currEntry[PROXY_TBL_ENTRY_1ST_GRP_ADDR], sizeof( uint16 ) ) ||
+    620                 osal_memcmp( &_NIB.nwkDevAddress, &currEntry[PROXY_TBL_ENTRY_2ND_GRP_ADDR], sizeof( uint16 ) )   )
+    621            {
+    622              NLME_ReportAddressConflict( _NIB.nwkDevAddress, TRUE );  
+    623            }
+    624            
+    625            return status;
+    626          }
+    627          
+    628          /*********************************************************************
+    629           * @fn          gp_CheckAnnouncedDevice
+    630           *
+    631           * @brief       General function to check if it has the announced device 
+    632           *              listed in the SinkAddressList and look for address conflict
+    633           *              resolution.
+    634           *
+    635           * @param       
+    636           *
+    637           * @return      
+    638           */
+    639          uint8 gp_CheckAnnouncedDevice ( uint8 *sinkIEEE, uint16 sinkNwkAddr )
+    640          {
+    641            uint8 i;
+    642            uint8 status;
+    643            uint8 annceDelay;
+    644            uint8 ProxyTableEntry[PROXY_TBL_ENTRY_LEN];
+    645          
+    646            for ( i = 0; i <= GPP_MAX_PROXY_TABLE_ENTRIES ; i++ )
+    647            {
+    648              status = gp_getProxyTableByIndex( ( ZCD_NV_PROXY_TABLE_START + i ), ProxyTableEntry );
+    649          
+    650              if ( status == NV_OPER_FAILED )
+    651              {
+    652                // FAIL
+    653          
+    654                return ZFailure;
+    655              }
+    656              
+    657              // if the entry is empty
+    658              if ( status == NV_INVALID_DATA )
+    659              {
+    660                continue;
+    661              }
+    662              
+    663              // Compare for nwk alias address conflict
+    664              if ( osal_memcmp( &sinkNwkAddr, &ProxyTableEntry[PROXY_TBL_ENTRY_ALIAS], sizeof( uint16 ) )        ||
+    665                   osal_memcmp( &sinkNwkAddr, &ProxyTableEntry[PROXY_TBL_ENTRY_1ST_GRP_ADDR], sizeof( uint16 ) ) ||
+    666                   osal_memcmp( &sinkNwkAddr, &ProxyTableEntry[PROXY_TBL_ENTRY_2ND_GRP_ADDR], sizeof( uint16 ) )   )
+    667              {
+    668                // Do address conflict resolution
+    669                NLME_SendNetworkStatus( NWK_BROADCAST_SHORTADDR_DEVRXON,
+    670                                   sinkNwkAddr, NWKSTAT_ADDRESS_CONFLICT, TRUE );
+    671                
+    672                aliasConflictAnnce.nwkAddr = sinkNwkAddr;
+    673                osal_memset( aliasConflictAnnce.extAddr, 0xFF, Z_EXTADDR_LEN );
+    674                aliasConflictAnnce.capabilities = 0;
+    675                
+    676                annceDelay = ( osal_rand()/650 ) + 5; // ( 65535/650 = 100 ) + 5 
+    677                // where:
+    678                // 100 is Dmax
+    679                // 5   is Dmin
+    680                osal_start_timerEx( gp_TaskID, GP_PROXY_ALIAS_CONFLICT_TIMEOUT, annceDelay );
+    681              }
+    682          
+    683              if( sinkIEEE )
+    684              {
+    685                //Check if one of the Sink IEEE is the same
+    686                if ( osal_memcmp( sinkIEEE, &ProxyTableEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR], Z_EXTADDR_LEN ) )
+    687                {
+    688                  // If Nwk address is different, then update the new address
+    689                  if ( !osal_memcmp( &sinkNwkAddr, &ProxyTableEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR + Z_EXTADDR_LEN], sizeof( uint16 ) ) )
+    690                  {
+    691                    osal_memcpy( &ProxyTableEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR + Z_EXTADDR_LEN], &sinkNwkAddr, sizeof( uint16 ) );
+    692                  }
+    693                }
+    694                else if ( osal_memcmp( sinkIEEE, &ProxyTableEntry[PROXY_TBL_ENTRY_2ND_LSINK_ADDR], Z_EXTADDR_LEN ) )
+    695                {
+    696                  // If Nwk address is different, then update the new address
+    697                  if ( !osal_memcmp( &sinkNwkAddr, &ProxyTableEntry[PROXY_TBL_ENTRY_2ND_LSINK_ADDR + Z_EXTADDR_LEN], sizeof( uint16 ) ) )
+    698                  {
+    699                    osal_memcpy( &ProxyTableEntry[PROXY_TBL_ENTRY_2ND_LSINK_ADDR + Z_EXTADDR_LEN], &sinkNwkAddr, sizeof( uint16 ) );
+    700                  }
+    701                }
+    702              }
+    703            }
+    704              
+    705            return ZSuccess;
+    706          }
+    707          
+    708           /*********************************************************************
+    709           * PRIVATE FUNCTIONS
+    710           *********************************************************************/
+    711          
+    712          /*********************************************************************
+    713           * @fn          gp_PopulateProxyTblEntry
+    714           *
+    715           * @brief       Populate the given item data
+    716           *
+    717           * @param       pData - Pointer to the new data
+    718           *              size - size of the new data
+    719           *              pTblEntryVector - Pointer to the new vector
+    720           *              vectorLen - Position in the vector to write the data
+    721           *
+    722           * @return
+    723           */
+    724          static void gp_PopulateProxyTblEntry( uint8* pData, uint8 size, uint8* pTblEntryVector, uint8* vectorLen )
+    725          {
+    726            pTblEntryVector += *(uint8*)vectorLen;
+    727            
+    728            osal_memcpy( pTblEntryVector, pData, size );
+    729            *(uint8*)vectorLen += size;
+    730          }
+    731          
+    732          /*********************************************************************
+    733           * @fn          pt_getAlias
+    734           *
+    735           * @brief       Get Bit to update assigned alias field or not
+    736           *
+    737           * @param       pNew - New entry array to be added
+    738           *
+    739           * @return      newAlias - TRUE if assigned alias bit is set
+    740           */
+    741          static uint8 pt_getAlias( uint8* pNew )
+    742          {
+    743            bool newAlias;
+    744            
+    745            newAlias = PROXY_TBL_GET_ASSIGNED_ALIAS( pNew[PROXY_TBL_ENTRY_OPT + 1] );
+    746            
+    747            return newAlias;
+    748          }
+    749          
+    750          /*********************************************************************
+    751           * @fn          pt_getSecurity
+    752           *
+    753           * @brief       Get Bit to update security options field or not
+    754           *
+    755           * @param       pNew - New entry array to be added
+    756           *
+    757           * @return      secUse - TRUE if security use bit is set
+    758           */
+    759          static uint8 pt_getSecurity( uint8* pNew )
+    760          {
+    761            bool secUse;
+    762            
+    763            secUse = PROXY_TBL_GET_SEC_USE( pNew[PROXY_TBL_ENTRY_OPT + 1] );
+    764          
+    765            return secUse;
+    766          }
+    767          
+    768          /*********************************************************************
+    769           * @fn          pt_getSecFrameCounterCapabilities
+    770           *
+    771           * @brief       Get Bit to update security frame counter capabilities
+    772           *
+    773           * @param       pNew - New entry array to be added
+    774           *
+    775           * @return      secCap - TRUE if security frame counter capabilities bit is set
+    776           */
+    777          static uint8 pt_getSecFrameCounterCapabilities( uint8* pNew )
+    778          {
+    779            bool secCap;
+    780            
+    781            secCap = PROXY_TBL_GET_SEC_CAP( pNew[PROXY_TBL_ENTRY_OPT] );
+    782            
+    783            return secCap;
+    784          }
+    785          
+    786          /*********************************************************************
+    787           * @fn          pt_updateLightweightUnicastSink
+    788           *
+    789           * @brief       To add new sink entry
+    790           *
+    791           * @param       pNew - New entry array to be added
+    792           *              pCurr - The current entry array in the proxy table
+    793           *
+    794           * @return      TRUE new entry added, FALSE if not
+    795           */
+    796          static uint8 pt_updateLightweightUnicastSink( uint8* pNew, uint8* pCurr, uint8 addSink )
+    797          {
+    798            uint8 newEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+    799            uint8 currEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+    800            uint8 freeSinkEntry[LSINK_ADDR_LEN] = {0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF};
+    801            
+    802            osal_memcpy( &newEntry, pNew, PROXY_TBL_ENTRY_LEN );
+    803            osal_memcpy( &currEntry, pCurr, PROXY_TBL_ENTRY_LEN );
+    804            
+    805            
+    806            // if addSink is TRUE then add the sink to current entry
+    807            if ( addSink ) 
+    808            {
+    809              // if the incomming Sink entry is different to the current entry
+    810              if ( !osal_memcmp( &currEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR], &newEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR], LSINK_ADDR_LEN ) )
+    811              {
+    812                // add the sink entry in the next slot if empty
+    813                if ( osal_memcmp( freeSinkEntry, &currEntry[PROXY_TBL_ENTRY_2ND_LSINK_ADDR], LSINK_ADDR_LEN ) )
+    814                {
+    815                  osal_memcpy( &currEntry[PROXY_TBL_ENTRY_2ND_LSINK_ADDR], &newEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR], LSINK_ADDR_LEN );
+    816                  osal_memcpy( pCurr, &currEntry, PROXY_TBL_ENTRY_LEN );
+    817                  return TRUE;
+    818                }
+    819              }
+    820              else 
+    821              {
+    822                osal_memcpy( pCurr, &currEntry, PROXY_TBL_ENTRY_LEN );
+    823               return TRUE;
+    824              }
+    825              // if the incomming Sink entry is different to the current entry
+    826              if ( !osal_memcmp( &currEntry[PROXY_TBL_ENTRY_2ND_LSINK_ADDR], &newEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR], LSINK_ADDR_LEN ) )
+    827              {
+    828                return FALSE;
+    829              }
+    830            }
+    831            else
+    832            {
+    833              // if the incomming Sink entry is the same to the current entry
+    834              if ( osal_memcmp( &currEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR], &newEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR], LSINK_ADDR_LEN ) )
+    835              {
+    836                // Move the next sink entry to current
+    837                osal_memcpy( &currEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR], &currEntry[PROXY_TBL_ENTRY_2ND_LSINK_ADDR], LSINK_ADDR_LEN );
+    838                // Invalidate the sink entry
+    839                osal_memcpy( &currEntry[PROXY_TBL_ENTRY_2ND_LSINK_ADDR], freeSinkEntry, LSINK_ADDR_LEN );
+    840                
+    841                // if the sink entry is empty then remove the proxy table entry
+    842                if ( osal_memcmp( freeSinkEntry, &currEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR], LSINK_ADDR_LEN ) )
+    843                {
+    844                  gp_ResetProxyBasicTblEntry( currEntry );
+    845                }
+    846                osal_memcpy( pCurr, &currEntry, PROXY_TBL_ENTRY_LEN );
+    847                return TRUE;
+    848              }
+    849              // if the incomming Sink entry is the same to the current entry
+    850              else if ( osal_memcmp( &currEntry[PROXY_TBL_ENTRY_2ND_LSINK_ADDR], &newEntry[PROXY_TBL_ENTRY_1ST_LSINK_ADDR], LSINK_ADDR_LEN ) )
+    851              {
+    852                // Invalidate the sink entry
+    853                osal_memcpy( &currEntry[PROXY_TBL_ENTRY_2ND_LSINK_ADDR], freeSinkEntry, LSINK_ADDR_LEN );
+    854                osal_memcpy( pCurr, &currEntry, PROXY_TBL_ENTRY_LEN );
+    855                return TRUE;
+    856              }
+    857            }
+    858            return FALSE;
+    859          }
+    860          
+    861          /*********************************************************************
+    862           * @fn          pt_addSinkGroup
+    863           *
+    864           * @brief       To add new sink group entry
+    865           *
+    866           * @param       pNew - New entry array to be added
+    867           *              pCurr - The current entry array in the proxy table
+    868           *
+    869           * @return      TRUE new entry added, FALSE if not
+    870           */
+    871          static uint8 pt_addSinkGroup( uint8* pNew, uint8* pCurr )
+    872          {
+    873            bool newSinkGroup;
+    874            uint8 newEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+    875            uint8 currEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+    876            
+    877            osal_memcpy( &newEntry, pNew, PROXY_TBL_ENTRY_LEN );
+    878            osal_memcpy( &currEntry, pCurr, PROXY_TBL_ENTRY_LEN );
+    879            
+    880            newSinkGroup = PROXY_TBL_GET_DGROUP( newEntry[PROXY_TBL_ENTRY_OPT] );
+    881            newSinkGroup = PROXY_TBL_GET_CGROUP( newEntry[PROXY_TBL_ENTRY_OPT + 1] );
+    882            
+    883            if ( newSinkGroup )
+    884            {
+    885              if ( !GET_BIT( &currEntry[PROXY_TBL_ENTRY_GRP_TBL_ENTRIES], PROXY_TBL_ENTRY_2ND_GRP_BIT ) )
+    886              {
+    887                if ( !GET_BIT( &currEntry[PROXY_TBL_ENTRY_GRP_TBL_ENTRIES], PROXY_TBL_ENTRY_1ST_GRP_BIT ) )
+    888                {
+    889                  osal_memcpy( &currEntry[PROXY_TBL_ENTRY_1ST_GRP_ADDR], &newEntry[PROXY_TBL_ENTRY_1ST_GRP_ADDR], sizeof ( uint32 ) );
+    890                  SET_BIT( &currEntry[PROXY_TBL_ENTRY_GRP_TBL_ENTRIES], PROXY_TBL_ENTRY_1ST_GRP_BIT );
+    891                  osal_memcpy( pCurr, &currEntry, PROXY_TBL_ENTRY_LEN );
+    892                  return TRUE;
+    893                }
+    894                else
+    895                {
+    896                  osal_memcpy( &currEntry[PROXY_TBL_ENTRY_2ND_GRP_ADDR], &newEntry[PROXY_TBL_ENTRY_1ST_GRP_ADDR], sizeof ( uint32 ) );
+    897                  SET_BIT( &currEntry[PROXY_TBL_ENTRY_GRP_TBL_ENTRIES], PROXY_TBL_ENTRY_2ND_GRP_BIT );
+    898                  osal_memcpy( pCurr, &currEntry, PROXY_TBL_ENTRY_LEN );
+    899                  return TRUE;
+    900                }
+    901              }
+    902            }
+    903            return FALSE;
+    904          }
+    905          
+    906          /*********************************************************************
+    907           * @fn          pt_lookForGpd
+    908           *
+    909           * @brief       To see if the GPD id is in this NV entry
+    910           *
+    911           * @param       currProxyEntryId - NV ID of the proxy table
+    912           *              pNew - New tabble entry array to be added
+    913           *
+    914           * @return      TRUE if the GPD has an entry in current NV vector
+    915           */
+    916          static uint8 pt_lookForGpd( uint16 currProxyEntryId, uint8* pNew )
+    917          {
+    918            uint8 rtrn;
+    919          
+    920            uint8 newEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+    921            uint8 currEntry[PROXY_TBL_ENTRY_LEN] = PROXY_BASIC_TBL_EMPTY_ENTRY;
+    922          
+    923            osal_memcpy( &newEntry, pNew, PROXY_TBL_ENTRY_LEN );
+    924            
+    925            rtrn = osal_nv_read( currProxyEntryId, 0,
+    926                                       PROXY_TBL_ENTRY_LEN, currEntry );
+    927            
+    928            if ( rtrn != SUCCESS )
+    929            {
+    930              return FALSE;
+    931            }
+    932          
+    933            if ( PROXY_TBL_COMP_APPLICTION_ID( newEntry[PROXY_TBL_ENTRY_OPT], currEntry[PROXY_TBL_ENTRY_OPT] ) )
+    934            {
+    935              if ( osal_memcmp( &newEntry[PROXY_TBL_ENTRY_GPD_ID], &currEntry[PROXY_TBL_ENTRY_GPD_ID], Z_EXTADDR_LEN ) )
+    936              {
+    937              return TRUE;
+    938              }
+    939            }
+    940            return FALSE;
+    941          }
+    942          
+    943          #endif
+    944          /*********************************************************************
+    945          *********************************************************************/
+    946          
+
+
+ 
+
+ 
+
+
+Errors: none
+Warnings: none
