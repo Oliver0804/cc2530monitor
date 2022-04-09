@@ -122,6 +122,22 @@ uint8 zclSampleSw_OnOffSwitchType = ON_OFF_SWITCH_TYPE_MOMENTARY;
 
 uint8 zclSampleSw_OnOffSwitchActions;
 
+
+#define DATA_H 5
+#define DATA_L 6
+uint16 test_word;
+
+uint16 temp_VOC;
+uint16 temp_O3;
+uint16 temp_CHO2;
+uint16 temp_CO;
+uint16 temp_HUMIDITY;
+uint16 temp_TEMPERATURE;
+uint16 temp_PM25;
+uint16 temp_CO2;
+uint16 temp_O2;
+
+
 /*********************************************************************
  * GLOBAL FUNCTIONS
  */
@@ -903,27 +919,74 @@ static void zclSampleSw_InitUart(void)
  * @fn      zclSampleSw_UartCB
  *CSTX
  * @brief   Uart Callback
+uint16 temp_VOC;
+uint16 temp_O3;
+uint16 temp_CHO2;
+uint16 temp_CO;
+uint16 temp_HUMIDITY;
+uint16 temp_TEMPERATURE;
+uint16 temp_PM25;
+uint16 temp_CO2;
+uint16 temp_O2;
+
  */
 static void zclSampleSw_UartCB(uint8 port, uint8 event)
 {
   uint8 rxLen = Hal_UART_RxBufLen(HAL_UART_PORT_0);
-  
+
   if(rxLen != 0)
   {
     HalUARTRead(HAL_UART_PORT_0  ,  zclSampleSw_UartBuf , rxLen);
-    HalUARTWrite(HAL_UART_PORT_0 ,  zclSampleSw_UartBuf , rxLen);
+    //HalUARTWrite(HAL_UART_PORT_0 ,  zclSampleSw_UartBuf , rxLen);
     zclSampleSw_UartBuf[rxLen+1]=0x0A;
     
     printf("UART Start\n");//打印到debug mode上
     for(int char_count=0;char_count<rxLen;char_count++){
       if(zclSampleSw_UartBuf[char_count]==0xFF&&zclSampleSw_UartBuf[char_count+1]==0x55){
-        printf("find date head\n");
+        //printf("find date head\n"); //debug使用
         switch(zclSampleSw_UartBuf[char_count+3]){
-        case 0x01:
+        case CMDID_VOC://0x01 直接合併使用
+          temp_VOC=(zclSampleSw_UartBuf[char_count+DATA_H]<<8)+zclSampleSw_UartBuf[char_count+DATA_L];
           printf("0x01\n");
           break;
-        case 0x02:
+        case CMDID_O3:
+          temp_O3=(zclSampleSw_UartBuf[char_count+DATA_H]<<8)+zclSampleSw_UartBuf[char_count+DATA_L];
           printf("0x02\n");
+          break;
+        case CMDID_CHO2:
+          temp_CHO2=(zclSampleSw_UartBuf[char_count+DATA_H]<<8)+zclSampleSw_UartBuf[char_count+DATA_L];
+          printf("0x03\n");
+          break;
+        case CMDID_CO:
+          temp_CO=(zclSampleSw_UartBuf[char_count+DATA_H]<<8)+zclSampleSw_UartBuf[char_count+DATA_L];
+          printf("0x04\n");
+          break;
+        case CMDID_CO2:
+          temp_CO2=(zclSampleSw_UartBuf[char_count+DATA_H]<<8)+zclSampleSw_UartBuf[char_count+DATA_L];
+          printf("0x05\n");
+          break;
+        case CMDID_PM25:
+          temp_PM25=(zclSampleSw_UartBuf[char_count+DATA_H]<<8)+zclSampleSw_UartBuf[char_count+DATA_L];
+          printf("0x06\n");
+          break;
+        case CMDID_TEMPERATURE:
+          temp_TEMPERATURE=(zclSampleSw_UartBuf[char_count+DATA_H]<<8)+zclSampleSw_UartBuf[char_count+DATA_L];
+          printf("0x07\n");
+          break;
+        case CMDID_HUMIDITY:
+          temp_HUMIDITY=(zclSampleSw_UartBuf[char_count+DATA_H]<<8)+zclSampleSw_UartBuf[char_count+DATA_L];
+          printf("0x08\n");
+          break;
+        case CMDID_O2:
+          temp_O2=(zclSampleSw_UartBuf[char_count+DATA_H]<<8)+zclSampleSw_UartBuf[char_count+DATA_L];
+          printf("0x09\n");
+          break;
+        case CMDID_POWER:
+          //temp_VOC=(zclSampleSw_UartBuf[char_count+DATA_H]<<8)+zclSampleSw_UartBuf[char_count+DATA_L];
+          printf("0x00\n");
+          break;
+        default:
+          printf("CmdID Error\n");
           break;
             
         }
@@ -980,44 +1043,44 @@ static void zclSampleSw_UartCB(uint8 port, uint8 event)
       reportCmd->numAttr = 10;   //10个数据
       
       reportCmd->attrList[0].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
-      reportCmd->attrList[0].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
-      *((uint8 *)(reportCmd->attrList[0].attrData)) = state;    //数据
+      reportCmd->attrList[0].dataType = ZCL_DATATYPE_UINT16;     //数据类型
+      *((uint8 *)(reportCmd->attrList[0].attrData)) = temp_VOC;    //数据
 
       reportCmd->attrList[1].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
-      reportCmd->attrList[1].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
-      *((uint8 *)(reportCmd->attrList[1].attrData)) = state;    //数据
+      reportCmd->attrList[1].dataType = ZCL_DATATYPE_UINT16;     //数据类型
+      *((uint8 *)(reportCmd->attrList[1].attrData)) = temp_O3;    //数据
       
       reportCmd->attrList[2].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
-      reportCmd->attrList[2].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
-      *((uint8 *)(reportCmd->attrList[2].attrData)) = state;    //数据
+      reportCmd->attrList[2].dataType = ZCL_DATATYPE_UINT16;     //数据类型
+      *((uint8 *)(reportCmd->attrList[2].attrData)) = temp_CHO2;    //数据
             
       reportCmd->attrList[3].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
-      reportCmd->attrList[3].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
-      *((uint8 *)(reportCmd->attrList[3].attrData)) = state;    //数据
+      reportCmd->attrList[3].dataType = ZCL_DATATYPE_UINT16;     //数据类型
+      *((uint8 *)(reportCmd->attrList[3].attrData)) = temp_CO;    //数据
             
       reportCmd->attrList[4].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
-      reportCmd->attrList[4].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
-      *((uint8 *)(reportCmd->attrList[4].attrData)) = state;    //数据
+      reportCmd->attrList[4].dataType = ZCL_DATATYPE_UINT16;     //数据类型是
+      *((uint8 *)(reportCmd->attrList[4].attrData)) = temp_HUMIDITY;    //数据
             
       reportCmd->attrList[5].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
-      reportCmd->attrList[5].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
-      *((uint8 *)(reportCmd->attrList[5].attrData)) = state;    //数据
+      reportCmd->attrList[5].dataType = ZCL_DATATYPE_UINT16;     //数据类型
+      *((uint8 *)(reportCmd->attrList[5].attrData)) = temp_TEMPERATURE;    //数据
             
       reportCmd->attrList[6].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
-      reportCmd->attrList[6].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
-      *((uint8 *)(reportCmd->attrList[6].attrData)) = state;    //数据
+      reportCmd->attrList[6].dataType = ZCL_DATATYPE_UINT16;     //数据类型是UINT8
+      *((uint8 *)(reportCmd->attrList[6].attrData)) = temp_PM25;    //数据
             
       reportCmd->attrList[7].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
-      reportCmd->attrList[7].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
+      reportCmd->attrList[7].dataType = ZCL_DATATYPE_UINT16;     //数据类型
       *((uint8 *)(reportCmd->attrList[7].attrData)) = state;    //数据
        
       reportCmd->attrList[8].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
-      reportCmd->attrList[8].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
-      *((uint8 *)(reportCmd->attrList[8].attrData)) = state;    //数据
+      reportCmd->attrList[8].dataType = ZCL_DATATYPE_UINT16;     //数据类型是
+      *((uint8 *)(reportCmd->attrList[8].attrData)) = temp_CO2;    //数据
             
       reportCmd->attrList[9].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
-      reportCmd->attrList[9].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
-      *((uint8 *)(reportCmd->attrList[9].attrData)) = state;    //数据
+      reportCmd->attrList[9].dataType = ZCL_DATATYPE_UINT16;     //数据类型
+      *((uint8 *)(reportCmd->attrList[9].attrData)) = temp_O2;    //数据
       
       zcl_SendReportCmd( SAMPLESW_ENDPOINT,                     //发送数据
                          &destAddr,

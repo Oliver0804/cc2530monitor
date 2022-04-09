@@ -12,7 +12,7 @@
         <ByteLimit>50</ByteLimit>
     </Stack>
     <DebugChecksum>
-        <Checksum>2725500058</Checksum>
+        <Checksum>3289329412</Checksum>
     </DebugChecksum>
     <CallStack>
         <ShowArgs>0</ShowArgs>
@@ -20,6 +20,9 @@
     <Disassembly>
         <MixedMode>1</MixedMode>
     </Disassembly>
+    <watch_formats>
+        <Fmt0>{W}1:test_word	4	0</Fmt0>
+    </watch_formats>
     <Breakpoints>
         <Count>0</Count>
     </Breakpoints>

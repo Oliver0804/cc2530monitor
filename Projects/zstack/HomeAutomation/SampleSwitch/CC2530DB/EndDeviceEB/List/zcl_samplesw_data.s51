@@ -1,6 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 //
-// IAR C/C++ Compiler V10.20.1.5333 for 8051              08/Apr/2022  23:39:01
+// IAR C/C++ Compiler V10.20.1.5333 for 8051              09/Apr/2022  12:20:38
 // Copyright 2004-2018 IAR Systems AB.
 // PC-locked license - IAR Embedded Workbench for 8051
 //
@@ -15,7 +15,7 @@
 //        C:\Texas
 //        Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\Source\zcl_samplesw_data.c
 //    Command line       =  
-//        -f C:\Users\icetz\AppData\Local\Temp\EW1B93.tmp ("C:\Texas
+//        -f C:\Users\icetz\AppData\Local\Temp\EW6450.tmp ("C:\Texas
 //        Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\Source\zcl_samplesw_data.c"
 //        -D SECURE=1 -D TC_LINKKEY_JOIN -D NV_INIT -D NV_RESTORE -D xZTOOL_P1
 //        -D xMT_TASK -D xMT_APP_FUNC -D xMT_SYS_FUNC -D xMT_ZDO_FUNC -D
