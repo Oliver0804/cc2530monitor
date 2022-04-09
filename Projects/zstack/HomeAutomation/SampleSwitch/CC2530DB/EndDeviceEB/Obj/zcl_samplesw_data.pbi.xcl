@@ -1,137 +1,137 @@
-"I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\Source\zcl_samplesw_data.c"
+"C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\Source\zcl_samplesw_data.c"
 -std=c99
 -ferror-limit=0
 -fbracket-depth=512
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\Source
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\Source
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\Source
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\Source
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\ZMain\TI2530DB
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\ZMain\TI2530DB
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\include
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\include
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\include
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\include
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\high_level
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\high_level
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mac\low_level\srf04\single_chip
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mt
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\mt
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\osal\include
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\osal\include
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\services\saddr
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\services\saddr
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\services\sdata
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\services\sdata
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\af
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\af
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\bdb
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\bdb
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\gp
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\gp
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\nwk
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\nwk
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sapi
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sapi
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sec
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sec
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sys
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\sys
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\zcl
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\zcl
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\zdo
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\stack\zdo
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\zmac
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\zmac
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\zmac\f8w
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\zmac\f8w
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\Common
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\Common
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\SPI
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\SPI
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\Font
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\Font
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_LCD_SPI
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_LCD_SPI
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_OLED
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_OLED
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_TFT
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\..\..\..\..\..\Components\hal\target\CC2530EB\HW_LCD\HAL_TFT
 -I
-D:\Program Files (x86)\IAR Systems 10.20\Embedded Workbench 8.0\8051\inc
+C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\8051\inc
 -I
-D:\Program Files (x86)\IAR Systems 10.20\Embedded Workbench 8.0\8051\lib\dlib
+C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\8051\lib\dlib
 -I
-D:\Program Files (x86)\IAR Systems 10.20\Embedded Workbench 8.0\8051\inc\clib
+C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\8051\inc\clib
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\Source
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\Source
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\Source
+C:\Texas Instruments\David\Projects\zstack\HomeAutomation\Source
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Projects\zstack\ZMain\TI2530DB
+C:\Texas Instruments\David\Projects\zstack\ZMain\TI2530DB
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\hal\include
+C:\Texas Instruments\David\Components\hal\include
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\hal\target\CC2530EB
+C:\Texas Instruments\David\Components\hal\target\CC2530EB
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\mac\include
+C:\Texas Instruments\David\Components\mac\include
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\mac\high_level
+C:\Texas Instruments\David\Components\mac\high_level
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\mac\low_level\srf04
+C:\Texas Instruments\David\Components\mac\low_level\srf04
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\mac\low_level\srf04\single_chip
+C:\Texas Instruments\David\Components\mac\low_level\srf04\single_chip
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\mt
+C:\Texas Instruments\David\Components\mt
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\osal\include
+C:\Texas Instruments\David\Components\osal\include
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\services\saddr
+C:\Texas Instruments\David\Components\services\saddr
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\services\sdata
+C:\Texas Instruments\David\Components\services\sdata
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\stack\af
+C:\Texas Instruments\David\Components\stack\af
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\stack\bdb
+C:\Texas Instruments\David\Components\stack\bdb
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\stack\gp
+C:\Texas Instruments\David\Components\stack\gp
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\stack\nwk
+C:\Texas Instruments\David\Components\stack\nwk
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\stack\sapi
+C:\Texas Instruments\David\Components\stack\sapi
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\stack\sec
+C:\Texas Instruments\David\Components\stack\sec
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\stack\sys
+C:\Texas Instruments\David\Components\stack\sys
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\stack\zcl
+C:\Texas Instruments\David\Components\stack\zcl
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\stack\zdo
+C:\Texas Instruments\David\Components\stack\zdo
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\zmac
+C:\Texas Instruments\David\Components\zmac
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\zmac\f8w
+C:\Texas Instruments\David\Components\zmac\f8w
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\hal\target\CC2530EB\Common
+C:\Texas Instruments\David\Components\hal\target\CC2530EB\Common
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\hal\target\CC2530EB\SPI
+C:\Texas Instruments\David\Components\hal\target\CC2530EB\SPI
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\hal\target\CC2530EB\HW_LCD\Font
+C:\Texas Instruments\David\Components\hal\target\CC2530EB\HW_LCD\Font
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\hal\target\CC2530EB\HW_LCD\HAL_LCD_SPI
+C:\Texas Instruments\David\Components\hal\target\CC2530EB\HW_LCD\HAL_LCD_SPI
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\hal\target\CC2530EB\HW_LCD\HAL_OLED
+C:\Texas Instruments\David\Components\hal\target\CC2530EB\HW_LCD\HAL_OLED
 -I
-I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\hal\target\CC2530EB\HW_LCD\HAL_TFT
+C:\Texas Instruments\David\Components\hal\target\CC2530EB\HW_LCD\HAL_TFT
 -D__CHAR_BITS__=8
 -D__CHAR_MAX__=0xff
 -D__CHAR_MIN__=0
@@ -461,8 +461,6 @@ I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\hal\target\CC2530
 -DTC_LINKKEY_JOIN=1
 -DNV_INIT=1
 -DNV_RESTORE=1
--DxPOWER_SAVING=1
--DNWK_AUTO_POLL=1
 -DxZTOOL_P1=1
 -DxMT_TASK=1
 -DxMT_APP_FUNC=1
@@ -479,6 +477,7 @@ I:\ZigBee3.0\7. 基于ZCL属性上报\Z-Stack 3.0.1\Components\hal\target\CC2530
 -DZCL_IDENTIFY=1
 -DZCL_ON_OFF=1
 -DZCL_GROUPS=1
+-DZCL_REPORTING_DEVICE=1
 -DHAL_LED=TRUE
 -DHAL_KEY=TRUE
 -DISR_KEYINTERRUPT=1

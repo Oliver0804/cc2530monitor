@@ -912,7 +912,26 @@ static void zclSampleSw_UartCB(uint8 port, uint8 event)
   {
     HalUARTRead(HAL_UART_PORT_0  ,  zclSampleSw_UartBuf , rxLen);
     HalUARTWrite(HAL_UART_PORT_0 ,  zclSampleSw_UartBuf , rxLen);
+    zclSampleSw_UartBuf[rxLen+1]=0x0A;
+    
+    printf("UART Start\n");//打印到debug mode上
+    for(int char_count=0;char_count<rxLen;char_count++){
+      if(zclSampleSw_UartBuf[char_count]==0xFF&&zclSampleSw_UartBuf[char_count+1]==0x55){
+        printf("find date head\n");
+        switch(zclSampleSw_UartBuf[char_count+3]){
+        case 0x01:
+          printf("0x01\n");
+          break;
+        case 0x02:
+          printf("0x02\n");
+          break;
+            
+        }
+      }
+    }
+
   }
+  
 }
 
 
@@ -958,11 +977,47 @@ static void zclSampleSw_UartCB(uint8 port, uint8 event)
       if(seqNum>127)
         seqNum = 0;
       
-      reportCmd->numAttr = 1;   //一个数据
+      reportCmd->numAttr = 10;   //10个数据
+      
       reportCmd->attrList[0].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
       reportCmd->attrList[0].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
       *((uint8 *)(reportCmd->attrList[0].attrData)) = state;    //数据
 
+      reportCmd->attrList[1].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
+      reportCmd->attrList[1].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
+      *((uint8 *)(reportCmd->attrList[1].attrData)) = state;    //数据
+      
+      reportCmd->attrList[2].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
+      reportCmd->attrList[2].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
+      *((uint8 *)(reportCmd->attrList[2].attrData)) = state;    //数据
+            
+      reportCmd->attrList[3].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
+      reportCmd->attrList[3].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
+      *((uint8 *)(reportCmd->attrList[3].attrData)) = state;    //数据
+            
+      reportCmd->attrList[4].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
+      reportCmd->attrList[4].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
+      *((uint8 *)(reportCmd->attrList[4].attrData)) = state;    //数据
+            
+      reportCmd->attrList[5].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
+      reportCmd->attrList[5].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
+      *((uint8 *)(reportCmd->attrList[5].attrData)) = state;    //数据
+            
+      reportCmd->attrList[6].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
+      reportCmd->attrList[6].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
+      *((uint8 *)(reportCmd->attrList[6].attrData)) = state;    //数据
+            
+      reportCmd->attrList[7].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
+      reportCmd->attrList[7].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
+      *((uint8 *)(reportCmd->attrList[7].attrData)) = state;    //数据
+       
+      reportCmd->attrList[8].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
+      reportCmd->attrList[8].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
+      *((uint8 *)(reportCmd->attrList[8].attrData)) = state;    //数据
+            
+      reportCmd->attrList[9].attrID = ATTRID_ON_OFF_SWITCH_TYPE;        //数据 id
+      reportCmd->attrList[9].dataType = ZCL_DATATYPE_UINT8;     //数据类型是UINT8
+      *((uint8 *)(reportCmd->attrList[9].attrData)) = state;    //数据
       
       zcl_SendReportCmd( SAMPLESW_ENDPOINT,                     //发送数据
                          &destAddr,

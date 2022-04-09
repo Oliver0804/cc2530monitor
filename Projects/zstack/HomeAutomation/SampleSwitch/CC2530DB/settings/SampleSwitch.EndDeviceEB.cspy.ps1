@@ -23,9 +23,9 @@
 
 if ($debugfile -eq "")
 {
-& "D:\Program Files (x86)\IAR Systems 10.20\Embedded Workbench 8.0\common\bin\cspybat" -f "I:\ZigBee3.0\Zigbee3.0 20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\settings\SampleSwitch.EndDeviceEB.general.xcl" --backend -f "I:\ZigBee3.0\Zigbee3.0 20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\settings\SampleSwitch.EndDeviceEB.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\settings\SampleSwitch.EndDeviceEB.general.xcl" --backend -f "C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\settings\SampleSwitch.EndDeviceEB.driver.xcl" 
 }
 else
 {
-& "D:\Program Files (x86)\IAR Systems 10.20\Embedded Workbench 8.0\common\bin\cspybat" -f "I:\ZigBee3.0\Zigbee3.0 20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\settings\SampleSwitch.EndDeviceEB.general.xcl" --debug_file=$debugfile --backend -f "I:\ZigBee3.0\Zigbee3.0 20211214\1.协议栈工作流程和无线收发控制LED\Z-Stack 3.0.1\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\settings\SampleSwitch.EndDeviceEB.driver.xcl" 
+& "C:\Program Files (x86)\IAR Systems\Embedded Workbench 8.0\common\bin\cspybat" -f "C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\settings\SampleSwitch.EndDeviceEB.general.xcl" --debug_file=$debugfile --backend -f "C:\Texas Instruments\David\Projects\zstack\HomeAutomation\SampleSwitch\CC2530DB\settings\SampleSwitch.EndDeviceEB.driver.xcl" 
 }

@@ -48,6 +48,38 @@ extern "C"
 #endif
 
 /*********************************************************************
+* Sensor Type
+*/
+
+
+#define CMDID_POWER             0x0
+#define	CMDID_VOC               0x0001
+#define CMDID_O3                0x0002
+#define CMDID_CHO2              0x0003
+#define	CMDID_CO                0x0004
+#define CMDID_CO2               0x0005
+#define CMDID_PM25              0x0006
+#define CMDID_TEMPERATURE       0x0007
+#define	CMDID_HUMIDITY          0x0008
+#define CMDID_O2                0x0009
+#define CMDID_YEAR              0x000A
+#define CMDID_MONTH             0x000B
+#define CMDID_DATE              0x000C
+#define CMDID_HOUR              0x000D
+#define CMDID_MINUTE            0x000E
+#define CMDID_SECOND            0x000F
+#define	CMDID_CO2_PARA          0x0010
+#define CMDID_HUMIDITY_PARA     0x0011
+#define CMDID_PM25_PARA         0x0012
+#define	CMDID_VOC_PARA          0x0013
+#define CMDID_WORK_MODE         0x0014
+#define CMDID_FAN_SPEED         0x0015
+#define CMDID_AUTO_POWER        0x0016
+#define CMDID_HIGH_EFFICIENCY_FILTER            0x0017
+#define	CMDID_LOW_EFFICIENCY_FILTER             0x0018
+#define CMDID_PWM_PROGRESS_VALUE                0x0019
+
+/*********************************************************************
  * INCLUDES
  */
 #include "zcl.h"
